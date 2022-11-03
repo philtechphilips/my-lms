@@ -1,0 +1,196 @@
+.landing-page-cta{
+    padding: 50px 100px;
+}
+
+.landing-page-cta-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.landing-page-cta-right{
+    width: 400px;
+}
+.landing-page-cta-left img{
+    width: 500px;
+}
+
+.landing-page-cta-right h1{
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.landing-page-cta-right .cta-text{
+    font-size: 20px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+}
+
+.landing-page-cta-right-flex{
+    display: flex;
+    align-items: center;
+    margin: 10px 10px 10px 5px;
+}
+
+.landing-page-cta-right-flex i{
+    margin-right: 6px;
+}
+
+.landing-page-cta-right-flex p{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.landing-page-cta-right-flex a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 30px;
+    background-color: rgb(39, 39, 94);
+}
+
+.landing-page-cta-right-flex a:hover{
+    background-color: rgb(26, 26, 59);
+}
+@media screen  and (max-width: 850px) {
+    .landing-page-cta{
+        padding: 30px 20px;
+    }
+
+    .landing-page-cta-flex{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+    }
+    .landing-page-cta-right{
+        width: 100%;
+        margin-top: 30px;
+        margin-right: 20px;
+    }
+    .landing-page-cta-left{
+        width: 100%;
+    }
+    .landing-page-cta-left img{
+        width: 100%;
+    }
+
+    .landing-page-cta-right h1{
+        font-size: 38px;
+        margin-bottom: 10px;
+        /* text-align: center; */
+    }
+
+    .landing-page-cta-right .cta-text{
+        font-size: 20px;
+        margin-left: 5px;
+        margin-bottom: 15px;
+        /* text-align: center; */
+    }
+
+    .landing-page-cta-right-flex{
+        display: flex;
+        align-items: center;
+        margin: 10px 10px 10px 5px;
+        /* justify-content: center; */
+    }
+
+    .landing-page-cta-right-flex i{
+        margin-right: 6px;
+    }
+
+    .landing-page-cta-right-flex p{
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .landing-page-cta-right-flex a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px 30px;
+        background-color: rgb(39, 39, 94);
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .landing-page-cta-right-flex a:hover{
+        background-color: rgb(26, 26, 59);
+    }
+
+}
+
+@media screen  and (max-width: 600px) {
+    .landing-page-cta{
+        padding: 30px 20px;
+    }
+
+    .landing-page-cta-flex{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+
+    }
+    .landing-page-cta-right{
+        width: 100%;
+        margin-top: 30px;
+    }
+    .landing-page-cta-left{
+        width: 100%;
+    }
+    .landing-page-cta-left img{
+        width: 100%;
+    }
+
+    .landing-page-cta-right {
+        margin-left: 13px;
+    }
+
+    .landing-page-cta-right h1{
+        font-size: 38px;
+        margin-bottom: 10px;
+        /* text-align: center; */
+    }
+
+    .landing-page-cta-right .cta-text{
+        font-size: 20px;
+        margin-left: 5px;
+        margin-bottom: 15px;
+        /* text-align: center; */
+    }
+
+    .landing-page-cta-right-flex{
+        display: flex;
+        align-items: center;
+        margin: 10px 0px 10px 5px;
+        /* justify-content: center; */
+    }
+
+    .landing-page-cta-right-flex i{
+        margin-right: 6px;
+    }
+
+    .landing-page-cta-right-flex p{
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .landing-page-cta-right-flex a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px 0px;
+        width: 100%;
+        background-color: rgb(39, 39, 94);
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .landing-page-cta-right-flex a:hover{
+        background-color: rgb(26, 26, 59);
+    }
+
+}

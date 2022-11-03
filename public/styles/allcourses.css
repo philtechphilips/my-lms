@@ -1,0 +1,304 @@
+.all-courses-featured-courses{
+    padding: 50px 100px;
+}
+
+.landingpage-courses-header h1{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.all-courses-featured-courses-flex-body{
+    display: flex;
+    /* align-items: center; */
+}
+
+.all-courses-featured-courses-flex-body-left {
+    width: 500px;
+    margin-right: 15px;
+    height: 290px;
+}
+
+.all-courses-featured-courses-flex-body-right{
+    width: 500px;
+    height: 290px;
+}
+
+.all-courses-featured-courses-flex-body-right h1{
+    font-size: 26px;
+}
+
+.all-courses-featured-courses-flex-body-right .course-info{
+    font-size: 18px;
+}
+.all-courses-featured-courses-flex-body-left img{
+    width: 100%;
+    height: 100%;
+}
+
+.all-courses-featured-courses-flex{
+    padding: 25px;
+    border: solid 1px #efefef;
+}
+
+.all-courses-featured-courses-flex-info-flex{
+    display: flex;
+    align-items: center;
+}
+
+.all-courses-featured-courses-flex-info-flex p{
+    padding-right: 10px;
+}
+
+.all-courses-featured-courses-flex-info-flex .updated{
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.all-courses-featured-courses-flex-body-right-money{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    margin-top: 100px;
+}
+
+.all-courses-featured-courses-flex-body-right-money span{
+    font-size: 24px;
+    opacity: .5;
+    padding-left: 7px;
+    text-decoration: line-through;
+}
+
+
+/* All Courses Filter */
+.all-courses-page-all-courses-sections-flex{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+}
+
+.all-courses-page-all-courses-sections-flex-left{
+    padding-right: 35px;
+}
+
+.all-courses-page-all-courses-sections-flex-left-flex{
+    display: flex;
+    align-items: center;
+}
+
+.all-courses-page-all-courses-sections-flex-left a{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: solid 1px #222;
+    color: #222;
+    margin-right: 10px;
+}
+
+.all-courses-page-all-courses-sections-flex-left select{
+    padding: 10px 20px;
+    border: solid 1px #111;
+    color: #111;
+    font-size: 17px;
+}
+
+.all-courses-page-all-courses-sections-flex-right .results{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+
+.all-courses-page-all-courses-sections-flex-right-body{
+    display: flex;
+}
+
+.all-courses-page-all-courses-sections-flex-right-body-left{
+    width: 250px;
+    height: 150px;
+    background-color: #222;
+    margin-right: 10px;
+}
+
+.all-courses-page-all-courses-sections-flex-right-body-left img{
+    width: 250px;
+    height: 150px;
+}
+
+.all-courses-page-all-courses-sections-flex-right-body-left img:hover{
+    opacity: .7;
+}
+
+
+.all-courses-page-all-courses-sections-flex-right-body-center{
+    margin-left: 5px;
+}
+
+.all-courses-page-all-courses-sections-flex-right-body-center h1{
+    font-size: 24px;
+}
+
+.all-courses-page-all-courses-sections-flex-right-body-center .infor{
+    font-size: 17px;
+    padding-right: 20px;
+}
+
+.all-courses-page-all-courses-sections-flex-right-body-center-review{
+    display: flex;
+    align-items: center;
+}
+
+.all-courses-page-all-courses-sections-flex-right-body-center-review .reviewss{
+    color: goldenrod;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.all-courses-page-all-courses-sections-flex-right-body-center-review p{
+    margin-right: 5px;
+}
+
+.all-courses-page-all-courses-sections-flex-left-ratings-flex{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.all-courses-page-all-courses-sections-flex-left-ratings-flex i{
+    color: goldenrod;
+}
+
+.all-courses-page-all-courses-sections-flex-left-ratings-flex input{
+    margin-right: 7px;
+}
+
+.all-courses-page-all-courses-sections-flex-left-ratings-flex-star{
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
+.all-courses-page-all-courses-sections-flex-left-ratings-flex p{
+    margin-left: 4px;
+}
+
+.all-courses-page-all-courses-sections-flex-left-ratings h1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+/* All Courses Filter */
+@media screen and (max-width: 800px) {
+    .landingpage-courses-header{
+        padding: 30px 20px;
+    }
+
+    .all-courses-featured-courses{
+        padding: 30px 0px;
+    }
+
+    .all-courses-featured-courses-flex-body{
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .landingpage-courses-header h1{
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .all-courses-featured-courses-flex{
+        padding: 0px;
+        border: none;
+    }
+
+    .all-courses-featured-courses-flex-body-left {
+        width: 100%;
+        margin-right: 0px;
+        height: 290px;
+    }
+
+    .all-courses-featured-courses-flex-body-right{
+        width: 100%;
+        height: 290px;
+    }
+
+    .all-courses-featured-courses-flex-body-right h1{
+        margin: 8px 0;
+    }
+
+    .all-courses-featured-courses-flex-body-right p{
+        margin: 1px 0;
+    }
+
+    .all-courses-featured-courses-flex-body-left img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .all-courses-featured-courses-flex-body-right-money{
+        display: flex;
+        align-items: center;
+        justify-content: baseline;
+        margin-top: 10px;
+    }
+
+    .left-info{
+        display: none;
+    }
+
+    .all-courses-page-all-courses-sections-flex{
+        display: block;
+    }
+
+    .all-courses-page-all-courses-sections-flex-right h6{
+        display: none;
+    }
+
+    .all-courses-page-all-courses-sections-flex-right-body-left{
+        width: 75px;
+        height: 75px;
+        background-color: #222;
+        margin-right: 10px;
+    }
+    
+    .all-courses-page-all-courses-sections-flex-right-body-left img{
+        width: 75px;
+        height: 75px;
+    }
+    
+    .all-courses-page-all-courses-sections-flex-right-body-left img:hover{
+        opacity: .7;
+    }
+    
+    .all-courses-page-all-courses-sections-flex-right-body{
+        margin-top: 20px;
+    }
+
+    .all-courses-page-all-courses-sections-flex{
+        padding: 0 20px;
+    }
+
+    .all-courses-page-all-courses-sections-flex-right-body-right{
+        justify-content: baseline;
+    }
+
+    .mobile-hide{
+        display: none;
+    }
+}
+
+
+@media screen and(max-width: 512px) {
+    .all-courses-page-all-courses-sections-flex-right-body{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .all-courses-page-all-courses-sections-flex-right-body-center-review h3{
+        margin-right: 5px;
+    }
+
+    .all-courses-page-all-courses-sections-flex-right-body-center-c h1{
+        font-size: 17px !important;
+    }
+}

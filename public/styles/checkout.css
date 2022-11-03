@@ -1,0 +1,124 @@
+ .checkout-grid-left-body p{
+    font-size: 17px !important;
+}
+
+.checkout{
+    margin: 40px 100px;
+}
+
+.cheeckout-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: #000;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid #000;
+    border-radius: 50%;
+  }
+
+  .checkout-grid-left{
+    padding: 20px;
+    border: solid 1px #efefef;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    height: fit-content;
+  }
+
+.checkout-grid-left-body-flex{
+    display: flex;
+    /* justify-content: space-around; */
+    border: solid 1px #efefef;
+    padding: 10px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.checkout-grid-left-body img {
+    margin-left: auto;
+}
+
+.checkout-grid-left-body button{
+    color: #fff;
+    background-color: rgb(177, 0, 0);
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.checkout-grid-left-body button:hover{
+    border: none;
+    background-color: rgb(151, 0, 0);
+    outline: none;
+}
+
+.checkout-grid-right{
+    margin-left: 20px;
+    border: solid 1px #efefef;
+    padding: 20px;
+}
+
+.checkout-grid-right-flex{
+    display: flex;
+    padding: 20px 0;
+}
+
+.checkout-grid-right-bottom-flex{
+    display: flex;
+    padding: 10px;
+    background-color: #efefef;
+}
+
+.checkout-grid-right-bottom-flex p{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.checkout-grid-right-bottom-flex .naira{
+    margin-left: auto;
+}
+
+@media screen and (max-width: 800px) {
+
+    .checkout{
+        margin: 40px 15px;
+    }
+
+    .cheeckout-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-flow: revert-layer;
+    }
+
+    .checkout-grid-left{
+        padding: 15px;
+        border: solid 1px #efefef;
+        margin-right: 0px;
+        margin-bottom: 20px;
+      }
+
+      .checkout-grid-right{
+        margin-left: 0px;
+        border: solid 1px #efefef;
+        padding: 15px;
+    }
+    .checkout-grid-right-flex img{
+        max-height: 100px;
+    }
+
+    .checkout-grid-right-flex2 h1{
+        font-size: 16px !important;
+    }
+
+}

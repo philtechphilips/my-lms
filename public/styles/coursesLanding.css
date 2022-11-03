@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+.landingpage-courses {
+    padding: 50px 100px;
+    width: 100%;
+    background: #f5f5f5;
+}
+
+.landingpage-courses h1{
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+.landingpage-courses-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 15px; */
+}
+
+.landingpage-courses-grid-body{
+    width: 275px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.landingpage-courses-grid-body-image{
+    position: relative;
+    background-color: #222;
+    height: 160px;
+}
+.landingpage-courses-grid-body-image img{
+    width: 100%;
+    height: 160px;
+    position: relative;
+}
+
+.landingpage-courses-grid-body-image img:hover{
+    opacity: .8;
+}
+
+.landingpage-courses-grid-body a{
+    text-decoration: none;
+    color: #222;
+}
+
+.landingpage-courses-grid-body a:hover{
+    color: rgb(221, 2, 2);
+}
+
+.landingpage-courses-grid-body .play{
+    position: absolute;
+    top: 37%;
+    right: 43%;
+    color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 28px;
+    background: rgba(0, 0, 0, .6)
+}
+
+.landingpage-courses-grid-body-contents{
+    padding: 12px;
+}
+
+.landingpage-courses-grid-body-contents h2{
+    font-size: 18px;
+}
+
+.landingpage-courses-grid-body-contents-flex, .landingpage-courses-grid-body-contents-flex .right, .landingpage-courses-grid-body-contents-flex .left
+{
+    opacity: .8;
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.landingpage-courses-grid-body-contents-flex .right{
+    margin-left: 10px;
+}
+
+.landingpage-courses-grid-body-contents-flex .right i{
+    color: goldenrod;
+}
+
+.landingpage-courses-grid-body-contents-button
+{
+    margin-top: 10px;
+}
+
+.landingpage-courses-grid-body-contents-button a{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+    padding: 12px 0;
+    background-color: rgb(57, 57, 122);
+    border-radius: 3px;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+.landingpage-courses-grid-body-contents-button a:hover{
+background-color: rgb(31, 31, 73);
+color: #fff;
+}
+.landingpage-courses-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.landingpage-courses-header a{
+    text-decoration: none;
+    color: red;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.landingpage-courses-header a:hover{
+    color: rgb(187, 0, 0);
+}
+.mobile-landingpage-courses{
+    display: none;
+}
+
+@media screen  and (max-width: 850px) {
+    .landingpage-courses {
+        display: none;
+    }
+    .mobile-landingpage-courses{
+        display: block;
+        padding: 30px 20px !important;
+        background: #f5f5f5;
+    }
+    .mobile-landingpage-courses-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .mobile-landingpage-courses-header h1{
+        font-size: 24px;
+    }
+
+    .mobile-landingpage-courses-header a{
+        text-decoration: none;
+        color: red;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .mobile-landingpage-courses-header a:hover{
+        color: rgb(187, 0, 0);
+    }
+
+    .mobile-landingpage-courses-grid-body{
+        max-width: 270px;
+        margin: 10px 10px 30px 0 !important;
+    }
+
+    .mobile-landingpage-courses-grid-body-image{
+        position: relative;
+        background-color: #222;
+        height: 160px;
+    }
+    .mobile-landingpage-courses-grid-body-image img{
+        width: 100%;
+        height: 160px;
+        position: relative;
+    }
+
+    .mobile-landingpage-courses-grid-body-image img:hover{
+        opacity: .8;
+    }
+
+    .mobile-landingpage-courses-grid-body a{
+        text-decoration: none;
+        color: #222;
+    }
+
+    .mobile-landingpage-courses-grid-body .play{
+        position: absolute;
+        top: 37%;
+        right: 43%;
+        color: #fff;
+        padding: 5px;
+        border-radius: 50%;
+        font-size: 28px;
+        background: rgba(0, 0, 0, .6)
+    }
+
+    .mobile-landingpage-courses-grid-body-contents h2{
+        font-size: 16px;
+    }
+
+    .mobile-landingpage-courses-grid-body-contents-flex, .mobile-landingpage-courses-grid-body-contents-flex .right, .mobile-landingpage-courses-grid-body-contents-flex .left
+{
+    opacity: .8;
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.mobile-landingpage-courses-grid-body-contents-flex .right{
+    margin-left: 10px;
+}
+
+.mobile-landingpage-courses-grid-body-contents-flex .right i{
+    color: goldenrod;
+}
+
+.mobile-landingpage-courses-grid-body-contents-button
+{
+    margin-top: 0px;
+}
+}
+
+
+@media screen  and (max-width: 640px) {
+    .landingpage-courses {
+        display: none;
+    }
+    .mobile-landingpage-courses{
+        display: block;
+        padding: 30px 20px 0 20px !important;
+    }
+    .mobile-landingpage-courses-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .mobile-landingpage-courses-header h1{
+        font-size: 24px;
+    }
+
+    .mobile-landingpage-courses-header a{
+        text-decoration: none;
+        color: red;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .mobile-landingpage-courses-header a:hover{
+        color: rgb(187, 0, 0);
+    }
+
+    .mobile-landingpage-courses-grid-body{
+        max-width: 270px;
+        margin: 10px 10px 10px 0;
+    }
+
+    .mobile-landingpage-courses-grid-body-image{
+        position: relative;
+        background-color: #222;
+        height: 160px;
+    }
+    .mobile-landingpage-courses-grid-body-image img{
+        width: 100%;
+        height: 160px;
+        position: relative;
+    }
+
+    .mobile-landingpage-courses-grid-body-image img:hover{
+        opacity: .8;
+    }
+
+    .mobile-landingpage-courses-grid-body a{
+        text-decoration: none;
+        color: #222;
+    }
+
+    .mobile-landingpage-courses-grid-body .play{
+        position: absolute;
+        top: 37%;
+        right: 43%;
+        color: #fff;
+        padding: 5px;
+        border-radius: 50%;
+        font-size: 28px;
+        background: rgba(0, 0, 0, .6)
+    }
+
+    .mobile-landingpage-courses-grid-body-contents h2{
+        font-size: 16px;
+    }
+
+    .mobile-landingpage-courses-grid-body-contents-flex, .mobile-landingpage-courses-grid-body-contents-flex .right, .mobile-landingpage-courses-grid-body-contents-flex .left
+{
+    opacity: .8;
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.mobile-landingpage-courses-grid-body-contents-flex .right{
+    margin-left: 10px;
+}
+
+.mobile-landingpage-courses-grid-body-contents-flex .right i{
+    color: goldenrod;
+}
+
+.mobile-landingpage-courses-grid-body-contents-button
+{
+    margin-top: 0px;
+}
+}

@@ -1,0 +1,18 @@
+.loggedinuserlanding{
+    padding: 50px 100px;
+}
+
+.loggedinuserlanding-container-heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.loggedinuserlanding-container-heading a{
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.loggedinuserlanding-container-heading a:hover{
+    color: rgb(40, 0, 77);
+}
