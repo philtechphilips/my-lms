@@ -9,12 +9,50 @@
             <a href="#" class="t-close"><i class="ri-close-line"></i></a>
         </div>
         <div class="departments">
-            <div class="mobile-head-login">
+            @if (Auth::check())
+              <div class="mobile-head-signin">
+                <div class="mobile-head-signin-left">
+                  <h3>
+                    @php
+                        $fetched_name = Auth::user()->name;
+                        $name = preg_split("/\s+/", $fetched_name);
+                        $acronym = "";
+                        foreach ($name as $w) {
+                            $acronym .= $w[0];
+                        }
+                        echo $acronym;
+                   @endphp
+                  </h3>
+                </div>
+
+                <div class="mobile-head-signin-right">
+                  <h3>{{ Auth::user()->name }}</h3>
+                  <p>Welcome Back</p>
+                </div>
+              </div>
+
+              <div class="mobile-head-login">
                 <ul class="mobile-head-login-links">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="{{route('homePage')}}">Home</a></li>
+                    <li><a href="{{route('about')}}">About Us</a></li>
+                    <li><a href="{{route('allcourses')}}">Courses</a></li>
+                    <li><a href="{{route('allEbooks')}}">Ebooks</a></li>
                 </ul>
-            </div>
+                </div>
+            @else
+                <div class="mobile-head-login">
+                <ul class="mobile-head-login-links">
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/register') }}">Sign Up</a></li>
+                    <li><a href="{{route('homePage')}}">Home</a></li>
+                    <li><a href="{{route('about')}}">About Us</a></li>
+                    <li><a href="{{route('allcourses')}}">Courses</a></li>
+                    <li><a href="{{route('allEbooks')}}">Ebooks</a></li>
+                </ul>
+                </div>
+            @endif
+
+
         </div>
         <hr style="color: #222; opacity: .3; margin: 15px -15px 15px -15px; ">
         <nav>
@@ -156,7 +194,7 @@
 
                 @if (Auth::check())
                 <div class="header-login-button log-in">
-                    <a href="#" class="menu-hide"><p>Learnings</p></a>
+                    <a href="#" class="menu-hide"><p>Dashboard</p></a>
                 </div>
 
                 <div class="header-login-button sign-up">

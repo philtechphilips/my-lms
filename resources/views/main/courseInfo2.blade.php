@@ -615,14 +615,6 @@ for(let i = 0; i<see_all.length; i++){
 }
 
 
-function myFunction() {
-  if (document.body.scrollTop > 2500 || document.documentElement.scrollTop > 2500) {
-    document.getElementById("course_content_sticky_right").style.visibility = "hidden";
-  }
-  else {
-    document.getElementById("course_content_sticky_right").style.visibility  = "visible";
-  }
-}
 
 </script>
 @endsection

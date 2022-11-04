@@ -20,3 +20,23 @@ const searchButton = document.querySelector('.t-search'),
             showClass.classList.remove('showsearch')
         });
 
+
+        // Sticky Navbar and Course ifo sidebar
+        function myFunction() {
+
+
+             const navBar = document.querySelector('#header-bottom');
+
+             if(document.body.scrollTop > 70 || document.documentElement.scrollTop > 70){
+                navBar.className = 'header-bottom-fixed';
+             }else{
+                navBar.className = 'header-bottom';
+             }
+
+             if (document.body.scrollTop > 2500 || document.documentElement.scrollTop > 2500) {
+                document.getElementById("course_content_sticky_right").style.visibility = "hidden";
+            }
+            else {
+                document.getElementById("course_content_sticky_right").style.visibility  = "visible";
+             }
+        }

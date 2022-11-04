@@ -57,6 +57,9 @@ class MainController extends Controller
         return view('main.blog');
     }
 
+    public function dashboard(){
+        return view('studentLearning.landing');
+    }
 
 
 }
