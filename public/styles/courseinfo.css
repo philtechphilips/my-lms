@@ -185,8 +185,9 @@ margin-left: 10px;
     padding-top: 20px;
 }
 .instruction_image img{
-    border-radius: 100px;
+    border-radius: 50%;
     width: 100px;
+    height: 100px;
 }
 .instruction_profile{
     display: flex;
@@ -395,6 +396,7 @@ height: auto;
     /* margin-top: 50px; */
     padding: 10px;
     visibility: hidden;
+    z-index:  200;
 }
 
 .sticky_footer_content{

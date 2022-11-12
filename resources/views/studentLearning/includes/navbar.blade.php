@@ -1,3 +1,176 @@
-<div>
-    
+<aside class="site-off desktop-hide">
+    <div class="off-canvas">
+        <div class="canvas-head flexitem">
+            <div class="logo">
+                <a href="/">
+                    MoGah
+                </a>
+            </div>
+            <a href="#" class="t-close"><i class="ri-close-line"></i></a>
+        </div>
+        <div class="departments">
+            @if (Auth::check())
+              <div class="mobile-head-signin">
+                <div class="mobile-head-signin-left">
+                  <h3>
+                    @php
+                        $fetched_name = Auth::user()->name;
+                        $name = preg_split("/\s+/", $fetched_name);
+                        $acronym = "";
+                        foreach ($name as $w) {
+                            $acronym .= $w[0];
+                        }
+                        echo $acronym;
+                   @endphp
+                  </h3>
+                </div>
+
+                <div class="mobile-head-signin-right">
+                  <h3>{{ Auth::user()->name }}</h3>
+                  <p>Welcome Back</p>
+                </div>
+              </div>
+            @endif
+
+
+        </div>
+        <hr style="color: #222; opacity: .3; margin: 15px -15px 15px -15px; ">
+        <nav>
+            <h3>Quick Links</h3>
+            <div class="mobile-nav-links">
+                <a href="#">Home</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="#">Courses</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="#">E-Books</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="#">Live-Classes</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="{{ route('profile')}} ">Profile</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+            </div>
+        </nav>
+        <hr style="color: #222; opacity: .3; margin: 15px -15px 15px -15px; ">
+        <div class="thebottom-nav">
+            <h4>Follow Us:</h4>
+            <div class="thebottom-nav-socials">
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                </div>
+            </div>
+            <p class="copyright">
+                &#169; @php
+                    echo date('Y')
+                @endphp MoGah All Rights Reserved
+            </p>
+        </div>
+    </div>
+</aside>
+
+
+<div class="dashboard-navbar">
+    <div class="dashboard-navbar-container my-container">
+        <div class="header-bottom-container-menu-icon desktop-hide">
+            <a href="#" class="trigger" style="text-decoration: none;">
+                <i class="ri-menu-line"></i>
+            </a>
+        </div>
+
+        <div class="dashboard-navbar-logo">
+            <a href="/" style="text-decoration: none; color: #222;">
+                <h1>MoGah</h1>
+            </a>
+        </div>
+
+        <div class="dashboard-navbar-links">
+            <ul class="dashboard-navbar-links-ul">
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">My Courses</a>
+                </li>
+                <li>
+                    <a href="">My E-Books</a>
+                </li>
+                <li>
+                    <a href="{{ route('profile')}} ">Profile</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dashboard-navbar-right">
+            <div class="dashboard-navbar-right-profile-image">
+                <a href="#" class="dropdown-trigger">
+                    <img src="{{ asset('assets/images/profile image.jpg') }}" width="50px">
+                    <i class="ri-arrow-drop-down-line"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-navbar-right-profile-image-dropdown">
+        <ul>
+            <li>
+                <a href="#">
+                    Courses
+                </a>
+            </li>
+
+            <div class="line"></div>
+
+            <li>
+                <a href="#">
+                    Ebooks
+                </a>
+            </li>
+
+            <div class="line"></div>
+
+            <li>
+                <a href="{{ route('profile')}}">
+                    Profile
+                </a>
+            </li>
+
+            <div class="line"></div>
+
+            <li>
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+        </ul>
+    </div>
 </div>
+

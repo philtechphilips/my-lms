@@ -1,7 +1,7 @@
 <div class="landingpage-courses">
     <div class="landingpage-courses-header">
         <h1>Our Courses</h1>
-        <a href="#"><p>See All Courses</p> <i class="ri-arrow-right-fill"></i></a>
+        <a href="{{ route('allcourses') }}"><p>See All Courses</p> <i class="ri-arrow-right-fill"></i></a>
     </div>
     <div class="landingpage-courses-grid">
         <div class="landingpage-courses-grid-body">
@@ -185,7 +185,6 @@
         </div>
     </div>
 </div>
-
 
 {{-- Mobile Courses --}}
 <div class="mobile-landingpage-courses swiper">

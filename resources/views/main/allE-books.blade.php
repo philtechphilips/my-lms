@@ -468,7 +468,7 @@
             </div>
 
             <div class="left-info">
-                
+
              <div style="margin: 15px 0; border: solid 1px #222; opacity: .1;"></div>
 
                 <div class="all-courses-page-all-courses-sections-flex-left-ratings">
@@ -528,60 +528,10 @@
                     </div>
                 </div>
                 </div>
-            
-                <div style="margin: 15px 0; border: solid 1px #222; opacity: .1;"></div>
-
-                <div class="all-courses-page-all-courses-sections-flex-left-ratings">
-                <h1>Video Duration</h1>
-                <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex">
-                    <input type="checkbox" name="filter-start" style="height: 20px;
-                    width: 20px;">
-                    <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex-star" style="display: flex; align-items:center;">
-                    <p style="font-size: 16px;"> 0-1 Hour</p>
-                    <p style="font-size: 16px;">(1,200)</p>
-                    </div>
-                </div>
-
-                <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex">
-                    <input type="checkbox" name="filter-start" style="height: 20px;
-                    width: 20px;">
-                    <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex-star" style="display: flex; align-items:center;">
-                    <p style="font-size: 16px;"> 0-1 Hour</p>
-                    <p style="font-size: 16px;">(1,200)</p>
-                    </div>
-                </div>
-
-                <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex">
-                    <input type="checkbox" name="filter-start" style="height: 20px;
-                    width: 20px;">
-                    <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex-star" style="display: flex; align-items:center;">
-                    <p style="font-size: 16px;"> 0-1 Hour</p>
-                    <p style="font-size: 16px;">(1,200)</p>
-                    </div>
-                </div>
-
-                <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex">
-                    <input type="checkbox" name="filter-start" style="height: 20px;
-                    width: 20px;">
-                    <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex-star" style="display: flex; align-items:center;">
-                    <p style="font-size: 16px;"> 0-1 Hour</p>
-                    <p style="font-size: 16px;">(1,200)</p>
-                    </div>
-                </div>
-
-                <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex">
-                    <input type="checkbox" name="filter-start" style="height: 20px;
-                    width: 20px;">
-                    <div class="all-courses-page-all-courses-sections-flex-left-ratings-flex-star" style="display: flex; align-items:center;">
-                    <p style="font-size: 16px;"> 0-1 Hour</p>
-                    <p style="font-size: 16px;">(1,200)</p>
-                    </div>
-                </div>
-             </div>
             </div>
 
         </div>
-       
+
         <div class="all-courses-page-all-courses-sections-flex-right">
             <h6 style="margin-left: 87%; margin-bottom:20px; font-size: 18px;">5,300 Results</h6>
             <div class="all-courses-page-all-courses-sections-flex-right-body">
@@ -739,7 +689,7 @@
             </div>
 
             <div class="left-info">
-                
+
              <div style="margin: 15px 0; border: solid 1px #222; opacity: .1;"></div>
 
                 <div class="all-courses-page-all-courses-sections-flex-left-ratings">
@@ -799,7 +749,7 @@
                     </div>
                 </div>
                 </div>
-            
+
                 <div style="margin: 15px 0; border: solid 1px #222; opacity: .1;"></div>
 
                 <div class="all-courses-page-all-courses-sections-flex-left-ratings">
@@ -852,7 +802,7 @@
             </div>
 
         </div>
-       
+
         <div class="all-courses-page-all-courses-sections-flex-right">
             <h6 style="margin-left: 87%; margin-bottom:20px; font-size: 18px;">5,300 Results</h6>
 

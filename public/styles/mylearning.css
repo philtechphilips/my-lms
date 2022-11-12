@@ -47,7 +47,7 @@
   }
 
   .mylearning-container-grid-body{
-    margin-right: 10px;
+    margin-right: 20px;
     margin-bottom: 20px;
   }
 
@@ -59,7 +59,7 @@
   .mylearning-container-grid-body .mylearning-container-grid-body-image{
     background-color: #000;
     position: relative;
-    height: 180px;
+    height: 150px;
   }
 
   .mylearning-container-grid-body .mylearning-container-grid-body-image .play{
@@ -70,6 +70,10 @@
     padding: 5px;
     background-color: #fff;
     border-radius: 50px;
+  }
+
+  .mylearning-container-grid-body .mylearning-container-grid-body-image img{
+    height: 150px;
   }
 
   .mylearning-container-grid-body .mylearning-container-grid-body-image img:hover{
@@ -92,18 +96,15 @@
 
   .mylearning-container-grid-body-flex-rating{
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
   }
 
   .mylearning-container-grid-body-flex-rating a{
-    font-size: 15px;
-    color: #000;
     font-weight: 600;
   }
 
-  .mylearning-container-grid-body-flex-rating a:hover{
-    content: 'Edit Rating';
-  }
   .mylearning-container-grid-body-flex{
     display: flex;
     align-items: center;
@@ -117,36 +118,6 @@
   .mylearning-container-grid-body img{
     width: 100%;
     height: 180px;
-  }
-
-
-  @media screen and (max-width: 600px) {
-    .mylearning-container-grid{
-        padding: 0 20px;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        width: 100%;
-      }
-
-
-      .mylearning-container-heading{
-        padding: 30px 20px;
-        margin-bottom: 30px;
-        color: beige;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: rgb(26, 26, 59);
-    }
-
-    .mylearning-container-heading h1{
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-    .mylearning-container-heading a{
-        font-weight: 500;
-    }
   }
 
 
@@ -177,4 +148,51 @@
     .mylearning-container-heading a{
         font-weight: 500;
     }
+
+
+    .mylearning-container-grid-body .mylearning-container-grid-body-image{
+        height: 180px;
+      }
+
+      .mylearning-container-grid-body .mylearning-container-grid-body-image img{
+        height: 180px;
+      }
+  }
+
+
+  @media screen and (max-width: 600px) {
+    .mylearning-container-grid{
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+      }
+
+
+      .mylearning-container-heading{
+        padding: 30px 20px;
+        margin-bottom: 30px;
+        color: beige;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(26, 26, 59);
+    }
+
+    .mylearning-container-heading h1{
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .mylearning-container-heading a{
+        font-weight: 500;
+    }
+
+    .mylearning-container-grid-body .mylearning-container-grid-body-image{
+        height: 180px;
+      }
+
+      .mylearning-container-grid-body .mylearning-container-grid-body-image img{
+        height: 180px;
+      }
   }

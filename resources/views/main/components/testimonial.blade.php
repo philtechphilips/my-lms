@@ -16,7 +16,9 @@
                     <i class="fa-solid fa-star star"></i>
                    </div>
             </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</p>
+            <p>
+                <q>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</q>
+            </p>
             <h3>Temidara Matthew</h3>
         </div>
 
@@ -32,7 +34,9 @@
                     <i class="fa-solid fa-star star"></i>
                    </div>
             </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</p>
+            <p>
+                <q>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</q>
+            </p>
             <h3>Temidara Matthew</h3>
         </div>
 
@@ -48,7 +52,9 @@
                     <i class="fa-solid fa-star star"></i>
                    </div>
             </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</p>
+            <p>
+                <q>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</q>
+            </p>
             <h3>Temidara Matthew</h3>
         </div>
 

@@ -21,7 +21,7 @@ const searchButton = document.querySelector('.t-search'),
         });
 
 
-        // Sticky Navbar and Course ifo sidebar
+        // Sticky Navbar and Course info sidebar
         function myFunction() {
 
 

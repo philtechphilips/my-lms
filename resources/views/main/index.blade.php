@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('styles/landingpagecta.css')}}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/allcourses.css')}}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/about-us.css')}}>
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/verify-page.css')}}>
     <link rel="stylesheet" href={{ asset('css/swiper.css')}} >
     <link rel="stylesheet" type="text/css" href={{ asset('styles/checkout.css') }}>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -39,6 +40,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="{{ asset('styles/ebook-info.css')}}">
+    <link rel="stylesheet" href="{{ asset('styles/blog.css')}}">
 
   <!--
     - google font link
@@ -113,6 +115,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {{-- Adding OwlCarousel Script--}}
 
+
+    {{-- Sweet Alert --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- Sweet Alert --}}
     {{-- Adding Extra Script From Other Pages--}}
     @yield('scripts')
     {{-- Adding Extra Script From Other Pages--}}

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\MainPages;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -59,6 +61,33 @@ class MainController extends Controller
 
     public function dashboard(){
         return view('studentLearning.landing');
+    }
+
+    public function profile(){
+        return view('main.profile');
+    }
+
+    public function profile_image(){
+        return view('studentLearning.profile-image');
+    }
+
+    public function admin(){
+        return view('admin.main.index');
+    }
+
+
+    public function update_profile(Request $request, $id){
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->update();
+
+        if($user->update()){
+            echo "Profile Updated";
+        }else{
+            echo "Something went Wrong";
+        }
     }
 
 

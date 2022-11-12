@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Source Sans Pro", sans-serif;
+}
+:root{
+	--primary-color: rgb(74, 74, 136);
+	--primary-color-sharp: rgb(26, 26, 59);
+    --navy-blue:  #151b2c;
+	--red-color: hsl(0, 99%, 42%);
+}
+.my-container{
+	width: 100%;
+    padding: 10px 100px;
+}
+
+.dashboard-navbar{
+    position: relative;
+}
+
+.dashboard-navbar-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.1);
+
+}
+
+.dashboard-navbar-logo{
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-navbar-logo i{
+    display: none;
+}
+
+.dashboard-navbar-links-ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.dashboard-navbar-links-ul li{
+    margin-right: 30px;
+}
+
+.dashboard-navbar-links-ul li a{
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #222;
+}
+
+.dashboard-navbar-links-ul li a:hover{
+    color: rgb(182, 0, 0);
+}
+
+.dashboard-navbar-right-profile-image{
+    position: relative;
+}
+
+.dashboard-navbar-right-profile-image a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.dashboard-navbar-right-profile-image a i{
+    font-size: 40px;
+
+}
+
+.dashboard-navbar-right-profile-image a img{
+    border-radius: 60px;
+    border: solid 2px #efefef;
+    padding: 3px;
+}
+
+.desktop-hide{
+    display: none;
+}
+
+.dashboard-navbar-right-profile-image-dropdown{
+    position: absolute;
+    top: 77px;
+    right: 100px;
+    border: solid 1px #efefef;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 900;
+    display: none;
+    background-color: #fff;
+}
+.showdropdown{
+    display: block;
+}
+
+.dashboard-navbar-right-profile-image-dropdown::after{
+    content: " ";
+  position: absolute;
+  right: 30px;
+  top: -15px;
+  border-top: none;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid rgb(252, 252, 252);
+}
+
+.dashboard-navbar-right-profile-image-dropdown ul{
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+.dashboard-navbar-right-profile-image-dropdown ul li{
+    margin-bottom: 10px;
+}
+
+.dashboard-navbar-right-profile-image-dropdown ul li a{
+    text-decoration: none;
+    color: #222;
+    font-size: 17px;
+    padding: 0px 40px 0px 15px;
+
+}
+
+.dashboard-navbar-right-profile-image-dropdown ul li a:hover{
+    color: rgb(231, 3, 3);
+}
+.dashboard-navbar-right-profile-image-dropdown ul .line{
+    border: solid 1px #f5f5f5;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .dashboard-navbar-links{
+        display: none;
+    }
+    .my-container{
+        width: 100%;
+        padding: 10px 20px;
+    }
+    .desktop-hide{
+        display: block;
+    }
+    .site-off{
+        position: fixed;
+        width: 80%;
+        height: 100%;
+        background-color: #fcfcfc;
+        overflow-y: auto;
+        z-index: 1000;
+        padding: 15px;
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform .4s visibility .4s;
+        will-change: transform, visibility;
+        /* border: solid 1px #efefef; */
+    }
+
+    .showmenu .site-off{
+        transform: translateX(0);
+        visibility: visible;
+        transform: transform .4s 0s, visibility 0s 0s;
+    }
+
+    .off-canvas{
+        max-width: 100%;
+    }
+
+    .flexitem{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .canvas-head a{
+        text-decoration: none;
+        color: #222;
+    }
+
+    .mobile-nav-links{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .mobile-nav-links a{
+        text-decoration: none;
+        font-size: 18px;
+        color: #222;
+    }
+
+    .canvas-head .logo a{
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .canvas-head .t-close{
+        font-size: 24px;
+        font-weight: 600;
+        padding: 6px 6px 0px 6px;
+        background-color: #eeeeee;
+        border-radius: 100%;
+    }
+
+    .mobile-head-login-links{
+        list-style: none;
+        display: block;
+    }
+
+    .mobile-head-login-links li{
+        margin-top: 10px;
+    }
+    .mobile-head-login-links a{
+        text-decoration: none;
+        /* color: #222; */
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .thebottom-nav-socials{
+        display: flex;
+        align-items: center;
+    }
+
+    .thebottom-nav-socials .socials{
+        margin-right: 10px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .thebottom-nav-socials .socials a i{
+        font-size: 20px;
+    }
+
+    .header-bottom-container-menu-icon .trigger{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .header-bottom-container-right .user{
+        display: contents;
+    }
+
+    .header-bottom-container-right .user a{
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .mobile-head-signin{
+        background-color: #f5f5f5;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        margin-top: 15px;
+    }
+
+    .mobile-head-signin-left{
+        color: #fff;
+        padding: 17px 20px;
+        border-radius: 50%;
+        background-color: #222;
+        margin-right: 15px;
+    }
+
+    .dashboard-navbar-right-profile-image-dropdown{
+        right: 20px;
+    }
+
+}

@@ -20,53 +20,50 @@
 
     <div class="courses-lists-container" style="margin-top: 0px;">
         <div class="courses-schools-grid school" style=" display: grid; grid-template-columns: repeat(3, 1fr); padding: 50px 100px;">
-            <div class="courses-schools-grid-body" style="margin-bottom: 15px;">
+            <div class="home-page-sections-cateories-grid-body">
                 <a href="#">
-                    <h3>Billionaire Master Club</h3>
+                    <h3>Love Garden (For Married Couples)</h3>
                 </a>
-                <p>36,354,994 students</p>
+                <p>56 Students</p>
             </div>
 
-            <div class="courses-schools-grid-body" style="margin-bottom: 15px;">
+
+            <div class="home-page-sections-cateories-grid-body">
                 <a href="#">
-                    <h3>Preeminent Power</h3>
+                    <h3> The School of Church Planting</h3>
                 </a>
-                <p>36,354,994 students</p>
+                <p>56 Students</p>
             </div>
 
-            <div class="courses-schools-grid-body" style="margin-bottom: 15px;">
+
+            <div class="home-page-sections-cateories-grid-body">
                 <a href="#">
-                    <h3>Polictics and True Governance</h3>
+                    <h3>The School of Unsurpassable Wisdom</h3>
                 </a>
-                <p>36,354,994 students</p>
+                <p>56 Students</p>
             </div>
 
-            <div class="courses-schools-grid-body" style="margin-bottom: 15px;">
+            <div class="home-page-sections-cateories-grid-body">
                 <a href="#">
-                    <h3>Billionaire Master Club</h3>
+                    <h3>The School of Spiritual Enlisting and Power</h3>
                 </a>
-                <p>36,354,994 students</p>
+                <p>56 Students</p>
             </div>
 
-            <div class="courses-schools-grid-body" style="margin-bottom: 15px;">
+
+            <div class="home-page-sections-cateories-grid-body">
                 <a href="#">
-                    <h3>Billionaire Master Club</h3>
+                    <h3>The School of Supernatural Wealth Transfer</h3>
                 </a>
-                <p>36,354,994 students</p>
+                <p>56 Students</p>
             </div>
 
-            <div class="courses-schools-grid-body" style="margin-bottom: 15px;">
-                <a href="#">
-                    <h3>Billionaire Master Club</h3>
-                </a>
-                <p>36,354,994 students</p>
-            </div>
 
-            <div class="courses-schools-grid-body" style="margin-bottom: 15px;">
+            <div class="home-page-sections-cateories-grid-body">
                 <a href="#">
-                    <h3>Billionaire Master Club</h3>
+                    <h3>Breakthrough Institute</h3>
                 </a>
-                <p>36,354,994 students</p>
+                <p>56 Students</p>
             </div>
         </div>
     </div>

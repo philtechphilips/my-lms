@@ -1,0 +1,36 @@
+.email-verification-page{
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.email-verification-page-content{
+    border: solid 2px #efefef;
+    padding: 25px;
+}
+
+.email-verification-page-content p{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.email-verification-page-content .resend-btn{
+    padding: 13px 25px;
+    background-color: #252561;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.email-verification-page-content .resend-btn:hover{
+    background-color: #121241;
+}
+
+@media screen and (max-width: 960px) {
+    .email-verification-page{
+        padding: 50px 20px;
+    }
+}

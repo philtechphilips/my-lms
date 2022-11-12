@@ -10,9 +10,14 @@
 	<title>
         @yield('title')
     </title>
-
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/navbar.css') }}>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/landingpage.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/mylearning.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/footer.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/profile.css') }}>
 </head>
-<body>
+<body class="site">
        {{-- Including Navigation Bar --}}
        @include('studentLearning.includes.navbar')
        {{-- Including Navigation Bar --}}
@@ -70,10 +75,28 @@
        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
        {{-- Adding OwlCarousel Script--}}
 
+       {{-- Navbar Script --}}
+            <script>
+                const menutrigger = document.querySelector('.dropdown-trigger');
+                const menutrig = document.querySelector('.showdropdown');
+                const dropdown = document.querySelector('.dashboard-navbar-right-profile-image-dropdown');
+                menutrigger.addEventListener('click', function(){
+                    dropdown.classList.toggle('showdropdown')
+                });
+               if(menutrig != null){
+                menutrigger.addEventListener('click', function(){
+                    dropdown.classList.remove('showdropdown')
+                });
+               }
+
+            </script>
+       {{-- Navbar Script --}}
+
+
        {{-- Adding Extra Script From Other Pages--}}
        @yield('scripts')
        {{-- Adding Extra Script From Other Pages--}}
 
-       {{-- Cursor Scripts --}}
+
 </body>
 </html>

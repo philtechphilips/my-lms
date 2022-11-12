@@ -24,7 +24,7 @@
             </div>
 
             <div class="landing-page-cta-right-flex" style="margin-top: 20px;">
-                <a href="#">
+                <a href="{{ route('allcourses') }}">
                     Get a Course Now
                 </a>
             </div>

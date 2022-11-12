@@ -14,11 +14,11 @@
             <h1>Sign up and Start Learning</h1>
         </div>
         <div class="input-group">
-            <input type="text" class="input" id="input" onchange="Form()" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            <label for="name" id="placeholder" class="placeholder">Full Name</label>
+            <input type="text" class="input-active" id="input" onchange="Form()" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+            <label for="name" id="placeholder" class="active">Full Name</label>
             @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
+                <span class="invalid-feedback" style="color: red;" role="alert">
+                    <strong style="color: red;">{{ $message }}</strong>
                 </span>
             @enderror
         </div>
@@ -27,30 +27,30 @@
             <label for="phone" id="placeholder1" class="placeholder">Phone Number</label>
         </div> --}}
         <div class="input-group">
-            <input type="email" class="input" id="input2" onchange="Form()" name="email" value="{{ old('email') }}" required autocomplete="email">
-            <label for="email" id="placeholder2" class="placeholder">Email</label>
+            <input type="email" class="input-active" id="input2" onchange="Form()" name="email" value="{{ old('email') }}" autocomplete="email">
+            <label for="email" id="placeholder2" class="active">Email</label>
         @error('email')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <strong style="color: red;">{{ $message }}</strong>
             </span>
         @enderror
         </div>
         <div class="input-group">
-            <input type="password" class="input" id="input3" onchange="Form()" name="password" required autocomplete="new-password">
-            <label for="password" id="placeholder3" class="placeholder">Password</label>
+            <input type="password" class="input-active" id="input3" onchange="Form()" name="password" autocomplete="new-password">
+            <label for="password" id="placeholder3" class="active">Password</label>
         @error('password')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <strong style="color: red;">{{ $message }}</strong>
             </span>
         @enderror
         </div>
 
         <div class="input-group">
-            <input type="password" class="input" id="input4" onchange="Form()" name="password_confirmation" required autocomplete="new-password">
-            <label for="password" id="placeholder4" class="placeholder">Confirm Password</label>
+            <input type="password" class="input-active" id="input4" onchange="Form()" name="password_confirmation" autocomplete="new-password">
+            <label for="password" id="placeholder4" class="active">Confirm Password</label>
         @error('password')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <strong style="color: red;">{{ $message }}</strong>
             </span>
         @enderror
         </div>
@@ -67,7 +67,7 @@
     </form>
 </div>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     function Form() {
             let input = document.getElementById('input').value;
             let input4 = document.getElementById('input4').value;
@@ -94,6 +94,6 @@
                 document.getElementById('input3').className = "input-active";
             }
     }
-</script>
+</script> --}}
 
 @endsection

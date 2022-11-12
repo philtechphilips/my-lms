@@ -255,6 +255,10 @@ outline: none;
     margin-bottom: 20px;
 }
 
+.testimonial-section-grid-body i{
+    color: goldenrod;
+}
+
 .testimonial-section-grid-body-image img{
     width: 70px;
     border-radius: 50%;

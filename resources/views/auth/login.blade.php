@@ -14,12 +14,12 @@
             <h1>Login to your mogah Account</h1>
         </div>
         <div class="input-group">
-            <input type="email" class="input" id="input2" onchange="Form()" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-            <label for="email" id="placeholder2" class="placeholder">Email</label>
+            <input type="email" class="input-active" id="input2" onchange="Form()" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <label for="email" id="placeholder2" class="active">Email</label>
         </div>
         <div class="input-group">
-            <input type="password" class="input" id="input3" onchange="Form()" name="password" required autocomplete="current-password">
-            <label for="password" id="placeholder3" class="placeholder">Password</label>
+            <input type="password" class="input-active" id="input3" onchange="Form()" name="password" required autocomplete="current-password">
+            <label for="password" id="placeholder3" class="active">Password</label>
         </div>
         <div class="remember">
             <input type="checkbox" class="remember-check" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -81,7 +81,7 @@
 @endsection
 
 @section('scripts')
-<script>
+{{-- <script>
     $(document).ready(function(){
         let input2 = document.getElementById('input2').value;
             let input3 = document.getElementById('input3').value;
@@ -96,9 +96,9 @@
                 document.getElementById('input3').className = "input-active";
             }
     });
-</script>
+</script> --}}
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     function Form() {
             let input2 = document.getElementById('input2').value;
             let input3 = document.getElementById('input3').value;
@@ -113,5 +113,5 @@
                 document.getElementById('input3').className = "input-active";
             }
     }
-</script>
+</script> --}}
 @endsection

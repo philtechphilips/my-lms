@@ -1,6 +1,6 @@
 <div class="course_content_requirements recomended-courses">
     <div class="course_content_requirements">
-        <h1>Recommended <span style="font-weight: 600; color:#FF083A;"><b>Courses</b></span></h1>
+        <h1 style="font-size: 24px;">Recommended <span style="font-weight: 600; font-size 24px;"><b>Courses</b></span></h1>
         <div class="more-courses-grid">
 
             <div class="more-courses-grid-body">

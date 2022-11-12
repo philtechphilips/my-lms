@@ -11,13 +11,13 @@
     <div class="course_content_banner">
          <div class="course_content_banner_header" id="">
             <div class="course_content_right_links">
-                <a href="" style="padding-right: 5px;">IT & Software
+                <a href="" style="padding-right: 5px;">The School of Destiny
                 </a>
                 <i class="fa-solid fa-angle-right" style="color: #fff"></i>
-                <a href="" style="padding-left: 5px;">AWS Certification</a>
+                <a href="" style="padding-left: 5px;">The Billionaire Master Class (Finance)</a>
             </div>
-            <h1>Ultimate AWS Certified Solutions Architect Associate SAA-C03</h1>
-            <p>Full Practice Exam | Learn Cloud Computing | Pass the AWS Certified Solutions Architect Associate Certification SAA-C03!</p>
+            <h1>The Billionaire Master Class (Finance)</h1>
+            <p>The Billionaire Master Class (Finance) | Finance Class | Becoming A Billionaire</p>
             <div class="course_content_right_ratings" style="display: flex;">
                 <p>4.7
                         <i class="fa-solid fa-star"></i>
@@ -60,12 +60,11 @@
             <div class="course_content_what_you_learn_body">
                 <h1>What you'll learn</h1>
                 <div class="course_content_what_you_learn_body_grid">
-                    <p><span><i class="fa-solid fa-check-double"></i></span> FULLY UPDATED FOR SAA-C03: Pass the AWS Certified Solutions Architect Associate Certification</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> Full Practice Exam with Explanations included!</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> Learn the Serverless Fundamentals (Lambda, DynamoDB, Cognito, API Gateway)</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> FULLY UPDATED FOR SAA-C03: Pass the AWS Certified Solutions Architect Associate Certification</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> Full Practice Exam with Explanations included!</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> Learn the Serverless Fundamentals (Lambda, DynamoDB, Cognito, API Gateway)</p>
+                    <p><span><i class="fa-solid fa-check-double"></i></span> How to invest wisely...</p>
+                    <p><span><i class="fa-solid fa-check-double"></i></span> How to start your own business</p>
+                    <p><span><i class="fa-solid fa-check-double"></i></span> How to create a product or service that is in high demand and has low competition</p>
+                    <p><span><i class="fa-solid fa-check-double"></i></span> How to find a high-paying and stable job</p>
+                    <p><span><i class="fa-solid fa-check-double"></i></span> How to maintain your wealth</p>
                 </div>
             </div>
         </div>
@@ -74,9 +73,12 @@
             <div class="course_content_requirements">
                 <h1>Requirements</h1>
                 <ul>
-                    <li>Know the basics of IT</li>
-                    <li>No AWS Cloud experience is necessary, we'll use the AWS Free Tier</li>
-                    <li>Windows / Linux / Mac OS X Machine</li>
+                    <li>
+                        Willingness to take the course
+                    </li>
+                    <li>
+                        Dedicated time for the course
+                    </li>
                 </ul>
             </div>
         </div>
@@ -88,7 +90,7 @@
                 <h1>Demo Video</h1>
                 {{-- <video src="" autoplay controls></video> --}}
                 <div class="plyr_video-embed" id="player">
-                    <iframe width="800" height="500" src="https://www.youtube.com/embed/jD-cb2drhh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="800" height="500" src="https://www.youtube.com/watch?v=HR1VG8L7iGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -98,7 +100,7 @@
             <div class="course_content_what_to_learn">
                 <div class="course_contents_hedline">
                     <h1>Lessons in This Class</h1>
-                    <p>8 Lessons (5hrs)</p>
+                    <p>5 Lessons (5hrs)</p>
                 </div>
                 <div class="course_contents">
                     <div class="course_contents_body">
@@ -113,68 +115,38 @@
                 <div class="course_contents">
                     <div class="course_contents_body">
                         <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px;  font-size: 18px;"> 1. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Introduction</h4>
+                        <p style="padding-right: 5px;  font-size: 18px;"> 2. </p>
+                        <h4 style="font-size: 18px; font-weight: 600;">Seven Steps To becoming a billionaire</h4>
                     </div>
-                    <p>1:44</p>
+                    <p>10:54</p>
                 </div>
 
 
                 <div class="course_contents">
                     <div class="course_contents_body">
                         <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 1. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Introduction</h4>
+                        <p style="padding-right: 5px; font-size: 18px;"> 3. </p>
+                        <h4 style="font-size: 18px; font-weight: 600;">Gods Wealth</h4>
                     </div>
-                    <p>1:44</p>
+                    <p>5:24</p>
                 </div>
 
 
                 <div class="course_contents">
                     <div class="course_contents_body">
                         <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 1. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Introduction</h4>
+                        <p style="padding-right: 5px; font-size: 18px;"> 4. </p>
+                        <h4 style="font-size: 18px; font-weight: 600;">Maintaining God's Wealth</h4>
                     </div>
-                    <p>1:44</p>
+                    <p>6:37</p>
                 </div>
 
 
                 <div class="course_contents">
                     <div class="course_contents_body">
                         <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 1. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Introduction</h4>
-                    </div>
-                    <p>1:44</p>
-                </div>
-
-
-                <div class="course_contents">
-                    <div class="course_contents_body">
-                        <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 1. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Introduction</h4>
-                    </div>
-                    <p>1:44</p>
-                </div>
-
-
-                <div class="course_contents">
-                    <div class="course_contents_body">
-                        <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 1. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Introduction</h4>
-                    </div>
-                    <p>1:44</p>
-                </div>
-
-
-                <div class="course_contents">
-                    <div class="course_contents_body">
-                        <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 16px;"> 1. </p>
-                        <h4 style="font-size: 16px; font-weight: 600;">Introduction</h4>
+                        <p style="padding-right: 5px; font-size: 18px;"> 5. </p>
+                        <h4 style="font-size: 18px; font-weight: 600;">Financial Breakthrough</h4>
                     </div>
                     <p>1:44</p>
                 </div>
@@ -190,122 +162,45 @@
                 <div class="description_body">
                     <h1>Description</h1>
                     <p style="text-align: left">
-                        Welcome! I'm here to help you prepare and PASS the NEWEST AWS Certified Solutions Architect Associate SAA-C03 exam [Course FULLY updated]
-                        [September 2022 Update - SAA-C03]: Over 80 videos have been updated to reflect the NEW SAA-C03 exam
+                        Becoming a billionaire is a lofty goal, often unobtainable for most individuals. Some find their success through economic, educational, or opportunistic advantages. Others learn to take calculated risks, develop their personal creativity, and deploy their capital advantageously.
 
-                        [April 2022 Update]: Over 30 videos have been refreshed/added to keep up with the AWS UI changes and exam changes
+                        On the other hand, some miss out on the opportunity for wealth because they do not have a long-term plan or try to rush success. By leveraging focus, discipline, and routine frameworks, you can increase your likelihood of financial success. Here are some specific do's and don't for becoming a billionaire.
 
-                        [October 2021 Update]: Over 100 videos have been refreshed/added to keep up with the AWS UI changes and exam changes
+                        KEY TAKEAWAYS
+                        Billionaires can often fall into two classes: those who have invented something new; or those who do something else better than anyone else.
+                        Being a billionaire takes an extreme work ethic and for many, quite a bit of patience.
+                        Billionaires are always learning and if you have the chance to ask them, they will almost always say they are the student, not the teacher.
+                        The most common traits among billionaires are work ethic and refusing to give up.
 
-                        [April 2021 Update]: Over 100 videos have been refreshed/added to keep up with the AWS UI changes and exam changes
+                        Do: Invent
+                        Inventing is a challenging career path to take. But if you've got the smarts to create successfully, patent, produce and market a product that people need (and thus, will buy in droves), you can build your future billionaire life on it. Successful inventions aren't necessarily complicated or high-tech items but can improve existing items. For example, James Dyson invented a better vacuum cleaner, and Gianfranco Zaccai invented a better mop, the Swiffer.
 
-                        [Dec 2020 Update]: The S3 section has been entirely re-recorded to accommodate for the AWS UI changes
+                        Do: Innovate
+Innovation is the fine art of considering a current mainstream market and finding a creative way to improve the current offering.
 
-                        [May 2020 Update]: 20+ videos have been updated to keep up with AWS UI changes.
+Successful innovators will identify the real needs behind customer demands and meet them with a smarter, better, more efficient product or service that provides more than its competitors. Others may develop a business that works in a way just different enough to stand out from the rest. IKEA founder Ingvar Kamprad is an excellent example of someone who used innovation to yield billions.
+3
 
-                        [February 2020 Update - SAA-C02]: The course has been updated for the NEW 2020 exam version. Overall, 80 videos have been added or updated, and the course is now 22 hours long. Happy learning!
+Furniture doesn't seem like a fascinating market. Still, his approach of providing modular, economical pieces with a modern flair from Sweden and other European designers and manufacturers to a global market proved fruitful.
 
-                        [July 2019 Update]: Few lectures refreshed, including AWS Budgets and EC2 placement groups.</b>
+Do: Invest
+Self-made billionaire Warren Buffett is famous for his frugal ways and smart investments. Investing, of course, requires a little seed money and some accurate insight into which investments are smart and which could result in a loss. If you can follow in the footsteps of billionaire investors like Buffett, then this might be the route for you.
+4
 
-                        -----------------------------------
+Do: Be an Entrepreneur
+The third option for becoming a billionaire is the time-honored tradition of entrepreneurial pursuits. Starting a business and taking it to success isn't always easy. Still, for those with good business sense and the ability to spot start-ups that have the potential to be great, entrepreneurship can be the vehicle to great wealth.
 
-                        Beginners welcome: no need to know anything about AWS!
+Billionaire entrepreneurs might work in one of two ways: either by coming up with a great idea and taking it all the way, as in the case of Bill Gates and Microsoft, or by spotting someone else's good idea and investing in it early on. Both are viable ways to reach the success that can get you billions of dollars for your net worth.
+5
 
-                        The AWS Certified Solutions Architect Associate SAA-C03 certification is one of the most challenging exams. It's great at assessing how well you understand not just AWS, but making sure you are making the best architectural decisions based on situations, which makes this certification incredibly valuable to have and pass. Rest assured, I've passed it myself with a score of 982 out of 1000. Yes, you read that right, I only made one mistake! Next, I want to help YOU pass the AWS Certified Solutions Architect Associate certification with flying colors.
+ Long-term holdings in the stock market may be a better bet than popular high-risk investments, according to billionaire Warren Buffett.
+6
+Don't: Think You Know It All
+The moment you think you have nothing left to learn is the moment you kill your potential for becoming a billionaire. Especially if you're interested in building your wealth through inventing or innovating, you have to be curious, open-minded, and always learning. Those qualities allow you to look at old things in a new way, to see the potential for change and profit where others see only what already had been done.
 
-                        This is going to be a long journey, but passing the AWS Certified Solutions Architect Associate exam will be worth it!
+Don't: Make Flashy Investments
+The latest and greatest investment opportunity may be fun to talk about, but one of the pitfalls of would-be billionaires is to jump in on the "next big thing," which doesn't always turn out to be so big. Investors who make billions from their investments avoid flashy, fun, and high-risk picks and instead choose those with long-term potential to provide great returns. Real estate, energy, steel, telecommunications, pharmaceuticals, and energy are among the picks, while high-tech and intriguing but risky options may go either way.
 
-
-
-                        This AWS Certified Solutions Architect Associate course is different from the other ones you'll find on Udemy. Dare I say, better (but you'll judge!)
-
-                        We will spend over three hours discussing solution architecture on AWS in depth.
-
-                        It covers in-depth all the new topics on the AWS Certified Solutions Architect Associate SAA-C02 exam
-
-                        It's packed with practical knowledge on how to use AWS inside and out as a solutions architect
-
-                        It teaches you how to prepare for the AWS exam AND how to prepare for the real world
-
-                        It's a logical progression of topics, not a laundry list of random services
-
-                        It's fast-paced and to the point
-
-                        It has professional subtitles
-
-                        All 800+ slides available as downloadable PDF
-
-
-
-                        Concretely, here's what we'll learn to pass the AWS Certified Solutions Architect Associate exam:
-
-                        The AWS Fundamentals: IAM, EC2, Load Balancing, Auto Scaling, EBS, EFS, Route 53, RDS, ElastiCache, S3, CloudFront
-
-                        The AWS CLI: CLI setup, usage on EC2, best practices, SDK, advanced usage
-
-                        In-Depth Database comparison: RDS, Aurora, DynamoDB, ElastiCache, DocumentDB, Neptune, Keyspaces, QLDB, Timestream
-
-                        Analytics services comparison: Athena, EMR, Redshift, OpenSearch, Lake Formation, Kinesis Data Analytics, MSK, QuickSight, Glue
-
-                        Machine Learning services: Rekognition, Transcribe, Polly, Translate, Lex, Comprehend, SageMaker, Forecast, Kendra, Personalize, Textract.
-
-                        Monitoring, Troubleshooting & Audit: CloudWatch, CloudTrail, EventBridge, Config
-
-                        AWS Integration & Messaging: SQS, SNS, Kinesis Amazon MQ
-
-                        AWS Serverless: AWS Lambda, DynamoDB, API Gateway, Step Functions
-
-                        AWS Containers Services: ECS, ECR, EKS, App Runner
-
-                        AWS Security best practices: KMS, SSM Parameter Store, Secrets Manager, IAM Policies, Cognito, Shield, WAF, Firewall Manager, SSO, Certificate Manager, GuardDuty, Inspector, Macie
-
-                        VPC & Networking in depth
-
-                        Disaster Recovery & Migrations: DMS, Aurora & RDS Migrations, AWS Backup, Application Migration Service, VMware Cloud on AWS
-
-                        AWS Other Services Overview: CloudFormation, SES, Pinpoint, SSM Session Manager, Elastic Transcoder, Batch, AppFlow...
-
-                        Tips to ROCK the exam
-
-
-
-                        This AWS Certified Solutions Architect Associate course is full of opportunities to apply your knowledge:
-
-                        There are many hands-on lectures in every section
-
-                        There are quizzes at the end of every section
-
-                        There's an AWS Certified Solutions Architect Associate practice exam at the end of the course
-
-                        We'll be using the AWS Free Tier most of the time
-
-                        I'll be showing you how to go beyond the AWS Free Tier (you know... the real world!)
-
-
-
-                        -----------------------------------
-
-                        Instructor
-
-                        My name is Stephane Maarek, and I'll be your instructor in this course. I teach about AWS certifications with my focus always on helping my students improve their professional proficiencies in AWS. I am also the author of some of the most highly-rated & best-selling courses on AWS Lambda, AWS CloudFormation & AWS EC2.
-
-                        Throughout my career in designing and delivering these certifications and courses, I have already taught 1,5000,000+ students and gotten 500,000+ reviews!
-
-                        With AWS becoming much more than a buzzword out there, I've decided it's time for students to properly learn how to be an AWS Solutions Architect Associate. So, let’s kick start the course! You are in good hands!
-
-                        ---------------------------------
-
-                        This course also comes with:
-
-                        Lifetime access to all future updates
-
-                        A responsive instructor in the Q&A Section
-
-                        Udemy Certificate of Completion Ready for Download
-
-                        A 30 Day "No Questions Asked" Money Back Guarantee!
-
-                        Join me in this course if you want to pass the AWS Certified Solutions Architect Associate Certification SAA-C03 Exam and master the AWS platform!
                     </p>
                 </div>
                 <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
@@ -317,55 +212,23 @@
             <div class="course_content_requirements">
                 <h1>Who this course is for:</h1>
                 <ul>
-                    <li>Know the basics of IT</li>
-                    <li>No AWS Cloud experience is necessary, we'll use the AWS Free Tier</li>
-                    <li>Windows / Linux / Mac OS X Machine</li>
+                    <li>Those who are wishing to become billionaires.</li>
+                    <li>Those Who want to learn how to get wealth from God.</li>
+                    <li>Those who want to learn how to maintain their finance</li>
                 </ul>
             </div>
         </div>
-
-
-        {{-- <div class="course_content_requirements">
-            <div class="course_content_requirements featured">
-                <h1 style="margin-bottom: 10px;">Featured review</h1>
-                <div class="featured_info">
-                    <div class="featured_info_img">
-                        <img src="{{ asset('assets/images/logo.svg') }}">
-                    </div>
-                    <div class="featured_info_details">
-                        <h2>Isola Pelumi.</h2>
-                        <p>13 courses</p>
-                        <p>9 reviews</p>
-                    </div>
-                </div>
-
-                <div class="featured_info_details_rating" style="margin-top: 15px;">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <p> 22/09/2022</p>
-                </div>
-                <div class="featured_info_details_rating_body" style="margin-top: 15px;">
-                    <p>Excellent course for beginners. Helped me to learn and understand AWS solutions architect - associate contents very well. Some parts from dev and sysops course made this couse unique. I found the course metrial very useful. Andalso stephane's English is very much understandable to me. If someone gonna take this course practice after every video end. Thanks stephane😊👍</p>
-                </div>
-            </div>
-        </div> --}}
-
-
-
 
 
         <div class="course_content_requirements">
             <div class="course_content_requirements">
                 <h1>Instructors</h1>
                 <div class="instructor">
-                    <h3 style="color: rgb(255, 8, 58); text-decoration: underline;">Isola Pelumi</h3>
+                    <h3 style="color: rgb(255, 8, 58); text-decoration: underline;">Temidara Matthew</h3>
                 </div>
                 <div class="instruction_profile">
                     <div class="instruction_image">
-                        <img src="{{ asset('assets/images/profile image.jpg') }}">
+                        <img src="{{ asset('assets/images/281449169_3219140161738409_6693812234263747743_n.jpg') }}">
                     </div>
                     <div class="instruction_profile_body">
                         <p><span><i class="fa-solid fa-star"></i></span> 4.4 Instructor Rating</p>
@@ -376,13 +239,10 @@
                 </div>
                 <div class="description_body">
                     <p>
-                    Avinash Jain is currently a senior at UC Berkeley majoring in Electrical Engineering and Computer Science. He's the CEO and Founder of TheCodex, an online educational platform focused on bringing the best programming content to hundreds of thousands of students around the world.
-
-                    His programming journey began at the age of 10, starting off with simple Python scripts to crawl the weather. Since then, he's worked at numerous companies and is professionally experienced in Python, iOS Development and Web Development. He's launched a plethora of applications in the App Store amassing thousands of downloads. Additionaly, he's competed and won in several hackathons around the world including PennApps and NWHacks.
-
-                    Avinash has a passion to teach - his enthusiasm and love for programming is evident in every video. For the past 7 years he's been an instructor on Udemy and he loves motivating and enabling others to pursue their programming dreams. He hopes to help students realize the power of programming and jumpstart their careers through his courses.
-
-                    Checkout TheCodex for all of his courses, fantastic discounts, and any guidance or help.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, ratione quae incidunt recusandae nam molestias rerum quibusdam aliquid esse nisi voluptatibus, accusantium adipisci minus quam expedita accusamus nulla. A, temporibus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse neque quos autem quam magnam nobis enim, fugiat impedit iusto quae repudiandae quo perspiciatis doloribus animi itaque natus ut ea? Accusamus?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae excepturi nulla autem commodi, eius sunt voluptate omnis. Voluptates, pariatur. Error optio deserunt esse alias a atque minima veritatis nobis dolorum?
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla esse porro quia sed distinctio dolore enim, laboriosam dolorem, error corporis in iste numquam quisquam. Neque aut rerum temporibus harum aliquam.
                     </p>
                 </div>
                 <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
@@ -395,10 +255,10 @@
                 <h1>Reviews:</h1>
                 <div class="review_row">
                     <div class="review_row_right">
-                        <h3>PS</h3>
+                        <h3>OS</h3>
                     </div>
                     <div class="review_row_left">
-                        <h3>PALAK S.</h3>
+                        <h3>OLA S.</h3>
                         <p>
                             <span>
                                 <i class="fa-solid fa-star"></i>
@@ -408,7 +268,7 @@
                                 <i class="fa-solid fa-star"></i>
                             </span>
                             2 weeks ago
-                            <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
+                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
                         </p>
                         <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
                         <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
@@ -420,10 +280,10 @@
 
                 <div class="review_row">
                     <div class="review_row_right">
-                        <h3>PS</h3>
+                        <h3>OS</h3>
                     </div>
                     <div class="review_row_left">
-                        <h3>PALAK S.</h3>
+                        <h3>OLA S.</h3>
                         <p>
                             <span>
                                 <i class="fa-solid fa-star"></i>
@@ -433,7 +293,7 @@
                                 <i class="fa-solid fa-star"></i>
                             </span>
                             2 weeks ago
-                            <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
+                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
                         </p>
                         <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
                         <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
@@ -442,13 +302,12 @@
                 <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
 
 
-
                 <div class="review_row">
                     <div class="review_row_right">
-                        <h3>PS</h3>
+                        <h3>OS</h3>
                     </div>
                     <div class="review_row_left">
-                        <h3>PALAK S.</h3>
+                        <h3>OLA S.</h3>
                         <p>
                             <span>
                                 <i class="fa-solid fa-star"></i>
@@ -458,7 +317,7 @@
                                 <i class="fa-solid fa-star"></i>
                             </span>
                             2 weeks ago
-                            <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
+                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
                         </p>
                         <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
                         <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
@@ -467,14 +326,12 @@
                 <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
 
 
-
-
                 <div class="review_row">
                     <div class="review_row_right">
-                        <h3>PS</h3>
+                        <h3>OS</h3>
                     </div>
                     <div class="review_row_left">
-                        <h3>PALAK S.</h3>
+                        <h3>OLA S.</h3>
                         <p>
                             <span>
                                 <i class="fa-solid fa-star"></i>
@@ -484,7 +341,7 @@
                                 <i class="fa-solid fa-star"></i>
                             </span>
                             2 weeks ago
-                            <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
+                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
                         </p>
                         <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
                         <a href=""><i class="fa-regular fa-thumbs-down"></i></a>

@@ -8,7 +8,7 @@
 
 @include('main.components.hero')
 
-
+ 
 @include('main.components.courses')
 
 

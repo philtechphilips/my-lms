@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Main Routes
 Route::get('/', [App\Http\Controllers\MainPages\MainController::class, 'index'])->name('homePage');
 Route::get('/main/ebook/slug', [App\Http\Controllers\MainPages\MainController::class, 'ebookInfo'])->name('ebookinfo');
 Route::get('/main/course/slug', [App\Http\Controllers\MainPages\MainController::class, 'courseInfo'])->name('courseinfo');
@@ -26,7 +27,22 @@ Route::get('/main/courses', [App\Http\Controllers\MainPages\MainController::clas
 Route::get('/main/ebooks', [App\Http\Controllers\MainPages\MainController::class, 'Ebooks'])->name('allEbooks');
 Route::get('/main/about-us', [App\Http\Controllers\MainPages\MainController::class, 'about'])->name('about');
 Route::get('/main/blog', [App\Http\Controllers\MainPages\MainController::class, 'blogs'])->name('blog');
+// Main Routes
 
-Auth::routes();
 
+// Auth Routes
+Auth::routes(['verify' => true]);
+// Auth Routes Ends Here
+
+// User Authenticated Routes
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/main/profile', [App\Http\Controllers\MainPages\MainController::class, 'profile'])->name('profile')->middleware('auth');
+Route::get('/main/profile-image', [App\Http\Controllers\MainPages\MainController::class, 'profile_image'])->name('profile_image')->middleware('auth');
+Route::put('/main/update-profile/{id}', [App\Http\Controllers\MainPages\MainController::class, 'update_profile'])->middleware('auth');
+// User Authenticated Routes
+
+// Admin Routes
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/admin', [App\Http\Controllers\MainPages\MainController::class, 'admin']);
+});
+// Admin Routes

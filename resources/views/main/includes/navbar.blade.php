@@ -194,7 +194,7 @@
 
                 @if (Auth::check())
                 <div class="header-login-button log-in">
-                    <a href="#" class="menu-hide"><p>Dashboard</p></a>
+                    <a href="{{ route('home') }}" class="menu-hide"><p>Dashboard</p></a>
                 </div>
 
                 <div class="header-login-button sign-up">
