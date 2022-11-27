@@ -1,7 +1,7 @@
 <div class="hero">
     <div class="hero-grid">
         <div class="hero-grid-left">
-            <h1>Take a Destiny Changing Course Today</h1>
+            <h1>{{$banner->banner}}</h1>
             <p>Take a step of faith today. It only take three steps. Choose a course, Buy the Course and Take the course.</p>
             <div class="hero-grid-left-btn" style="display: flex">
                 <a href="#" class="btn1">Explore Courses</a>

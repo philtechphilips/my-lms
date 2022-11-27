@@ -92,6 +92,9 @@
             </script>
        {{-- Navbar Script --}}
 
+        {{-- Sweet Alert --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- Sweet Alert --}}
 
        {{-- Adding Extra Script From Other Pages--}}
        @yield('scripts')

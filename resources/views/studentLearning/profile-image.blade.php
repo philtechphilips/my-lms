@@ -31,16 +31,22 @@
                 </div>
 
                 <div class="main-profile-page-container-right-form">
-                    <form class="formm">
+                    <form class="formm" action="/administrator/profile-picture/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @if(session('message'))
+                            <div style="color: rgb(173, 0, 0)">
+                                {{ session('message') }}
+                            </div>
+                        @endif
                         <h3 style="margin-bottom: 10px;">Select Image</h3>
                         <div class="main-profile-page-container-right-form-image">
-                            <input type="file" name="" id="image_input">
+                            <input type="file" name="image" id="image_input">
                         </div>
 
                         <div id="display_image"></div>
 
                         <div class="main-profile-page-container-right-form-btn">
-                            <input type="submit" value="Upload">
+                            <input type="submit" name="submit" value="Upload">
                         </div>
                     </form>
                 </div>

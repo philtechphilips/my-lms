@@ -16,33 +16,17 @@
 
             <div class="blogPage-container-section1">
                 <div class="blogPage-container-section1-grid">
-                <div class="blogPage-container-section1-body">
-                    <img src="{{asset('assets/images/billionaire.jpg')}}">
-                    <h2>Lorem ipsum dolor sit amet consectetur elit.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed.</p>
-                    <a href="#">Read Article</a>
-                </div>
 
+                @foreach ($blogs as $blogs)
                 <div class="blogPage-container-section1-body">
-                    <img src="{{asset('assets/images/billionaire.jpg')}}">
-                    <h2>Lorem ipsum dolor sit amet consectetur elit.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed.</p>
+                    <img src="{{asset('blogImages/'.$blogs->image)}}">
+                    <h2>{{$blogs->name}}</h2>
+                    <p> {!! htmlspecialchars_decode(nl2br(Str::limit($blogs->blog, 100))) !!}</p>
                     <a href="#">Read Article</a>
                 </div>
+                @endforeach
 
-                <div class="blogPage-container-section1-body">
-                    <img src="{{asset('assets/images/billionaire.jpg')}}">
-                    <h2>Lorem ipsum dolor sit amet consectetur elit.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed.</p>
-                    <a href="#">Read Article</a>
-                </div>
 
-                <div class="blogPage-container-section1-body">
-                    <img src="{{asset('assets/images/billionaire.jpg')}}">
-                    <h2>Lorem ipsum dolor sit amet consectetur elit.</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed.</p>
-                    <a href="#">Read Article</a>
-                </div>
                 </div>
             </div>
 

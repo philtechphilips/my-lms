@@ -6,55 +6,25 @@
     </div>
 
     <div class="recent-articles-grid">
+        @foreach ($blog as $blog)
         <div class="recent-articles-grid-body">
-            <img src="{{ asset('assets/images/full course.jpg') }}" width="300">
+            <img src="{{ asset('blogImages/' . $blog->image) }}" width="300">
             <div class="recent-articles-grid-body-content">
                 <a href="#">
                     <h2>
-                        Building Kingdom Wealth Financial Seminar
+                        {{ $blog->name }}
                     </h2>
                 </a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, explicabo?...</p>
+                @php
+                    $blogdetails = htmlspecialchars_decode(nl2br($blog->blog));
+                @endphp
+                <p>
+                    {!! htmlspecialchars_decode(nl2br(Str::limit($blog->blog, 100))) !!}
+                </p>
+                <a href="#">3 Minute Read</a>
             </div>
         </div>
-
-        <div class="recent-articles-grid-body">
-            <img src="{{ asset('assets/images/full course.jpg') }}">
-            <div class="recent-articles-grid-body-content">
-                <a href="#">
-                    <h2>
-                        Building Kingdom Wealth Financial Seminar
-                    </h2>
-                </a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, explicabo?...</p>
-            </div>
-        </div>
-
-
-        <div class="recent-articles-grid-body">
-            <img src="{{ asset('assets/images/full course.jpg') }}" width="300">
-            <div class="recent-articles-grid-body-content">
-                <a href="#">
-                    <h2>
-                        Building Kingdom Wealth Financial Seminar
-                    </h2>
-                </a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, explicabo?...</p>
-            </div>
-        </div>
-
-
-        <div class="recent-articles-grid-body">
-            <img src="{{ asset('assets/images/full course.jpg') }}" width="300">
-            <div class="recent-articles-grid-body-content">
-                <a href="#">
-                    <h2>
-                        Building Kingdom Wealth Financial Seminar
-                    </h2>
-                </a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, explicabo?...</p>
-            </div>
-        </div>
+        @endforeach
     </div>
 
 </div>

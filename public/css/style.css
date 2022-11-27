@@ -1,64 +1,4 @@
 ﻿@charset "UTF-8";
-/*
-    Table of Contents
-
-    Name                 : Zenix
-    Author               : DexignZone
-    Author Portfolio     : https://themeforest.net/user/dexignzone/portfolio
-    
-
-
-    Table of Sass Contents
-
-    1. Abstracts
-        _bs-custom
-        _inheritance
-        _maps
-        _mixin
-        _variable
-
-    2. bootstrap 
-        -Here goes all official bootstrap scss files
-
-    3. Global/Base
-        _color
-        _custom-grid
-        _fonts
-        _helper
-        _reset
-
-    4. layout
-        +footer
-        +header
-        +rtl
-        +sidebar
-        +tables
-        +theme
-        +version-dark
-
-    5. Conponents
-        +app
-        +charts
-        +forms
-        +map
-        +uc
-        +ui
-        +widget
-
-    6. Page
-        _index-1
-        _page-error
-        _page-register
-        _page-signin
-        _page-user-lock
-        _page-user-lock
-
-*/
-@import url("../../css.css");
-@import url("../../css-1.css");
-@import url("../../css-2.css");
-@import url("../../css-3.css");
-@import url("../../css-4.css");
 @import url("../icons/simple-line-icons/css/simple-line-icons.css");
 @import url("../icons/font-awesome-old/css/font-awesome.min.css");
 @import url("../icons/material-design-iconic-font/css/materialdesignicons.min.css");
@@ -73,12 +13,12 @@
 @import url(../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
 @import url(../vendor/metismenu/css/metisMenu.min.css);
 :root {
-  --primary: #eb8153;
-  --secondary: #6418C3;
-  --primary-hover: #e66025;
-  --primary-light: #fbe5dc;
-  --primary-dark: #943911;
-  --rgba-primary-1: rgba(235, 129, 83, 0.1);
+  --primary: #a71300;
+  --secondary: #000530;
+  --primary-hover: #e71b00;;
+  --primary-light: #b3b3b3;
+  --primary-dark: #970000;
+  /* --rgba-primary-1: rgba(235, 129, 83, 0.1);
   --rgba-primary-2: rgba(235, 129, 83, 0.2);
   --rgba-primary-3: rgba(235, 129, 83, 0.3);
   --rgba-primary-4: rgba(235, 129, 83, 0.4);
@@ -86,7 +26,7 @@
   --rgba-primary-6: rgba(235, 129, 83, 0.6);
   --rgba-primary-7: rgba(235, 129, 83, 0.7);
   --rgba-primary-8: rgba(235, 129, 83, 0.8);
-  --rgba-primary-9: rgba(235, 129, 83, 0.9);
+  --rgba-primary-9: rgba(235, 129, 83, 0.9); */
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif; }
 
@@ -1818,12 +1758,16 @@ pre {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  color: #000000 !important;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #EEEEEE;
+  border: 1px solid #838383 !important;
   border-radius: 0.75rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+
+  .form-control:focus {
+    border: 1px solid #ff5c5c !important;
+  }
   @media (prefers-reduced-motion: reduce) {
     .form-control {
       transition: none; } }
@@ -2206,22 +2150,26 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #212529;
-  background-color: #eb8153;
-  border-color: #eb8153; }
+  background-color: #fa462e !important;
+  border-color: #f72509 !important;
+ }
   .btn-primary:hover {
     color: #fff;
-    background-color: #e76831;
-    border-color: #e66025; }
+    background-color: #d41900 !important;
+    border-color: #d41900 !important;
+}
   .btn-primary:focus, .btn-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(205, 115, 77, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #212529;
-    background-color: #eb8153;
-    border-color: #eb8153; }
+    background-color: #ee2e14;
+    border-color: #ee2e14;
+ }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #e66025;
-    border-color: #e4571a; }
+    background-color: #ee2e14;
+    border-color: #ee2e14;
+}
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(205, 115, 77, 0.5); }
 
@@ -2315,8 +2263,8 @@ fieldset:disabled a.btn {
   border-color: #FF4C41; }
   .btn-danger:hover {
     color: #fff;
-    background-color: #ff281b;
-    border-color: #ff1c0e; }
+    background-color: #db0b00;
+    border-color: #db0b00; }
   .btn-danger:focus, .btn-danger.focus {
     box-shadow: 0 0 0 0.2rem rgba(255, 103, 94, 0.5); }
   .btn-danger.disabled, .btn-danger:disabled {
@@ -20264,7 +20212,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   border: none;
   overflow: hidden; }
 
-/* 
+/*
 svg text {
     font-weight: 600 !important;
 } */
@@ -26533,7 +26481,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
     margin-bottom: -130px;
 	background-size:cover;
 	&>div{
-		
+
 	}
 } */
 .plus-icon {

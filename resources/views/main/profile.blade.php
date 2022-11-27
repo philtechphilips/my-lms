@@ -81,7 +81,23 @@
                     'phone': phone,
                 },
                 success: function (response){
-                    responses.text(response);
+                    if(response === "Profile Updated"){
+                        Swal.fire(
+                        'OOPS!!!',
+                        response,
+                        'success'
+                     ).then((result) => {
+                        location.reload();
+                        })
+                    }else{
+                        Swal.fire(
+                        'OOPS!!!',
+                        response,
+                        'warning'
+                        ).then((result) => {
+                        location.reload();
+                        })
+                     }
                 }
             });
     });

@@ -169,7 +169,13 @@
             </div>
             <div class="header-bottom-container-left">
                 <a href="{{ route('homePage') }}" class="logo">MoGah</a>
-                <a href="{{ route('schools') }}" class="menu-hide">All Schools</a>
+                <a href="{{ route('schools') }}" class="menu-hide">
+                @if(Auth::check())
+                    Schools
+                @else
+                    All Schools
+                @endif
+                </a>
             </div>
             <div class="header-bottom-container-center">
                 <div class="search-box">
@@ -194,7 +200,11 @@
 
                 @if (Auth::check())
                 <div class="header-login-button log-in">
-                    <a href="{{ route('home') }}" class="menu-hide"><p>Dashboard</p></a>
+                    @if(Auth::check())
+                        <a href="{{ route('admin-landing') }}" class="menu-hide"><p>Dashboard</p></a>
+                    @else
+                        <a href="{{ route('home') }}" class="menu-hide"><p>Dashboard</p></a>
+                    @endif
                 </div>
 
                 <div class="header-login-button sign-up">
