@@ -10,7 +10,7 @@
         <div class="recent-articles-grid-body">
             <img src="{{ asset('blogImages/' . $blog->image) }}" width="300">
             <div class="recent-articles-grid-body-content">
-                <a href="#">
+                <a href="/main/read-blog-post/{{ $blog->slug }}">
                     <h2>
                         {{ $blog->name }}
                     </h2>

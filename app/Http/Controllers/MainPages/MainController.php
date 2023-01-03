@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\About;
 use App\Models\Admin\Banner;
 use App\Models\Admin\Blogs;
+use App\Models\Admin\CourseImage;
+use App\Models\Admin\Courses;
 use App\Models\Admin\Intro_video;
 use App\Models\Admin\Mission;
 use App\Models\Admin\Vision;
+use App\Models\Main\Cart;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,9 +38,21 @@ class MainController extends Controller
         // Get Banner Text
         $banner = Banner::first();
 
+        // Get Courses
+        $courses = Courses::limit(16)->inRandomOrder()->get();
+        $mobile_courses = Courses::inRandomOrder()->get();
+        $courses_image = CourseImage::get();
+        //Get Courses
+
+        // Get Auth Users
+        $user = User::all();
+        foreach ($user as $author){
+            $n = $author->id;
+        }
+        // Get Auth Users
         // Get Blog Posts
         $blog = Blogs::limit(4)->inRandomOrder()->get();
-        return view('main.landingPage', compact('vision', 'mission', 'intro', 'schools', 'banner', 'blog'));
+        return view('main.landingPage', compact('vision', 'mission', 'intro', 'schools', 'banner', 'blog', 'courses', 'courses_image','mobile_courses', 'n'));
     }
 
     public function learnings(){
@@ -52,8 +67,10 @@ class MainController extends Controller
         return view('main.ebookinfo');
     }
 
-    public function courseInfo(){
-        return view('main.courseInfo2');
+    public function courseInfo($slug){
+        $course = Courses::where('slug', '=', $slug)->first();
+        $what_you_learn = explode(",", $course->learn);
+        return view('main.courseInfo2', compact('course', 'what_you_learn'));
     }
 
     public function schools(){
@@ -62,14 +79,26 @@ class MainController extends Controller
 
 
     public function cart(){
-        return view('main.cart');
+        $cart = Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->get();
+        $cart_count = Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->count();
+        $courses = Courses::get();
+        $cart_sum = Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->sum('course_price');
+        $cart_ini_sum = Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->sum('ini_price');
+        $courses_image = CourseImage::get();
+
+        return view('main.cart', compact('cart', 'cart_count', 'courses', 'cart_sum', 'courses_image', 'cart_ini_sum'));
     }
 
 
     public function checkout(){
-        return view('main.checkout');
+        $cart = Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->get();
+        $cart_count =  Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->count();
+        $courses = Courses::get();
+        $cart_sum = Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->sum('course_price');
+        $courses_image = CourseImage::get();
+        return view('main.checkout', compact('cart', 'cart_count', 'courses', 'cart_sum', 'courses_image'));
     }
-
+ 
     public function courses(){
         return view('main.allCourse');
     }
@@ -96,6 +125,12 @@ class MainController extends Controller
         // Get Blogs
         $blogs = Blogs::get();
         return view('main.blog', compact('blogs'));
+    }
+
+    public function blogSingle($slug){
+        // Get Blogs
+        $blogs = Blogs::get();
+        return view('main.blog-single', compact('blogs'));
     }
 
     public function dashboard(){

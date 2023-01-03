@@ -194,9 +194,21 @@
                     <a href="#"><i class="ri-user-line"></i></a>
                 </div>
 
+                @if(Auth::check())
+
+                    <div class="header-login-button" style="position: relative;">
+                        <a href="{{ route('cart') }}"><i class="cart ri-shopping-cart-line"></i>
+                        <div style="position: absolute; right: -9px; top: -6px; background-color: red; text-align: center; color: #fff; width: 17px; height: 20px; padding 0px 50px 50px 50px; border-radius: 50px;">
+                            <p id="cart_count" style="margin-top: -2px; font-weight: 600; font-size: 13px;">0</p>
+                        </div>
+                        </a>
+                    </div>
+                @else
                 <div class="header-login-button">
                     <a href="{{ route('cart') }}"><i class="cart ri-shopping-cart-line"></i></a>
                 </div>
+
+                @endif
 
                 @if (Auth::check())
                 <div class="header-login-button log-in">

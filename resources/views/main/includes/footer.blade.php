@@ -107,15 +107,7 @@
                         </a>
                     </li>
 
-                    <li class="footer-menu-links">
-                        <a href="#">
-                            <i class="ri-shopping-cart-2-line"></i>
-                            <span>Cart</span>
-                            <div class="fly-item">
-                                <span class="item-number">0</span>
-                            </div>
-                        </a>
-                    </li>
+                    
                 </ul>
             </nav>
         </div>

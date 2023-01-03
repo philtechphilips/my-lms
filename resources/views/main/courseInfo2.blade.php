@@ -11,12 +11,12 @@
     <div class="course_content_banner">
          <div class="course_content_banner_header" id="">
             <div class="course_content_right_links">
-                <a href="" style="padding-right: 5px;">The School of Destiny
+                <a href="" style="padding-right: 5px;">{{$course->school}}
                 </a>
                 <i class="fa-solid fa-angle-right" style="color: #fff"></i>
-                <a href="" style="padding-left: 5px;">The Billionaire Master Class (Finance)</a>
+                <a href="" style="padding-left: 5px;">{{$course->title}}</a>
             </div>
-            <h1>The Billionaire Master Class (Finance)</h1>
+            <h1>{{$course->title}}</h1>
             <p>The Billionaire Master Class (Finance) | Finance Class | Becoming A Billionaire</p>
             <div class="course_content_right_ratings" style="display: flex;">
                 <p>4.7
@@ -31,10 +31,10 @@
             </div>
 
             <div class="course_content_right_bottom">
-                <p>Created By Isola Pelumi</p>
+                <p>Created By {{$course->course->name}}</p>
                 <p><i class="fa-solid fa-upload"></i>
                     <span>
-                        <a>Last Updated 09/2022</a>
+                        <a>Last Updated {{$course->updated_at}}</a>
                     </span>
                 </p>
 
@@ -48,7 +48,7 @@
 
             <div class="course_content_header_cta">
                 <h1 style="font-weight: 600; padding-bottom: 10px">&#x20A6;20,000</h1>
-                <a href=""> Add to Cart </a>
+                <a href="#" id="mobile_cart"> Add to Cart </a>
             </div>
         </div>
 
@@ -60,11 +60,9 @@
             <div class="course_content_what_you_learn_body">
                 <h1>What you'll learn</h1>
                 <div class="course_content_what_you_learn_body_grid">
-                    <p><span><i class="fa-solid fa-check-double"></i></span> How to invest wisely...</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> How to start your own business</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> How to create a product or service that is in high demand and has low competition</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> How to find a high-paying and stable job</p>
-                    <p><span><i class="fa-solid fa-check-double"></i></span> How to maintain your wealth</p>
+                    @foreach ($what_you_learn as $what_you_learn)
+                        <p><span><i class="fa-solid fa-check-double"></i></span>{{$what_you_learn}}</p>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -161,47 +159,9 @@
             <div class="course_content_requirements">
                 <div class="description_body">
                     <h1>Description</h1>
-                    <p style="text-align: left">
-                        Becoming a billionaire is a lofty goal, often unobtainable for most individuals. Some find their success through economic, educational, or opportunistic advantages. Others learn to take calculated risks, develop their personal creativity, and deploy their capital advantageously.
-
-                        On the other hand, some miss out on the opportunity for wealth because they do not have a long-term plan or try to rush success. By leveraging focus, discipline, and routine frameworks, you can increase your likelihood of financial success. Here are some specific do's and don't for becoming a billionaire.
-
-                        KEY TAKEAWAYS
-                        Billionaires can often fall into two classes: those who have invented something new; or those who do something else better than anyone else.
-                        Being a billionaire takes an extreme work ethic and for many, quite a bit of patience.
-                        Billionaires are always learning and if you have the chance to ask them, they will almost always say they are the student, not the teacher.
-                        The most common traits among billionaires are work ethic and refusing to give up.
-
-                        Do: Invent
-                        Inventing is a challenging career path to take. But if you've got the smarts to create successfully, patent, produce and market a product that people need (and thus, will buy in droves), you can build your future billionaire life on it. Successful inventions aren't necessarily complicated or high-tech items but can improve existing items. For example, James Dyson invented a better vacuum cleaner, and Gianfranco Zaccai invented a better mop, the Swiffer.
-
-                        Do: Innovate
-Innovation is the fine art of considering a current mainstream market and finding a creative way to improve the current offering.
-
-Successful innovators will identify the real needs behind customer demands and meet them with a smarter, better, more efficient product or service that provides more than its competitors. Others may develop a business that works in a way just different enough to stand out from the rest. IKEA founder Ingvar Kamprad is an excellent example of someone who used innovation to yield billions.
-3
-
-Furniture doesn't seem like a fascinating market. Still, his approach of providing modular, economical pieces with a modern flair from Sweden and other European designers and manufacturers to a global market proved fruitful.
-
-Do: Invest
-Self-made billionaire Warren Buffett is famous for his frugal ways and smart investments. Investing, of course, requires a little seed money and some accurate insight into which investments are smart and which could result in a loss. If you can follow in the footsteps of billionaire investors like Buffett, then this might be the route for you.
-4
-
-Do: Be an Entrepreneur
-The third option for becoming a billionaire is the time-honored tradition of entrepreneurial pursuits. Starting a business and taking it to success isn't always easy. Still, for those with good business sense and the ability to spot start-ups that have the potential to be great, entrepreneurship can be the vehicle to great wealth.
-
-Billionaire entrepreneurs might work in one of two ways: either by coming up with a great idea and taking it all the way, as in the case of Bill Gates and Microsoft, or by spotting someone else's good idea and investing in it early on. Both are viable ways to reach the success that can get you billions of dollars for your net worth.
-5
-
- Long-term holdings in the stock market may be a better bet than popular high-risk investments, according to billionaire Warren Buffett.
-6
-Don't: Think You Know It All
-The moment you think you have nothing left to learn is the moment you kill your potential for becoming a billionaire. Especially if you're interested in building your wealth through inventing or innovating, you have to be curious, open-minded, and always learning. Those qualities allow you to look at old things in a new way, to see the potential for change and profit where others see only what already had been done.
-
-Don't: Make Flashy Investments
-The latest and greatest investment opportunity may be fun to talk about, but one of the pitfalls of would-be billionaires is to jump in on the "next big thing," which doesn't always turn out to be so big. Investors who make billions from their investments avoid flashy, fun, and high-risk picks and instead choose those with long-term potential to provide great returns. Real estate, energy, steel, telecommunications, pharmaceuticals, and energy are among the picks, while high-tech and intriguing but risky options may go either way.
-
-                    </p>
+                    <div style="text-align: left">
+                        {!! htmlspecialchars_decode(nl2br($course->description)) !!}
+                    </div>
                 </div>
                 <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
             </div>
@@ -420,12 +380,27 @@ The latest and greatest investment opportunity may be fun to talk about, but one
                 <iframe style="width: 100%;" height="220" src="https://www.youtube.com/embed/jD-cb2drhh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div> --}}
             <div class="course_content_sticky_right_body">
-                <h1 style="margin-bottom: 20px;">&#8358;23,000</h1>
-                    <a href="" class="course_content_sticky_right_body_button">Add to Cart</a>
-                <div class="sticky_buttons" style="margin-top: 40px">
-                    <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a>
-                </div>
+                <h1 style="margin-bottom: 20px;">&#8358;{{$course->real_price}}</h1>
+                 @if(Auth::check())
+                 <a href="#" class="course_content_sticky_right_body_button" id="cart">Add to Cart</a>
+                 <div class="sticky_buttons" style="margin-top: 40px">
+                     <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a>
+                 </div>
+                 <form>
+                    @csrf
+                    <input type="hidden" id="user_id" value="{{Auth::user()->id}}">
+                    <input type="hidden" id="course_id" value="{{$course->id}}">
+                    <input type="hidden" id="course_title" value="{{$course->title}}">
+                    <input type="hidden" id="course_price" value="{{$course->real_price}}">
+                    <input type="hidden" id="ini_price" value="{{$course->ini_price}}">
+                 </form>
+                 @else
+                    <div class="sticky_buttons" style="margin-top: 40px">
+                        <a href="" class="course_content_sticky_right_body_button_three">Get Started Now</a>
+                    </div>
+                 @endif
                 <p style="margin-top: 20px; text-align: center;">Full Lifetime Access</p>
+                <div id="share"></div>
             </div>
         </div>
 
@@ -453,6 +428,7 @@ The latest and greatest investment opportunity may be fun to talk about, but one
 
 
 @section('scripts')
+<script src="{{ asset('js/jssocials.js') }}"></script>
 <script>
     let more = document.querySelectorAll('.more');
 
@@ -470,8 +446,112 @@ for(let i = 0; i<see_all.length; i++){
         see_all[i].parentNode.classList.toggle('see_all_activate');
     })
 }
-
-
-
 </script>
+<script>
+    $(document).ready(function () {
+        let cart_error = $('#cart_error')
+        let cart = $('#cart');
+        let course_id = $('#course_id').val();
+        let user_id = $('#user_id').val();
+        let course_title = $('#course_title').val();
+        let course_price = $('#course_price').val();
+        let ini_price = $('#ini_price').val();
+
+        $('#cart').click(function(){
+           if(course_id =='' || user_id =='' || course_title=='' ||course_price==''){
+                toastr.warning("Mising Parameters", 'Error!', {timeOut: 5000});
+           }else{
+            $.ajax({
+                method: "POST",
+                url: "/main/add-to-cart",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data:{
+                    'user_id': user_id,
+                    'course_id': course_id,
+                    'course_title': course_title,
+                    'course_price': course_price,
+                    'ini_price': ini_price,
+                },
+
+                success: function (response){
+                    // alert(response);
+                    if(response == 'Course Added to Cart Successfully!'){
+                        toastr.success('Course Added to Cart Successfully!', 'Success!', {timeOut: 7000});
+                        $.ajax({
+                                type: "GET",
+                                url: "/main/count-cart",
+                                success: function(response){
+                                 $("#cart_count").text(response);
+                                //    alert(response)
+                                }
+                        })
+                    }else{
+                        toastr.warning(response, 'Error!', {timeOut: 5000});
+                     }
+                }
+            });
+           }
+        })
+    })
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        let cart_error = $('#cart_error')
+        let mobile_cart = $('#mobile_cart ');
+        let course_id = $('#course_id').val();
+        let user_id = $('#user_id').val();
+        let course_title = $('#course_title').val();
+        let course_price = $('#course_price').val();
+        let ini_price = $('#ini_price').val();
+
+        $('#mobile_cart').click(function(){
+           if(course_id =='' || user_id =='' || course_title=='' ||course_price==''){
+                toastr.warning("Mising Parameters", 'Error!', {timeOut: 5000});
+           }else{
+            $.ajax({
+                method: "POST",
+                url: "/main/add-to-cart",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data:{
+                    'user_id': user_id,
+                    'course_id': course_id,
+                    'course_title': course_title,
+                    'course_price': course_price,
+                    'ini_price': ini_price,
+                },
+
+                success: function (response){
+                    // alert(response);
+                    if(response == 'Course Added to Cart Successfully!'){
+                        toastr.success('Course Added to Cart Successfully!', 'Success!', {timeOut: 7000});
+                        $.ajax({
+                                type: "GET",
+                                url: "/main/count-cart",
+                                success: function(response){
+                                 $("#cart_count").text(response);
+                                //    alert(response)
+                                }
+                        })
+                    }else{
+                        toastr.warning(response, 'Error!', {timeOut: 5000});
+                     }
+                }
+            });
+           }
+        })
+    })
+</script>
+
+{{-- JS Socials --}}
+<script>
+    $("#share").jsSocials({
+        shares: ["twitter",
+        { share: "facebook", label: "Like our Page"},
+        { share: "whatsapp", label: "Send a Message"},
+        ]
+    })
+</script>
+{{-- Js Socials --}}
 @endsection

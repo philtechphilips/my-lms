@@ -21,59 +21,104 @@
       </div>
 
 <div class="shopping-cart">
-    <p style="font-size: 18px; margin-bottom: -30px;">1 Course in Shopping Cart</p>
+    <p style="font-size: 18px; margin-bottom: -30px;">{{$cart_count}} Course(s) in Shopping Cart</p>
       <div class="shopping_cart_body">
-        <div class="shopping_cart_body_left">
-           <div class="shopping_cart_body_left_images">
-                <img src="{{ asset('assets/images/background.png') }}" width="120" height="100">
-           </div>
-           <div class="shopping_cart_body_left_text">
-            <div class="shopping_cart_body_left_text_heading">
-                <a href="">
-                    <h1>
-                        Spiritual Intelligence/Wisdom from God
-                    </h1>
-                </a>
-                <a href="" class="remove" style="margin-right: 30px">
-                    Remove
-                </a>
-                <p class="money" style="color: rgb(180, 0, 0); font-weight: 700; font-size: 18px;"> ₦3,500</p>
-            </div>
-            <a href="" class="school">Shool of Spiritual Intelligence</a>
-            <div class="shopping-cart-video-info">
-                <p>By Isola Pelumi</p>
-                <p>4.5 Total Hours</p>
-                <p>8 Lessons</p>
-            </div>
-
-           </div>
+        <div class="shopping_cart_body_left" style="flex-direction: column;">
+            @if($cart_count == 0)
+                <div style="background-color: #8F0000; padding: 10px 0 10px 10px; color: #fff;">
+                    EMPTY CART!
+                </div>
+            @else
+            @foreach ($cart as $cart)
+                <div style="display: flex;">
+                <div class="shopping_cart_body_left_images">
+                @foreach ($courses_image as $image)
+                    @if($image->course_id == $cart->course_id)
+                         <img src="{{ asset('course/'.$image->course_image) }}" width="100" height="100">
+                    @endif
+                @endforeach
+                </div>
+                <div class="shopping_cart_body_left_text">
+             <div class="shopping_cart_body_left_text_heading">
+                 <a href="">
+                     <h1>
+                         {{$cart->course_title}}
+                     </h1>
+                 </a>
+                 <a href="javascript:void(0)" class="remove" onclick="deleteStudent({{$cart->id}})" style="margin-right: 30px">
+                     Remove
+                     <form style="display: none">
+                        @csrf
+                     </form>
+                 </a>
+                 <p class="money" style="color: rgb(180, 0, 0); font-weight: 700; font-size: 18px;"> ₦{{$cart->course_price}}</p>
+             </div>
+             <a href="javascript:void(0)" class="school">
+                @foreach ($courses as $school)
+                    @if($school->id == $cart->course_id)
+                            {{$school->school}}
+                    @endif
+                @endforeach
+             </a>
+             <div class="shopping-cart-video-info">
+                 <p>
+                    @foreach ($courses as $school)
+                        @if($school->id == $cart->course_id)
+                            {{$school->hour . '.' . $school->minute}}
+                        @endif
+                    @endforeach
+                     Total Hours
+                  </p>
+             </div>
+             </div>
+                </div>
+                <div style="border: solid 1px rgb(241, 241, 241); margin: 10px 0;"></div>
+            @endforeach
+            @endif
         </div>
 
         <div class="shopping_cart_body_right">
             <div class="shopping_cart_body_right_body">
                 <p style="font-weight: 600">Total:</p>
-                <h1>&#8358; 15,000</h1>
+                <h1>&#8358; {{$cart_sum}}</h1>
                 <div class="price_offer">
                     <p style="font-weight: 600; ">Original Price</p>
-                    <p style="font-weight: 600; color: rgb(180, 0, 0);">&#8358; 20,000</p>
+                    <p style="font-weight: 600; color: rgb(180, 0, 0);">&#8358; {{$cart_sum}}</p>
                 </div>
                 <hr style="color: #efefef; opacity: .3; margin: 10px 0px">
                 <div class="price_offer">
                     <p style="font-weight: 600; ">Discount Offer</p>
-                    <p style="font-weight: 600; color: rgb(180, 0, 0); text-decoration: line-through;">-&#8358;15,000</p>
+                    <p style="font-weight: 400; color: rgb(180, 0, 0); text-decoration: line-through;">-&#8358;@php
+                        $discount = $cart_ini_sum - $cart_sum;
+                    @endphp
+                    {{ $discount }}
+                    </p>
                 </div>
                 <hr style="color: #efefef; opacity: .3; margin: 10px 0px">
                 <div class="price_offer">
                     <p style="font-weight: 600; ">Discount Percent</p>
-                    <p style="font-weight: 600; color: rgb(180, 0, 0);">60%</p>
+                    <p style="font-weight: 600; color: rgb(180, 0, 0);">
+                        @php
+                            if ($cart_sum == 0) {
+                                $p_percent = 0;
+                            }else {
+                                $p_percent = ($cart_sum / $cart_ini_sum) * 100;
+                            }
+                        @endphp
+                            {{ round($p_percent, 0) }}%
+                    </p>
                 </div>
                 <hr style="color: #efefef; opacity: .3; margin: 10px 0px">
                 <div class="price_offer" style="margin-bottom: 25px">
                     <p style="font-weight: 600; ">Total Courses</p>
-                    <p style="font-weight: 600; color: rgb(180, 0, 0);">1</p>
+                    <p style="font-weight: 600; color: rgb(180, 0, 0);">{{$cart_count}}</p>
                 </div>
                 {{-- <hr style="color: #efefef; opacity: .3; margin: 10px 0px"> --}}
-                <a href="{{ route('checkout') }}">Check Out Now</a>
+                @if($cart_sum == 0)
+                    <a href="javascript:void(0)" disabled="">Check Out Now</a>
+                @else
+                    <a href="{{ route('checkout') }}">Check Out Now</a>
+                @endif
             </div>
         </div>
       </div>
@@ -85,10 +130,44 @@
 
 
 @section('scripts')
-<script>
-    function myFunction(){
-        // alert('Good');
-    }
-</script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function deleteStudent(id){
+     swal({
+             title: "Are you sure?",
+             text: "Once deleted, you will not be able to recover!",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+           })
+         .then((willDelete) =>{
+             if (willDelete) {
+                 $.ajax({
+                     url:'/main/delete-cart/'+id,
+                     type: "Delete",
+                     data:{
+                         _token : $("input[name=_token").val()
+                     },
+                     success:function(response){
+                        //  $("#sid"+id).remove();
+                        //  if($("#sid"+id).remove()){
+                            // alert(response)
+                             swal({
+                                 title: "Successful!",
+                                 text: "School Deleted Sucessfully!!",
+                                 icon: "success",
+                                 buttons: true,
+                                 dangerMode: false,
+                             }).then((result) =>{
+                                 if(result){
+                                     location.reload();
+                                 }
+                             });
+                        //  }
+                     }
+                 });
+             }
+         })
+     }
+ </script>
 @endsection

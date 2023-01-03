@@ -37,6 +37,10 @@
     {{-- Plyr JS --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.css" />
     {{-- Plyr JS --}}
+
+    {{-- VideoJs --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.12.0/video-js.min.css" />
+    {{-- VideoJs --}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
@@ -61,6 +65,63 @@
             border-radius: 50px;
             font-weight: 600;
             padding: 3px 10px;
+        }
+
+        .file-upload{
+            display: inline;
+            padding: 0 12px;
+            height: 36px;
+            line-height: 36px;
+            color: blue;
+            background-color: transparent;
+            border: solid 1px blue;
+            cursor: pointer;
+        }
+
+        .file-upload input[type="file"]{
+            display: none;
+        }
+
+        .vid-cont{
+            position: relative;
+        }
+
+        .vid-cont .popup-video{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, .8);
+            height: 100%;
+            width: 100%;
+            display: none;
+        }
+
+        .vid-cont .popup-video iframe{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 750px;
+            object-fit: cover;
+            height: 500px;
+        }
+
+        .vid-cont .popup-video span{
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            font-size: 50px;
+            color: #fff;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        @media (max-width: 800px){
+            .vid-cont .popup-video iframe{
+                width: 90%;
+                height: 40%;
+            }
         }
     </style>
 
@@ -130,6 +191,20 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {{-- SweetAlert --}}
 
+    {{-- Data Table --}}
+    <script src={{ asset("vendor/datatables/js/jquery.dataTables.min.js")}}></script>
+    <script src={{ asset("js/plugins-init/datatables.init.js") }}></script>
+
+
+    {{-- Data Table --}}
+
+    {{-- VideoJS --}}
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.12.0/video.min.js"></script>
+
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+    {{-- VideoJS --}}
      @yield('scripts')
  </body>
  </html>

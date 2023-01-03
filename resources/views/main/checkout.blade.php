@@ -24,48 +24,57 @@
                 <h1 style="font-size: 20px">Confirm Your Purchase</h1>
                 <p style="font-size: 17px">You can now make your purchase, Isola Pelumi</p>
                 <div class="checkout-grid-left-body">
-                    <form>
+                    <form id="paymentForm">
+                        @csrf
                         <div class="checkout-grid-left-body-flex">
                             <label style="display: flex; align-items: center;">
-                                <input type="radio" name="paystack" style="margin-right: 5px;">
+                                <input type="checkbox" name="paystack" id="paystack" style="margin-right: 5px;">
                                 <p>Pay With Paystack</p>
                             </label>
                             <img src="{{ asset('assets/images/paystack.png')}}"  width="100" height="20">
                         </div>
-                        <button><i class="fa-solid fa-cart-shopping"></i> Complete Purchase</button>
+                        <button type="submit" onclick="payWithPaystack(event)"><i class="fa-solid fa-cart-shopping"></i> Complete Purchase</button>
                     </form>
                 </div>
             </div>
             <div class="checkout-grid-right">
-                <p style="font-size: 15px; font-weight: 600;">Cart (1 Course)</p>
+                <p style="font-size: 15px; font-weight: 600;">Cart ({{$cart_count}} Course)</p>
                 <hr style="opacity: .2">
 
-
-                <div class="checkout-grid-right-flex">
-                    <img src="{{ asset('assets/images/course.png')}}" width="100">
-                    <div class="checkout-grid-right-flex2" style="padding-left: 10px;">
-                        <h1 style="font-size: 20px;">Creative Watercolor Sketching for Beginners</h1>
-                        <p>A Course by Temidara Matthew</p>
+                @if($cart_count == 0)
+                    <div class="checkout-grid-right-flex">
+                        <div style="background-color: #8F0000; padding: 10px 0 10px 10px; color: #fff; width: 100%;">
+                            EMPTY CART!
+                        </div>
                     </div>
-                    <p style="font-size: 18px; font-weight: 700;">&#x20A6; 2000</p>
-                </div>
-                <hr style="opacity: .2;">
-
-
-                <div class="checkout-grid-right-flex">
-                    <img src="{{ asset('assets/images/course.png')}}" width="100">
-                    <div class="checkout-grid-right-flex2" style="padding-left: 10px;">
-                        <h1 style="font-size: 20px;">Creative Watercolor Sketching for Beginners</h1>
-                        <p>A Course by Temidara Matthew</p>
-                    </div>
-                    <p style="font-size: 18px; font-weight: 700;">&#x20A6; 2000</p>
-                </div>
-                <hr style="opacity: .2; margin-bottom: 15px;">
+                @else
+                    @foreach ($cart as $cart)
+                        <div class="checkout-grid-right-flex">
+                        @foreach ($courses_image as $c_img)
+                            @if($cart->course_id === $c_img->course_id)
+                             <img src="{{ asset('course/'.$c_img->course_image)}}" width="100" height="70">
+                            @else
+                             {{-- <img src="#" alt="Course Image"> --}}
+                            @endif
+                         @endforeach
+                        <div class="checkout-grid-right-flex2" style="padding-left: 10px;">
+                            <h1 style="font-size: 20px;">{{$cart->course_title}}</h1>
+                            @foreach ($courses as $school)
+                                @if($school->id == $cart->course_id)
+                                    <p>{{$school->school}}</p>
+                                @endif
+                            @endforeach
+                            <p style="font-size: 18px; font-weight: 700; color: #860000;">  &#x20A6;{{$cart->course_price}}</p>
+                        </div>
+                        </div>
+                    <hr style="opacity: .2; margin-bottom: 15px;">
+                    @endforeach
+                @endif
 
 
                 <div class="checkout-grid-right-bottom-flex">
                     <p>Total</p>
-                    <p class="naira">&#x20A6;2,000</p>
+                    <p class="naira">&#x20A6;{{$cart_sum}}</p>
                 </div>
             </div>
         </div>
@@ -74,5 +83,39 @@
 @endsection
 
 @section('scripts')
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    const paymentForm = document.getElementById('paymentForm');
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+    function payWithPaystack(e) {
+        e.preventDefault();
+        if(document.getElementById('paystack').checked) {
+            let handler = PaystackPop.setup({
+            key: 'pk_test_7c371d93d1d4c27411cad38812b18a3533b6ff63', // Replace with your public key
+            email: "{{Auth::user()->email}}",
+            amount: {{$cart_sum}} * 100,
+            ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            // label: "Optional string that replaces customer email"
+            onClose: function(){
+            alert('Window closed.');
+            },
+            callback: function(response){
+            let reference = response.reference;
 
+            $.ajax({
+                type: "GET",
+                url: "/main/verify-payment/"+reference,
+                success: function(response){
+                    if(response == 'success'){
+                        window.location.replace("/dashboard");
+                    }
+                }
+            })
+            }
+        });
+
+        handler.openIframe();
+        }
+    }
+</script>
 @endsection

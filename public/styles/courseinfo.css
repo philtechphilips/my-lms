@@ -295,6 +295,17 @@ margin-left: 10px;
     text-decoration: none;
 }
 
+.course_content_sticky_right_body_button_three{
+    padding: 15px 30%;
+    width: 100%;
+    background-color: rgb(255, 8, 58);
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+
 .course_content_sticky_right_body_button_two{
     padding: 15px 34%;
     width: 100%;

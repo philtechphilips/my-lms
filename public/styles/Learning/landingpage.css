@@ -36,7 +36,119 @@
 }
 
 
+
+
+/* Dashboard */
+.student-dashboard-display-grid{
+    display: grid;
+    padding: 100px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.student-dashboard-display-grid-body{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    border: solid 1px #efefef;
+    padding: 70px 0;
+    border-radius: 10px;
+}
+
+.student-dashboard-display-grid-body i{
+    font-size: 32px;
+    background-color: rgb(147, 147, 255);
+    color: rgb(105, 0, 5);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.student-dashboard-display-grid-body h2{
+    font-size: 32px;
+    margin: 10px 0;
+}
+.student-dashboard-my-courses-cont{
+    padding: 0 100px 100px 100px;
+}
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+/* Dashboard */
 @media screen and (max-width: 800px) {
+    table {
+        border: 0;
+      }
+
+      table caption {
+        font-size: 1.3em;
+      }
+
+      table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+      }
+
+      table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+      }
+
+      table td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      table td:last-child {
+        border-bottom: 0;
+      }
 
     .landing-page-container{
         padding: 20px 20px;
@@ -48,6 +160,16 @@
 
     .dashboard-courses-header{
         padding: 0px 20px !important;
+    }
+
+    .student-dashboard-display-grid{
+        display: grid;
+        padding: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .student-dashboard-my-courses-cont{
+        padding: 0 20px 40px 20px;
     }
 }
 

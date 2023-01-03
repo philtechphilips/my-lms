@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Main\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('studentLearning.landing');
+        $cart_count = Cart::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->count();
+        $enrolled = Cart::where('status', '=', 'paid')->where('user_id', '=', Auth::user()->id)->count();
+        return view('studentLearning.landing', compact('cart_count', 'enrolled'));
     }
 }

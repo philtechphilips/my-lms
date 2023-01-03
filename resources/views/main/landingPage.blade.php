@@ -8,7 +8,7 @@
 
 @include('main.components.hero')
 
- 
+
 @include('main.components.courses')
 
 
@@ -37,7 +37,7 @@
 @section('scripts')
 <script>
     const swiper = new Swiper('.swiper', {
-    // loop: true,
+    loop: true,
     spaceBetween: 20,
     slidesPerView: 1,
 });

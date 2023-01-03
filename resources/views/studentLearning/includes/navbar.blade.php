@@ -42,7 +42,7 @@
             </div>
 
             <div class="mobile-nav-links">
-                <a href="#">Courses</a>
+                <a href="/dashboard/my-courses">Courses</a>
             </div>
 
             <div class="mobile-nav-links">
@@ -50,7 +50,23 @@
             </div>
 
             <div class="mobile-nav-links">
+                <a href="#">Quizes</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="#">Announcements</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="#">Completed Courses</a>
+            </div>
+
+            <div class="mobile-nav-links">
                 <a href="#">Live-Classes</a>
+            </div>
+
+            <div class="mobile-nav-links">
+                <a href="#">Payments</a>
             </div>
 
             <div class="mobile-nav-links">
@@ -113,14 +129,20 @@
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="">My Courses</a>
+                    <a href="">Quizes</a>
                 </li>
                 <li>
-                    <a href="">My E-Books</a>
+                    <a href="">Announcements</a>
                 </li>
                 <li>
+                    <a href="">Completed Courses</a>
+                </li>
+                <li>
+                    <a href="">payments</a>
+                </li>
+                {{-- <li>
                     <a href="{{ route('profile')}} ">Profile</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
 
@@ -136,7 +158,7 @@
     <div class="dashboard-navbar-right-profile-image-dropdown">
         <ul>
             <li>
-                <a href="#">
+                <a href="/dashboard/my-courses">
                     Courses
                 </a>
             </li>

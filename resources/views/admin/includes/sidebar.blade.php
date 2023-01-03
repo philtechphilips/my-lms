@@ -29,7 +29,6 @@
 							<li><a href="my-wallets.html">Teachers</a></li>
                             <li><a href="{{ url('/administrator/add-admin') }}">Add Admin</a></li>
 						</ul>
-
                     </li>
 
                     <li class="nav-label">WEBSITE</li>
@@ -57,8 +56,49 @@
 							<li><a href="{{ route('adminSchools') }}">Schools</a></li>
 						</ul>
 
+                        <ul aria-expanded="false">
+							<li><a href="{{ route('CreateCourse') }}">Create a Course</a></li>
+						</ul>
+
+                        <ul aria-expanded="false">
+							<li><a href="{{ route('ViewCourse') }}">View Courses</a></li>
+						</ul>
                     </li>
 
+                    <li class="nav-label">Ebooks</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="ri-video-line"></i>
+							<span class="nav-text">Manage Ebooks / Upload</span>
+						</a>
+
+                        <ul aria-expanded="false">
+							<li><a href="{{ route('CreateCourse') }}">Create New E-Book</a></li>
+						</ul>
+
+                        <ul aria-expanded="false">
+							<li><a href="{{ route('ViewCourse') }}">View Courses</a></li>
+						</ul>
+                    </li>
+
+                    <li class="nav-label">PURCHASES</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="ri-shopping-cart-line"></i>
+							<span class="nav-text">Carts</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="{{ url('/administrator/cart') }}">View Carts</a></li>
+						</ul>
+                    </li>
+
+                    <li class="nav-label">QUIZ</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="ri-question-answer-line"></i>
+							<span class="nav-text">Quiz Attempts</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="{{ url('/administrator/cart') }}">View Carts</a></li>
+						</ul>
+                    </li>
 
                     <li class="nav-label">BLOG</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -67,7 +107,7 @@
 						</a>
                         <ul aria-expanded="false">
 							<li><a href="{{ route('BlogPage')}}">Add New Blog Post</a></li>
-                            <li><a href="{{ route('vision') }}">Blog Post</a></li>
+                            <li><a href="{{ route('AllBlogPost') }}">Blog Posts</a></li>
 						</ul>
 
                     </li>
@@ -77,6 +117,12 @@
                             <i class="ri-user-line"></i>
 							<span class="nav-text">My Profile</span>
 						</a>
+                    </li>
+                    <li>
+                        <a class="ai-icon" href="/administrator/about-me" aria-expanded="false">
+                            <i class="ri-user-line"></i>
+                            <span class="nav-text">About Me</span>
+                        </a>
                     </li>
                 </ul>
                 </div>

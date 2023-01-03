@@ -41,6 +41,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="{{ asset('styles/ebook-info.css')}}">
     <link rel="stylesheet" href="{{ asset('styles/blog.css')}}">
+        {{-- Toastr --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" target="_blank">
+        {{-- Toastr --}}
+
+    {{-- JS Socials --}}
+    <link rel="stylesheet" href="{{ asset('js/jssocials.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/jssocials-theme-flat.css') }}">
 
   <!--
     - google font link
@@ -109,7 +116,7 @@
 
     {{-- Adding PlyrJs Script--}}
     <script src="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.js"></script>
-    {{-- Adding PlyrJs Script--}}
+    {{-- Adding PlyrJs Script--}} 
 
     {{-- Adding OwlCarousel Script--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -119,6 +126,49 @@
     {{-- Sweet Alert --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- Sweet Alert --}}
+
+    {{-- SweetAlert --}}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{-- SweetAlert --}}
+
+{{-- Toastr --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+ toastr.options = {
+  "closeButton": true,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": true,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+</script>
+{{-- Toastr --}}
+
+
+{{-- Cart Count --}}
+<script>
+$(document).ready(function CartCount(){
+    $.ajax({
+                type: "GET",
+                url: "/main/count-cart",
+                success: function(response){
+                    $("#cart_count").text(response);
+                //    alert(response)
+                }
+    })
+});
+
+</script>
+{{-- Cart Count --}}
     {{-- Adding Extra Script From Other Pages--}}
     @yield('scripts')
     {{-- Adding Extra Script From Other Pages--}}

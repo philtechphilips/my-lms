@@ -4,11 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Blogs;
+use App\Models\Admin\Describe;
+use App\Models\Admin\School;
+use App\Models\Main\Cart;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    // Add Blog Posts to DB
     public function AddBlogDB(Request $request){
         $request->validate([
             'name' => 'required|string|max:255|unique:blogs',
@@ -36,4 +42,69 @@ class AdminController extends Controller
 
     }
 
+
+    //Show All Blog Posts
+    public function BlogPost(){
+        $blog = Blogs::all();
+        return view('admin.main.blog_post', compact('blog'));
+    }
+
+     //Delete Blog Posts
+     public function DeleteBlog($id){
+        $blog = Blogs::find($id);
+        $delete = $blog->delete();
+    }
+
+    // Show Create Course Page
+    public function CreateCourse(){
+        $schools = School::all();
+        return view('admin.main.create_course', compact('schools'));
+    }
+
+     // Show Create Course Page
+     public function AboutMe(){
+        $description = Describe::get();
+        return view('admin.main.about-me', compact('description'));
+    }
+
+        // Add Admin description to Database
+        public function AddAboutMe(Request $request){
+            $describe= new Describe();
+            $describe->user_id = Auth::user()->id;
+            $describe->describe = htmlspecialchars($request->mission);
+
+
+            // Check if school exist
+            $old_describe = DB::table('describes')->where('user_id', '=', $describe->user_id)->first();
+
+            if($request->mission == ''){
+                echo "Please Describe Yourself!!!";
+            }else{
+                if($old_describe != ''){
+                    echo "A Description Exists!!!";
+                }else{
+                    $describe_save = $describe->save();
+                    if($describe_save){
+                        echo "Description Added Sucessfully!";
+                    }else{
+                        echo "Something Went Wrong!";
+                    }
+                }
+            }
+        }
+        // Add Admin description to Database
+
+        // Delete Description from Database
+    public function DeleteAboutMe($id)
+    {
+        $describe = Describe::find($id);
+        $delete = $describe->delete();
+    }
+    // Delete Description from Database
+
+    public function Cart(){
+        $cart = Cart::all();
+        $user = User::all();
+        return view('admin.main.cart', compact('cart', 'user'));
+    }
 }

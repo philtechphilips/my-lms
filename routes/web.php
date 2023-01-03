@@ -17,16 +17,17 @@ use Illuminate\Support\Facades\Route;
 // Main Routes
 Route::get('/', [App\Http\Controllers\MainPages\MainController::class, 'index'])->name('homePage');
 Route::get('/main/ebook/slug', [App\Http\Controllers\MainPages\MainController::class, 'ebookInfo'])->name('ebookinfo');
-Route::get('/main/course/slug', [App\Http\Controllers\MainPages\MainController::class, 'courseInfo'])->name('courseinfo');
+Route::get('/main/course/{slug}', [App\Http\Controllers\MainPages\MainController::class, 'courseInfo'])->name('courseinfo');
 Route::get('/main/schools', [App\Http\Controllers\MainPages\MainController::class, 'schools'])->name('schools');
 Route::get('/main/cart', [App\Http\Controllers\MainPages\MainController::class, 'cart'])->name('cart');
 Route::get('/main/checkout', [App\Http\Controllers\MainPages\MainController::class, 'checkout'])->name('checkout');
 Route::get('/main/my-courses/learning', [App\Http\Controllers\MainPages\MainController::class, 'learnings'])->name('my-learnings');
-Route::get('/main/course/cuurent-course', [App\Http\Controllers\MainPages\MainController::class, 'studyPage'])->name('study-page');
+Route::get('/main/study', [App\Http\Controllers\MainPages\MainController::class, 'studyPage'])->name('study-page');
 Route::get('/main/courses', [App\Http\Controllers\MainPages\MainController::class, 'courses'])->name('allcourses');
 Route::get('/main/ebooks', [App\Http\Controllers\MainPages\MainController::class, 'Ebooks'])->name('allEbooks');
 Route::get('/main/about-us', [App\Http\Controllers\MainPages\MainController::class, 'about'])->name('about');
 Route::get('/main/blog', [App\Http\Controllers\MainPages\MainController::class, 'blogs'])->name('blog');
+Route::get('/main/read-blog-post/{slug}', [App\Http\Controllers\MainPages\MainController::class, 'blogSingle']);
 // Main Routes
 
 
@@ -36,9 +37,14 @@ Auth::routes(['verify' => true]);
 
 // User Authenticated Routes
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/main/count-cart', [App\Http\Controllers\CountCart::class, 'count']);
 Route::get('/main/profile', [App\Http\Controllers\MainPages\MainController::class, 'profile'])->name('profile')->middleware('auth');
 Route::get('/main/profile-image', [App\Http\Controllers\MainPages\MainController::class, 'profile_image'])->name('profile_image')->middleware('auth');
 Route::put('/main/update-profile/{id}', [App\Http\Controllers\MainPages\MainController::class, 'update_profile'])->middleware('auth');
+Route::post('/main/add-to-cart', [App\Http\Controllers\MainPages\MainFunction::class, 'AddCart'])->middleware('auth');
+Route::delete('/main/delete-cart/{id}', [App\Http\Controllers\MainPages\MainFunction::class, 'deleteCart'])->middleware('auth');
+Route::get('/main/verify-payment/{reference}', [App\Http\Controllers\MainPages\MainFunction::class, 'VerifyPayment'])->middleware('auth');
+Route::get('/dashboard/my-courses', [App\Http\Controllers\MainPages\Dashboard::class, 'MyCourses'])->middleware('auth');
 // User Authenticated Routes
 
 // Admin Routes
@@ -71,5 +77,24 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::delete('/administrator/delete-banner/{id}', [App\Http\Controllers\Admin\MainFunctions::class, 'DeleteBanner']);
     Route::get('/administrator/add-blog', [App\Http\Controllers\Admin\MainFunctions::class, 'AddBlog'])->name('BlogPage');
     Route::post('/administrator/add-blog', [App\Http\Controllers\Admin\AdminController::class, 'AddBlogDB']);
+    Route::get('/administrator/blog-posts', [App\Http\Controllers\Admin\AdminController::class, 'BlogPost'])->name('AllBlogPost');
+    Route::delete('/administrator/delete-blog/{id}', [App\Http\Controllers\Admin\AdminController::class, 'DeleteBlog']);
+    Route::get('/administrator/create-course', [App\Http\Controllers\Admin\AdminController::class, 'CreateCourse'])->name('CreateCourse');
+    Route::post('/administrator/create-course', [App\Http\Controllers\Admin\Courses::class, 'CreateCourseDB']);
+    Route::get('/administrator/view-course', [App\Http\Controllers\Admin\Courses::class, 'ViewCourse'])->name('ViewCourse');
+    Route::delete('/administrator/delete-courses/{id}', [App\Http\Controllers\Admin\Courses::class, 'DeleteCourses']);
+    Route::get('/administrator/upload-course-image/{slug}', [App\Http\Controllers\Admin\Courses::class, 'UploadCourseImage'])->name('UploadCourseImage');
+    Route::post('/administrator/upload-course-image-db/{slug}', [App\Http\Controllers\Admin\Courses::class, 'UploadCourseImageDB']);
+    Route::get('/administrator/about-me', [App\Http\Controllers\Admin\AdminController::class, 'AboutMe']);
+    Route::post('/administrator/add-about-me', [App\Http\Controllers\Admin\AdminController::class, 'AddAboutMe']);
+    Route::delete('/administrator/delete-description/{id}', [App\Http\Controllers\Admin\AdminController::class, 'DeleteAboutMe']);
+    Route::get('/administrator/cart', [App\Http\Controllers\Admin\AdminController::class, 'Cart']);
+    Route::get('/administrator/add-topic/{slug}/{un_id}/{id}', [App\Http\Controllers\Admin\Courses::class, 'Topic']);
+    Route::post('/administrator/add-topic', [App\Http\Controllers\Admin\Courses::class, 'AddTopic']);
+    Route::delete('/administrator/delete-topic/{id}', [App\Http\Controllers\Admin\Courses::class, 'DeleteTopic']);
+    Route::get('/administrator/add-lesson/{t_id}/{c_id}', [App\Http\Controllers\Admin\Courses::class, 'Lesson']);
+    Route::post('/administrator/add-lesson/{t_id}/{c_id}', [App\Http\Controllers\Admin\Courses::class, 'AddLesson']);
+    Route::get('/administrator/view-lesson/{l_id}', [App\Http\Controllers\Admin\Courses::class, 'ViewLesson']);
+    Route::delete('/administrator/delete-lesson/{id}', [App\Http\Controllers\Admin\Courses::class, 'DeleteLesson']);
 });
 // Admin Routes
