@@ -8,6 +8,10 @@
 @section('content')
 
     <div class="main-profile-page">
+        <div style="display: flex; align-items: center; margin-bottom: 30px;" >
+            <i class="ri-arrow-left-s-fill"></i>
+            <a href="#" id="r_back" style="text-decoration: none; color: #222; font-weight: 600;">Back</a>
+        </div>
         <div class="main-profile-page-container">
             <div class="main-profile-page-container-left">
                 <div class="user-name">
@@ -103,4 +107,14 @@
     });
     });
 </script>
+
+     {{-- Go Back Script --}}
+     <script>
+        const r_back = document.querySelector('#r_back');
+        r_back.addEventListener('click', function(){
+            history.go(-1);
+        });
+    </script>
+
+{{-- Go Back Script --}}
 @endsection

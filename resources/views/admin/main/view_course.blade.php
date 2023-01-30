@@ -24,10 +24,6 @@
                                         <th>S/N</th>
                                         <th>Title</th>
                                         <th>Description</th>
-                                        <th>Price</th>
-                                        <th>Image</th>
-                                        <th>Upload Image</th>
-                                        <th>Add New Topic</th>
                                         <th>See Details</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -42,33 +38,16 @@
                                     <td>{{ $count++ }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>
-                                        {!! htmlspecialchars_decode(nl2br(Str::limit($item->description, 70))) !!}
+                                        {!! htmlspecialchars_decode(nl2br(Str::limit($item->description, 200))) !!}
                                     </td>
+
                                     <td>
-                                        &#8358;{{ $item->ini_price }}
-                                    </td>
-                                    <td>
-                                        @foreach ($courses_image as $c_img)
-                                        @if($item->id === $c_img->course_id)
-                                         <img src="{{ asset('course/'.$c_img->course_image)}}" width="50">
-                                        @endif
-                                    @endforeach
-                                    </td>
-                                    <td>
-                                        <a href="/administrator/upload-course-image/{{$item->slug}}" class="btn btn-warning">Upload</a>
-                                    </td>
-                                    <td>
-                                        <a href="/administrator/add-topic/{{$item->slug}}/{{$item->un_id}}/{{$item->id}}" class="btn btn-success btn-sm">
-                                            Add Topic
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="/administrator/see-course/{{$item->slug}}" class="btn btn-success btn-sm">
+                                        <a href="/administrator/view-course-details/{{$item->id}}" class="btn btn-success btn-sm">
                                             <i class="ri-eye-fill"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-sm">
+                                        <a href="/administrator/edit-course/{{$item->id}}" class="btn btn-success btn-sm">
                                             <i class="ri-edit-box-line"></i>
                                         </a>
                                     </td>

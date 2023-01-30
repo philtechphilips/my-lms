@@ -36,16 +36,18 @@
                     </div>
                     <div class="card-body ">
                         <div class="row">
-                            <div class="col-md-6">
-                                <h4>Lesson: {{$lessons->name}}</h4>
+                            <div class="col-md-10">
+                                <h3>Lesson: {{$lessons->name}}</h3>
                             </div>
-                            <div class="col-md-6" style="text-align: right;">
+                            <div class="col-md-2" style="text-align: right;">
                                 <a href="javascript:viod(0);" id="back" class="btn btn-primary btn-sm"><span class="mt-2"><i class="ri-arrow-go-back-line px-1"></i></span>Back</a>
                             </div>
                             <div class="px-3">
+                                <h3>Lesson Summary:</h3>
                                 {!! htmlspecialchars_decode(nl2br($lessons->content, 550)) !!}
                             </div>
                             <div style="width: 100%" class="px-3">
+                                <h3>Lesson Video:</h3>
                                 <div class="plyr_video-embed" id="player">
                                     <iframe  name="iframe" src="{{$lessons->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>

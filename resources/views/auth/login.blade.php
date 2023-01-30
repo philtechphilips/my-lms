@@ -16,10 +16,22 @@
         <div class="input-group">
             <input type="email" class="input-active" id="input2" onchange="Form()" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
             <label for="email" id="placeholder2" class="active">Email</label>
+
+            @error('email')
+            <span style="color: rgb(124, 0, 0);">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="input-group">
             <input type="password" class="input-active" id="input3" onchange="Form()" name="password" required autocomplete="current-password">
             <label for="password" id="placeholder3" class="active">Password</label>
+
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+             @enderror
         </div>
         <div class="remember">
             <input type="checkbox" class="remember-check" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>

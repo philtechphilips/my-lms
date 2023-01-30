@@ -107,9 +107,9 @@
         </div>
     </div>
 </aside>
+ 
 
-
-<div class="dashboard-navbar">
+<div class="dashboard-navbar" id="header-bottom'">
     <div class="dashboard-navbar-container my-container">
         <div class="header-bottom-container-menu-icon desktop-hide">
             <a href="#" class="trigger" style="text-decoration: none;">
@@ -123,35 +123,35 @@
             </a>
         </div>
 
-        <div class="dashboard-navbar-links">
-            <ul class="dashboard-navbar-links-ul">
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">Quizes</a>
-                </li>
-                <li>
-                    <a href="">Announcements</a>
-                </li>
-                <li>
-                    <a href="">Completed Courses</a>
-                </li>
-                <li>
-                    <a href="">payments</a>
-                </li>
-                {{-- <li>
-                    <a href="{{ route('profile')}} ">Profile</a>
-                </li> --}}
-            </ul>
-        </div>
 
-        <div class="dashboard-navbar-right">
-            <div class="dashboard-navbar-right-profile-image">
-                <a href="#" class="dropdown-trigger">
+
+        <div class="dashboard-navbar-right mobile-hide" style="display: flex; align-items: center;">
+             <div class="dashboard-navbar-links mobile-hide" style="margin-right: 50px;">
+                <ul class="dashboard-navbar-links-ul">
+
+                <li>
+                    <a href="" style="text-transform: capitalize;"><i class="ri-question-fill"></i>Help</a>
+                </li>
+
+                <li>
+                    <a href=""><i class="ri-notification-fill"></i></a>
+                </li>
+
+
+                </ul>
+            </div>
+
+            <div class="dashboard-navbar-right-profile-image" style="display: flex; align-items:center;">
+                <div class="m-wrapper mobile-hide" style="margin-right: 10px;">
+                    <h5>{{Auth::user()->name}}</h5>
+                    <p style="text-align: right; font-size: 13px;">Student</p>
+                </div>
+               <div class="m-wrapper">
+                    <a href="#" class="dropdown-trigger">
                     <img src="{{ asset('assets/images/profile image.jpg') }}" width="50px">
                     <i class="ri-arrow-drop-down-line"></i>
-                </a>
+                    </a>
+               </div>
             </div>
         </div>
     </div>

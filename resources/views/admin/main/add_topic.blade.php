@@ -84,10 +84,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($topics as $topics)
                                     @php
                                         $count = 1;
                                     @endphp
+                                  @foreach ($topics as $topics)
+
                                     <tr>
                                     <td>{{ $count++ }}</td>
                                     <td>{{ $topics->name }}</td>
@@ -160,7 +161,7 @@
                     }else if(response == 'Enter a Topic Summary'){
                         error.text(response);
                     }
-                    else if(response == 'The Topic Exists Enter a New School!'){
+                    else if(response == 'The Topic Exists Enter a New Topic!'){
                         error.text(response);
                     }else if(response === "Topic Added Sucessfully!"){
                         Swal.fire(

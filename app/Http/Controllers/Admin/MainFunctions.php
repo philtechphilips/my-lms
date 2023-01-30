@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\About;
 use App\Models\Admin\Banner;
+use App\Models\Admin\Ebook;
 use App\Models\Admin\Intro_video;
 use App\Models\Admin\Mission;
 use App\Models\Admin\School;
@@ -65,6 +66,37 @@ class MainFunctions extends Controller
     // Show School Page
 
 
+     // Edit School Page
+     public function EditSchools($id){
+        $school = School::where('id', '=', $id)->first();
+        return view('admin.main.edit-schools', compact('school'));
+    }
+    // Edit School Page
+
+
+        // Edit School Page
+        public function UpdateSchools(Request $request, $id){
+            $school = School::find($id);
+            $school->name = $request->name;
+            // Check if school exist
+            $old_schools = DB::table('schools')->where('id', '=', $id)->first();
+            if($request->name == ''){
+                echo "Enter a School Name";
+            }else{
+                if($old_schools->name === $request->name){
+                    echo "No Changes Made!";
+                }else{
+                    $sch_save = $school->update();
+                    if($sch_save){
+                        echo "School Updated Sucessfully!";
+                    }else{
+                        echo "Something Went Wrong!";
+                    }
+                }
+            }
+        }
+        // Edit School Page
+
      // Show Add School Page
      public function addSchools(){
 
@@ -115,6 +147,16 @@ class MainFunctions extends Controller
     // Show Vision Page
 
 
+     //Show Vision Edit Page
+     public function editvision($id){
+        $v = Vision::where('id', '=', $id)->first();
+        $visions = Vision::all();
+        return view('admin.main.edit-vision', compact('visions', 'v'));
+    }
+    // Show Vision Edit Page
+
+
+
       // Add Vision to Database
       public function addVision(Request $request){
         $vision= new Vision();
@@ -142,6 +184,35 @@ class MainFunctions extends Controller
     // Add Vision to Database
 
 
+
+
+      // Update Vision to Database
+      public function updatevision(Request $request, $id){
+        $vision= Vision::find($id);
+        $vision->vision = htmlspecialchars($request->vision);
+
+
+        // Check if school exist
+        $old_vision = DB::table('visions')->where('vision', '=', htmlspecialchars($request->vision))->first();
+
+        if($request->vision == ''){
+            echo "Enter a Vision!!";
+        }else{
+            if($old_vision != ''){
+                echo "No Changes Made!";
+            }else{
+                $vision_save = $vision->update();
+                if($vision_save){
+                    echo "Vision Updated Sucessfully!";
+                }else{
+                    echo "Something Went Wrong!";
+                }
+            }
+        }
+    }
+    // Update Vision to Database
+
+
     // Delete Vision
     public function deleteVision($id){
         $vision = Vision::find($id);
@@ -154,6 +225,15 @@ class MainFunctions extends Controller
      public function mission(){
         $missions = Mission::all();
         return view('admin.main.mission', compact('missions'));
+    }
+    // Show Vision Page
+
+
+      //Show Vision Page
+      public function editmission($id){
+        $mission = Mission::where('id', '=', $id)->first();
+        $missions = Mission::all();
+        return view('admin.main.edit-mission', compact('missions', 'mission'));
     }
     // Show Vision Page
 
@@ -184,6 +264,35 @@ class MainFunctions extends Controller
     }
     // Add Mision to Database
 
+
+    // Update Mission
+
+    public function updatemission(Request $request, $id){
+        $mission= Mission::find($id);
+        $mission->mission = htmlspecialchars($request->mission);
+
+
+        // Check if school exist
+        $old_mission = DB::table('missions')->where('mission', '=', htmlspecialchars($request->mission))->first();
+
+        if($request->mission == ''){
+            echo "Enter a Mission!!";
+        }else{
+            if($old_mission != ''){
+                echo "No Changes Made!";
+            }else{
+                $mission_save = $mission->update();
+                if($mission_save){
+                    echo "Mission Updated Sucessfully!";
+                }else{
+                    echo "Something Went Wrong!";
+                }
+            }
+        }
+    }
+
+    // Update Mission
+
     // Delete Mission to Database
     public function deleteMission($id){
         $mission = Mission::find($id);
@@ -197,6 +306,15 @@ class MainFunctions extends Controller
         return view('admin.main.who_we_are', compact('about'));
     }
     // Show About Us
+
+
+        //Show Edit About Us
+        public function EditwhoWeAre($id){
+            $about = About::all();
+            $a = About::where('id', '=', $id)->first();
+            return view('admin.main.edit-about', compact('about', 'a'));
+        }
+        // Show Edit About Us
 
 
     // Add Vision to Database
@@ -224,6 +342,34 @@ class MainFunctions extends Controller
         }
     }
     // Add Mision to Database
+
+
+
+    public function UpdateAbout(Request $request, $id){
+        $mission= About::find($id);
+        $mission->about = htmlspecialchars($request->mission);
+
+
+        // Check if school exist
+        $old_mission = DB::table('abouts')->where('about', '=', htmlspecialchars($request->mission))->first();
+
+        if($request->mission == ''){
+            echo "Fill in TextField!!";
+        }else{
+            if($old_mission != ''){
+                echo "No Changes Made!";
+            }else{
+                $mission_save = $mission->update();
+                if($mission_save){
+                    echo "About Updated Sucessfully!";
+                }else{
+                    echo "Something Went Wrong!";
+                }
+            }
+        }
+    }
+
+
 
      // Delete Mission to Database
      public function deleteAbout($id){
@@ -277,6 +423,15 @@ class MainFunctions extends Controller
          }
          // Get Banner Page
 
+         // Get Banner  Edit Page
+         public function EditBanner($id)
+         {
+            $banner = Banner::all();
+            $old = Banner::where('id', '=', $id)->first();
+            return view('admin.main.edit-banner', compact('banner', 'old'));
+         }
+         // Get Banner Edit Page
+
         // Get Banner Page
         public function AddBanner(Request $request)
         {
@@ -303,6 +458,32 @@ class MainFunctions extends Controller
             }
         }
         // Get Banner Page
+
+
+        public function UpdateBanner(Request $request, $id)
+        {
+            $banner= Banner::find($id);
+            $banner->banner = htmlspecialchars($request->banner);
+
+
+            // Check if school exist
+            $old_banner = DB::table('banners')->where('banner', '=', htmlspecialchars($request->banner))->first();
+
+            if($request->banner == ''){
+                echo "Enter a Banner Text!!!";
+            }else{
+                if($old_banner != ''){
+                    echo "No Changes Made";
+                }else{
+                    $banner_save = $banner->update();
+                    if($banner_save){
+                        echo "Banner Text Updated Sucessfully!";
+                    }else{
+                        echo "Something Went Wrong!";
+                    }
+                }
+            }
+        }
 
         // Delete Banner Text From Database
        public function DeleteBanner($id)

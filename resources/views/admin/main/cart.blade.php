@@ -58,9 +58,6 @@
 
 
 @section('scripts')
-
-<script src={{ asset("vendor/datatables/js/jquery.dataTables.min.js")}}></script>
-<script src={{ asset("js/plugins-init/datatables.init.js") }}></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
    function deleteStudent(id){

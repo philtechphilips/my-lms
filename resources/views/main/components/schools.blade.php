@@ -9,7 +9,7 @@
         <div class="home-page-sections-cateories-grid">
             @foreach ($schools as $schools)
             <div class="home-page-sections-cateories-grid-body">
-                <a href="#">
+                <a href="/main/school-courses/{{$schools->id}}">
                     <h3>{{$schools->name}}</h3>
                 </a>
                 <p>56 Students</p>

@@ -11,13 +11,13 @@
         <div class="ebook-right-info-body">
             <div class="ebook-right-info-flex">
                 <p>Ebook</p>
-                <p>20 Pages</p>
-                <p>10 Hours</p>
+                <p>{{$ebook->pages}} Page(s)</p>
+                <p>Average Read Time: {{$ebook->av_read_time}} Hours</p>
             </div>
             <h1>
-                Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future
+                {{$ebook->title}}
             </h1>
-            <p style="font-size: 17px;">By <span style="font-weight: 600; text-decoration: underline; cursor: pointer;">Temidara Matthew</span></p>
+            <p style="font-size: 17px;">By <span style="font-weight: 600; text-decoration: underline; cursor: pointer;">{{$ebook->user->name}}</span></p>
             <div class="ebook-right-info-rating-flex" style="margin-top: 20px;">
                 <div class="rating-container" style="display: flex; align-items:center;">
                     <i class="fa-solid fa-star" style="padding-right: 5px; color: rgb(231, 166, 0);"></i>
@@ -30,19 +30,16 @@
                 <p style="padding-left: 5px; font-size: 18px">(<span style="font-weight: 600;">454 ratings</span>)</p>
             </div>
 
-            <div class="ebook-right-info-boy-contents">
-                <h1>
-                    About this ebook
-                </h1>
-                <p>
-                    In the spirit of Steve Jobs and Moneyball, Elon Musk is both an illuminating and authorized look at the extraordinary life of one of Silicon Valley’s most exciting, unpredictable, and ambitious entrepreneurs—a real-life Tony Stark—and a fascinating exploration of the renewal of American invention and its new “makers.”
-
-Elon Musk spotlights the technology and vision of Elon Musk, the renowned entrepreneur and innovator behind SpaceX, Tesla, and SolarCity, who sold one of his Internet companies, PayPal, for $1.5 billion. Ashlee Vance captures the full spectacle and arc of the genius’s life and work, from his tumultuous upbringing in South Africa and flight to the United States to his dramatic technical innovations and entrepreneurial pursuits.
-
-Vance uses Musk’s story to explore one of the pressing questions of our age: can the nation of inventors and creators who led the modern world for a century still compete in an age of fierce global competition? He argues that Musk—one of the most unusual and striking figures in American business history—is a contemporary, visionary amalgam of legendary inventors and industrialists including Thomas Edison, Henry Ford, Howard Hughes, and Steve Jobs. More than any other entrepreneur today, Musk has dedicated his energies and his own vast fortune to inventing a future that is as rich and far-reaching as the visionaries of the golden age of science-fiction fantasy.
-
-Thorough and insightful, Elon Musk brings to life a technology industry that is rapidly and dramatically changing by examining the life of one of its most powerful and influential titans.
-                </p>
+            <div class="course_content_requirements">
+                <div class="course_content_requirements">
+                    <div class="description_body">
+                        <h1>About</h1>
+                        <div style="text-align: left">
+                            {!! htmlspecialchars_decode(nl2br($ebook->description)) !!}
+                        </div>
+                    </div>
+                    <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
+                </div>
             </div>
 
             <div class="course_content_requirements">
@@ -50,7 +47,7 @@ Thorough and insightful, Elon Musk brings to life a technology industry that is 
                     <h1 style="font-size: 28px;
                     font-weight: 600;">Author</h1>
                     <div class="instructor">
-                        <h3 style="color: rgb(255, 8, 58); text-decoration: underline;">Isola Pelumi</h3>
+                        <h3 style="color: rgb(255, 8, 58); text-decoration: underline;">{{$ebook->user->name}}</h3>
                     </div>
                     <div class="instruction_profile">
                         <div class="instruction_image">
@@ -64,15 +61,7 @@ Thorough and insightful, Elon Musk brings to life a technology industry that is 
                         </div>
                     </div>
                     <div class="description_body">
-                        <p>
-                        Avinash Jain is currently a senior at UC Berkeley majoring in Electrical Engineering and Computer Science. He's the CEO and Founder of TheCodex, an online educational platform focused on bringing the best programming content to hundreds of thousands of students around the world.
-
-                        His programming journey began at the age of 10, starting off with simple Python scripts to crawl the weather. Since then, he's worked at numerous companies and is professionally experienced in Python, iOS Development and Web Development. He's launched a plethora of applications in the App Store amassing thousands of downloads. Additionaly, he's competed and won in several hackathons around the world including PennApps and NWHacks.
-
-                        Avinash has a passion to teach - his enthusiasm and love for programming is evident in every video. For the past 7 years he's been an instructor on Udemy and he loves motivating and enabling others to pursue their programming dreams. He hopes to help students realize the power of programming and jumpstart their careers through his courses.
-
-                        Checkout TheCodex for all of his courses, fantastic discounts, and any guidance or help.
-                        </p>
+                        {!! htmlspecialchars_decode(nl2br($ebook->user_details->describe)) !!}
                     </div>
                     <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
                 </div>
@@ -81,12 +70,23 @@ Thorough and insightful, Elon Musk brings to life a technology industry that is 
             <div class="course_content_requirements">
                 <div class="course_content_requirements review">
                     <h1 style="font-size: 28px; font-weight: 600;">Reviews:</h1>
-                    <div class="review_row">
+                    <div class="all-review-grid">
+                    @foreach ($review as $review)
+
+                    <div class="review_row" style="margin-top: 20px;">
                         <div class="review_row_right">
-                            <h3>PS</h3>
+                            <h3>@php
+                                $f= $review->user->name;
+                                $n = preg_split("/\s+/", $f);
+                                $acrony = "";
+                                foreach ($n as $wf) {
+                                    $acrony .= $wf[0];
+                                }
+                                echo substr($acrony, 0, 2);
+                           @endphp</h3>
                         </div>
                         <div class="review_row_left">
-                            <h3>PALAK S.</h3>
+                            <h3>{{$review->user->name}}.</h3>
                             <p>
                                 <span>
                                     <i class="fa-solid fa-star"></i>
@@ -96,150 +96,49 @@ Thorough and insightful, Elon Musk brings to life a technology industry that is 
                                     <i class="fa-solid fa-star"></i>
                                 </span>
                                 2 weeks ago
-                                <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
+                                <h5>{{$review->title}}</h5>
+                                <p>{{$review->content}}</p>
                             </p>
-                            <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                            <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
+                            <span>Helpful?</span>
+                            <a href=""><i class="fa-regular fa-thumbs-up" style="font-size: 14px;"></i></a>
+                            <a href=""><i class="fa-regular fa-thumbs-down" style="font-size: 14px;"></i></a>
                         </div>
                     </div>
-                    <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
+                    @endforeach
 
-
-
-                    <div class="review_row">
-                        <div class="review_row_right">
-                            <h3>PS</h3>
-                        </div>
-                        <div class="review_row_left">
-                            <h3>PALAK S.</h3>
-                            <p>
-                                <span>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                2 weeks ago
-                                <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
-                            </p>
-                            <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                            <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
-                        </div>
-                    </div>
-                    <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
-
-
-
-                    <div class="review_row">
-                        <div class="review_row_right">
-                            <h3>PS</h3>
-                        </div>
-                        <div class="review_row_left">
-                            <h3>PALAK S.</h3>
-                            <p>
-                                <span>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                2 weeks ago
-                                <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
-                            </p>
-                            <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                            <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
-                        </div>
-                    </div>
-                    <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
-
-
-
-
-                    <div class="review_row">
-                        <div class="review_row_right">
-                            <h3>PS</h3>
-                        </div>
-                        <div class="review_row_left">
-                            <h3>PALAK S.</h3>
-                            <p>
-                                <span>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                                2 weeks ago
-                                <p>damn basic for beginners. will help you to clear out your all concepts with great examples Was this review helpful?</p>
-                            </p>
-                            <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                            <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
-                        </div>
-                    </div>
-                    <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
-
-
+                </div>
                 </div>
             </div>
 
             <div class="course_content_requirements">
                 <div class="course_content_requirements">
-                    <h2 style="margin-bottom: 20px; ">Other E-books by <span style="font-weight: 500; color:#FF083A;"><b>Temidara Matthew</b></span></h2>
+                    <h2 style="margin-bottom: 20px; ">Other E-books by <span style="font-weight: 500; color:#FF083A;"><b>{{$ebook->user->name}}</b></span></h2>
                     <div class="more-courses-grid">
-
+                        @foreach ($related_ebook  as $related_ebook )
                         <div class="more-courses-grid-body">
 
                             <div class="more-courses-grid-body-image">
                                 <a>
-                                    <img src="{{ asset('assets/images/billionaire.jpg')}}">
+                                    @foreach ($ebook_image as $e_img)
+                                        @if($related_ebook->id === $e_img->ebook_id)
+                                            <img src="{{ asset('course/'.$e_img->ebook_image)}}" >
+                                        @else
+                                     {{-- <img src="#" alt="Course Image"> --}}
+                                    @endif
+                                    @endforeach
                                 </a>
                             </div>
                             <div class="more-courses-grid-body-contents">
                             <a href="#">
-                                <h2>The Billionaire Master Class (Finance)</h2>
+                                <h2>T{{ Str::limit($related_ebook->title, 50, '...') }}</h2>
                             </a>
-                                <p>A Course By: Temidara Matthew</p>
-                                <h2> &#8358;3,500</h2>
+                                <p>A Course By: {{$related_ebook->user->name}}</p>
+                                <h2> &#8358;{{number_format($related_ebook->real_price, 0)}}</h2>
                             </div>
                         </div>
+                        @endforeach
 
-                        <hr style="display: none;">
 
-                        <div class="more-courses-grid-body">
-
-                            <div class="more-courses-grid-body-image">
-                                <a>
-                                    <img src="{{ asset('assets/images/billionaire.jpg')}}">
-                                </a>
-                            </div>
-                            <div class="more-courses-grid-body-contents">
-                            <a href="#">
-                                <h2>The Billionaire Master Class (Finance)</h2>
-                            </a>
-                                <p>A Course By: Temidara Matthew</p>
-                                <h2> &#8358;3,500</h2>
-                            </div>
-                        </div>
-
-                        <hr style="display: none;">
-
-                        <div class="more-courses-grid-body">
-
-                            <div class="more-courses-grid-body-image">
-                                <a>
-                                    <img src="{{ asset('assets/images/billionaire.jpg')}}">
-                                </a>
-                            </div>
-                            <div class="more-courses-grid-body-contents">
-                            <a href="#">
-                                <h2>The Billionaire Master Class (Finance)</h2>
-                            </a>
-                                <p>A Course By: Temidara Matthew</p>
-                                <h2> &#8358;3,500</h2>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -247,27 +146,15 @@ Thorough and insightful, Elon Musk brings to life a technology industry that is 
 
         {{-- <div class="book-preview">
             <h1 style="margin-bottom: 20px; font-size: 28px;">Book Preview</h1>
-            <embed src=
-"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf#toolbar=0"
-                width="800"
-                height="500">
+            <iframe src=
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
+                width="1000"
+                height="1000"></iframe>
         </div> --}}
         </div>
 
 
-        {{-- <div class="ebook-sticky-right">
-            <div class="ebook-sticky-right-body">
-                <div class="ebook-sticky-right-body-contents">
-                    <img src="{{ asset('assets/images/book.png')}}" width="150">
-                </div>
-                <div class="ebook-sticky-right-button">
-                    <a href="">Add To Cart</a>
-                </div>
-                <div class="ebook-sticky-right-button-two">
-                    <a href="">Read Preview</a>
-                </div>
-            </div>
-        </div> --}}
+
 
 
         <div class="course_content_sticky_right" id="course_content_sticky_right">
@@ -275,12 +162,27 @@ Thorough and insightful, Elon Musk brings to life a technology industry that is 
                 <iframe style="width: 100%;" height="220" src="https://www.youtube.com/embed/jD-cb2drhh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div> --}}
             <div class="course_content_sticky_right_body">
-                <h1 style="margin-bottom: 20px;">&#8358;23,000</h1>
-                    <a href="" class="course_content_sticky_right_body_button">Add to Cart</a>
+                <h1 style="margin-bottom: 20px;">&#8358;{{number_format($ebook->real_price, 0)}}</h1>
+                @if(Auth::check())
+                <a href="javascript:void(0)" class="course_content_sticky_right_body_button" id="cart">Add to Cart</a>
                 <div class="sticky_buttons" style="margin-top: 40px">
                     <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a>
                 </div>
+                <form>
+                   @csrf
+                   <input type="hidden" id="user_id" value="{{Auth::user()->id}}">
+                   <input type="hidden" id="course_id" value="{{$ebook->id}}">
+                   <input type="hidden" id="course_title" value="{{$ebook->title}}">
+                   <input type="hidden" id="course_price" value="{{$ebook->real_price}}">
+                   <input type="hidden" id="ini_price" value="{{$ebook->ini_price}}">
+                </form>
+                @else
+                   <div class="sticky_buttons" style="margin-top: 40px">
+                       <a href="/login" class="course_content_sticky_right_body_button_three">Get Started Now</a>
+                   </div>
+                @endif
                 <p style="margin-top: 20px; text-align: center;">Full Lifetime Access</p>
+                <div id="share"></div>
             </div>
         </div>
     </div>
@@ -300,6 +202,57 @@ Thorough and insightful, Elon Musk brings to life a technology industry that is 
 @endsection
 
 @section('scripts')
+
+
+<script>
+    $(document).ready(function () {
+        // let cart_error = $('#cart_error')
+        let cart = $('#cart');
+        let course_id = $('#course_id').val();
+        let user_id = $('#user_id').val();
+        let course_title = $('#course_title').val();
+        let course_price = $('#course_price').val();
+        let ini_price = $('#ini_price').val();
+
+        $('#cart').click(function(){
+           if(course_id =='' || user_id =='' || course_title=='' ||course_price==''){
+                toastr.warning("Mising Parameters", 'Error!', {timeOut: 5000});
+           }else{
+            $.ajax({
+                method: "POST",
+                url: "/main/add-ebook-to-cart",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data:{
+                    'user_id': user_id,
+                    'course_id': course_id,
+                    'course_title': course_title,
+                    'course_price': course_price,
+                    'ini_price': ini_price,
+                },
+
+                success: function (response){
+                    // alert(response);
+                    if(response == 'E-Book Added to Cart Successfully!'){
+                        toastr.success('E-Book Added to Cart Successfully!', 'Success!', {timeOut: 7000});
+                        $.ajax({
+                                type: "GET",
+                                url: "/main/count-cart",
+                                success: function(response){
+                                 $("#cart_count").text(response);
+                                //    alert(response)
+                                }
+                        })
+                    }else{
+                        toastr.warning(response, 'Error!', {timeOut: 5000});
+                     }
+                }
+            });
+           }
+        })
+    })
+</script>
+
+
 <script>
     let more = document.querySelectorAll('.more');
 
@@ -329,6 +282,18 @@ function myFunction() {
 
 
 </script>
+
+{{-- JS Socials --}}
+<script src="{{ asset('js/jssocials.js') }}"></script>
+<script>
+    $("#share").jsSocials({
+        shares: ["twitter",
+        { share: "facebook", label: "Like our Page"},
+        { share: "whatsapp", label: "Send a Message"},
+        ]
+    })
+</script>
+{{-- Js Socials --}}
 @endsection
 
 

@@ -16,8 +16,25 @@
     <link rel="stylesheet" type="text/css" href={{ asset('styles/mylearning.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/footer.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/profile.css') }}>
+    <link rel="stylesheet" type="text/css" href={{asset('styles/Learning/my-ebook.css')}}>
+    <link rel="stylesheet" type="text/css" href={{asset('styles/Learning/assessment.css')}}>
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/ebook-details.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/payments.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/video-page.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.css" />
+    {{-- Toastr --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" target="_blank">
+    {{-- Toastr --}}
+
+    <style>
+        .ebook-datails-rating a{
+            color: goldenrod;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body class="site">
+<body class="site" onscroll="myFunction()">
        {{-- Including Navigation Bar --}}
        @include('studentLearning.includes.navbar')
        {{-- Including Navigation Bar --}}
@@ -36,9 +53,9 @@
            <div class="overlay"></div>
        {{-- Overlay On Menu Open For Mobile --}}
 
-
-
-
+       {{-- Font Awesome --}}
+       <script src="https://kit.fontawesome.com/42ee96f7b3.js" crossorigin="anonymous"></script>
+       {{-- Font Awesome --}}
        {{-- Adding Jquery --}}
        <script  src={{ asset('scripts/jquery.js') }}></script>
         {{-- Adding Jquery --}}
@@ -68,8 +85,8 @@
        {{-- Adding Swiper Script--}}
 
        {{-- Adding PlyrJs Script--}}
-       <script src="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.js"></script>
-       {{-- Adding PlyrJs Script--}}
+    <script src="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.js"></script>
+    {{-- Adding PlyrJs Script--}}
 
        {{-- Adding OwlCarousel Script--}}
        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -92,6 +109,16 @@
             </script>
        {{-- Navbar Script --}}
 
+       {{-- Go Back Script --}}
+            <script>
+                const back = document.querySelector('#go-back');
+                back.addEventListener('click', function(){
+                    history.go(-1);
+                });
+            </script>
+
+       {{-- Go Back Script --}}
+
         {{-- Sweet Alert --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- Sweet Alert --}}
@@ -100,6 +127,8 @@
        @yield('scripts')
        {{-- Adding Extra Script From Other Pages--}}
 
+
+     
 
 </body>
 </html>

@@ -117,6 +117,24 @@
             cursor: pointer;
         }
 
+        .form-section{
+            display: none
+        }
+
+        .form-section.current{
+            display: inherit
+        }
+
+        .parsley-errors-list{
+            margin: 2px 0 3px;
+            padding: 0;
+            list-style-type: none;
+            color: #fa462e;
+        }
+
+        .dash-img{
+            width: 50px;
+        }
         @media (max-width: 800px){
             .vid-cont .popup-video iframe{
                 width: 90%;
@@ -198,6 +216,9 @@
 
     {{-- Data Table --}}
 
+    {{-- Parsley Js --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- Parsley Js --}}
     {{-- VideoJS --}}
     <script
     src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.12.0/video.min.js"></script>

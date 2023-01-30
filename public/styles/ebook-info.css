@@ -101,6 +101,11 @@
 }
 
 
+.all-review-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 @media screen and (max-width: 1000px) {
     .ebook_content{
         padding: 30px 20px !important;
@@ -154,6 +159,10 @@
     height: 700px;
 }
 
+.all-review-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
 }
 
 @media screen and (max-width: 1325px) {

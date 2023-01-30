@@ -17,7 +17,7 @@
                 <a href="" style="padding-left: 5px;">{{$course->title}}</a>
             </div>
             <h1>{{$course->title}}</h1>
-            <p>The Billionaire Master Class (Finance) | Finance Class | Becoming A Billionaire</p>
+            <p>{{ Str::limit($course->title, 55)}} | {{$course->school}} | Becoming A Billionaire</p>
             <div class="course_content_right_ratings" style="display: flex;">
                 <p>4.7
                         <i class="fa-solid fa-star"></i>
@@ -380,9 +380,9 @@
                 <iframe style="width: 100%;" height="220" src="https://www.youtube.com/embed/jD-cb2drhh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div> --}}
             <div class="course_content_sticky_right_body">
-                <h1 style="margin-bottom: 20px;">&#8358;{{$course->real_price}}</h1>
+                <h1 style="margin-bottom: 20px;">&#8358;{{number_format($course->real_price, 0)}}</h1>
                  @if(Auth::check())
-                 <a href="#" class="course_content_sticky_right_body_button" id="cart">Add to Cart</a>
+                 <a href="javascript:void(0)" class="course_content_sticky_right_body_button" id="cart">Add to Cart</a>
                  <div class="sticky_buttons" style="margin-top: 40px">
                      <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a>
                  </div>
@@ -396,7 +396,7 @@
                  </form>
                  @else
                     <div class="sticky_buttons" style="margin-top: 40px">
-                        <a href="" class="course_content_sticky_right_body_button_three">Get Started Now</a>
+                        <a href="/login" class="course_content_sticky_right_body_button_three">Get Started Now</a>
                     </div>
                  @endif
                 <p style="margin-top: 20px; text-align: center;">Full Lifetime Access</p>

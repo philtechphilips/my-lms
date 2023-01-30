@@ -64,7 +64,7 @@
                                     <p>{{$school->school}}</p>
                                 @endif
                             @endforeach
-                            <p style="font-size: 18px; font-weight: 700; color: #860000;">  &#x20A6;{{$cart->course_price}}</p>
+                            <p style="font-size: 18px; font-weight: 700; color: #860000;">  &#x20A6;{{number_format($cart->course_price, 0)}}</p>
                         </div>
                         </div>
                     <hr style="opacity: .2; margin-bottom: 15px;">
@@ -74,7 +74,7 @@
 
                 <div class="checkout-grid-right-bottom-flex">
                     <p>Total</p>
-                    <p class="naira">&#x20A6;{{$cart_sum}}</p>
+                    <p class="naira">&#x20A6;{{number_format($cart_sum, 0)}}</p>
                 </div>
             </div>
         </div>
@@ -106,6 +106,7 @@
                 type: "GET",
                 url: "/main/verify-payment/"+reference,
                 success: function(response){
+                    // console.log(response)
                     if(response == 'success'){
                         window.location.replace("/dashboard");
                     }

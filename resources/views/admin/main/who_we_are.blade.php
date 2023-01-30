@@ -80,7 +80,7 @@
                                 {!! htmlspecialchars_decode(nl2br($items->about)) !!}
                             </td>
                             <td>
-                                <a href="#" class="btn btn-warning">
+                                <a href="/administrator/edit-who-we-are/{{$items->id}}" class="btn btn-warning">
                                     <i class="ri-edit-2-fill"></i>
                                 </a>
                             </td>

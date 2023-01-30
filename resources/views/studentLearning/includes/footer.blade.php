@@ -1,8 +1,8 @@
 <div class="dashboard-footer">
-    <p>&#169;
+    <p style="font-size: 13px;">&#169;
         @php
         echo date('Y');
         @endphp
-        Mogah All Right Reserved
+        Mogah All Right Reserved Developed By 08028192337
     </p>
 </div>

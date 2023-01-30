@@ -3,6 +3,7 @@
 namespace App\Models\Main;
 
 use App\Models\Admin\Courses;
+use App\Models\Admin\Ebook;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,6 +21,10 @@ class Cart extends Model
     public function course(){
         return $this->belongsTo(Courses::class, 'course_id', 'id');
     }
-}
+
+    public function ebook(){
+        return $this->belongsTo(Ebook::class, 'course_id', 'id');
+    }
+} 
 
 

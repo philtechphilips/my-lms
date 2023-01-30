@@ -9,13 +9,14 @@
         <div class="landingpage-courses-grid-body">
             <a href="/main/course/{{$courses->slug}}">
             <div class="landingpage-courses-grid-body-image">
-                @foreach ($courses_image as $c_img)
+                <img src="{{ asset('course/'.$courses->image)}}" >
+                {{-- @foreach ($courses_image as $c_img)
                     @if($courses->id === $c_img->course_id)
                      <img src="{{ asset('course/'.$c_img->course_image)}}" >
                     @else
-                     {{-- <img src="#" alt="Course Image"> --}}
+                     <img src="#" alt="Course Image">
                     @endif
-                @endforeach
+                @endforeach --}}
                 <i class="ri-play-fill play"></i>
             </div>
             <div class="landingpage-courses-grid-body-contents">
@@ -52,20 +53,21 @@
 <div class="mobile-landingpage-courses swiper">
     <div class="mobile-landingpage-courses-header">
         <h1>Our Courses</h1>
-        <a href="#"><p>See All Courses</p> <i class="ri-arrow-right-fill"></i></a>
+        <a href="/main/courses"><p>See All Courses</p> <i class="ri-arrow-right-fill"></i></a>
     </div>
     <div class="mobile-landingpage-courses-grid swiper-wrapper">
         @foreach ($mobile_courses as $m_c)
             <div class="mobile-landingpage-courses-grid-body swiper-slide">
             <a href="/main/course/{{$m_c->slug}}">
             <div class="mobile-landingpage-courses-grid-body-image">
-                @foreach ($courses_image as $c_img)
+                <img src="{{ asset('course/'.$m_c->image)}}" >
+                {{-- @foreach ($courses_image as $c_img)
                     @if($m_c->id === $c_img->course_id)
                      <img src="{{ asset('course/'.$c_img->course_image)}}" >
                     @else
-                     {{-- <img src="#" alt="Course Image"> --}}
+                     <img src="#" alt="Course Image">
                     @endif
-                @endforeach
+                @endforeach --}}
                 <i class="ri-play-fill play"></i>
             </div>
             <div class="mobile-landingpage-courses-grid-body-contents">

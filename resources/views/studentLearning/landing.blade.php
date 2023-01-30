@@ -8,81 +8,94 @@
         </div>
     </div>
 
-    <div class="student-dashboard-display-grid">
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>{{$enrolled}}</h2>
-            <p>Entrolled Courses</p>
+
+
+    <div class="student-learn-dashboard-cont">
+        <div class="student-learn-dashboard-cont-explore">
+            <h2>Begin your learning path</h2>
+        </div>
+        <div class="student-dashboard-display-flex">
+            <div class="student-dashboard-display-flex-right">
+                <img src="{{asset('image/learning-path.d5b3ca56.png')}}">
+            </div>
+            <div class="student-dashboard-display-flex-left">
+                <a href="/dashboard/my-courses">Begin Learning</a>
+            </div>
         </div>
 
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>0</h2>
-            <p>Active Courses</p>
+        <div class="student-learn-dashboard-cont-explore">
+            <h2>Explore LMS</h2>
         </div>
+        <div class="student-dashboard-display-grid">
+            <div class="student-dashboard-display-grid-body">
+                <a href="#">
+                    <i class="ri-bar-chart-box-fill child-1"></i>
+                    <p>Assessment History</p>
+                </a>
+            </div>
 
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>0</h2>
-            <p>Completed Courses</p>
-        </div>
+            <div class="student-dashboard-display-grid-body">
+                <a href="">
+                    <i class="ri-vidicon-fill child-2"></i>
+                    <p>Live Class Recordings</p>
+                </a>
+            </div>
 
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>0</h2>
-            <p>Passed Quiz</p>
-        </div>
+            <div class="student-dashboard-display-grid-body">
+                <a href="/dashboard/my-courses">
+                    <i class="ri-play-circle-fill child-3"></i>
+                    <p>Courses</p>
+                </a>
+            </div>
 
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>0</h2>
-            <p>Ebooks</p>
-        </div>
+            <div class="student-dashboard-display-grid-body">
+                <a href="/dashboard/my-ebooks">
+                    <i class="ri-book-fill child-4"></i>
+                    <p>E-Books</p>
+                </a>
+            </div>
 
+            <div class="student-dashboard-display-grid-body">
+                <a href="/dashboard/payments">
+                    <i class="ri-bank-card-fill child-5"></i>
+                    <p>Payments</p>
+                </a>
+            </div>
 
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>{{$cart_count}}</h2>
-            <p>Cart</p>
-        </div>
+            <div class="student-dashboard-display-grid-body">
+                <a href="">
+                    <i class="ri-file-download-fill child-6"></i>
+                    <p>Certificates</p>
+                </a>
+            </div>
 
+            <div class="student-dashboard-display-grid-body">
+                <a href="">
+                    <i class="ri-volume-up-fill child-7"></i>
+                    <p>Annoncements</p>
+                </a>
+            </div>
 
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>0</h2>
-            <p>Announcements</p>
-        </div>
+            <div class="student-dashboard-display-grid-body">
+                <a href="">
+                    <i class="ri-arrow-down-circle-fill child-8"></i>
+                    <p>Referrals</p>
+                </a>
+            </div>
 
-
-        <div class="student-dashboard-display-grid-body">
-            <i class="ri-book-open-fill"></i>
-            <h2>0</h2>
-            <p>Live Schedule</p>
+            <div class="student-dashboard-display-grid-body">
+                <a href="/main/profile">
+                    <i class="ri-user-2-fill child-9"></i>
+                    <p>Profile</p>
+                </a>
+            </div>
         </div>
     </div>
 
 
-    <div class="student-dashboard-my-courses-cont">
-        <table>
-            <caption>My Courses</caption>
-            <thead>
-              <tr>
-                <th scope="col">S/N</th>
-                <th scope="col">Course</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="S/N">1</td>
-                <td data-label="Course">The Billionaire Master Class (Finance)</td>
-                <td data-label="Amount">N1,190</td>
-                <td data-label="Rating">4.5</td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+
+
+
     {{-- including Your Courses Components --}}
     {{-- @include('studentLearning.components.dashboard-landing.your-courses') --}}
     {{-- including Your Courses Components --}}

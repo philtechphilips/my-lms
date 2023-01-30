@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+*{
+    font-family: "Manrope";
+}
 .landing-page-container{
     padding: 20px 100px;
 }
@@ -39,116 +44,126 @@
 
 
 /* Dashboard */
+.student-learn-dashboard-cont{
+    padding: 50px 100px;
+}
 .student-dashboard-display-grid{
     display: grid;
-    padding: 100px;
-    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 0;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .student-dashboard-display-grid-body{
     text-align: center;
-    margin-bottom: 30px;
-    margin-right: 10px;
+    margin-bottom: 50px;
+}
+
+.student-dashboard-display-grid-body:hover{
+    margin-top: -5px;
+}
+
+.student-dashboard-display-grid-body a{
+    text-decoration: none;
+}
+
+
+
+.student-dashboard-display-grid-body i{
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 32px;
+    color: rgb(240, 241, 241);
+}
+
+.student-dashboard-display-grid-body p{
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.child-1{
+    background-color: #8B46FF;
+}
+
+.child-2{
+    background-color: #20C933;
+}
+
+.child-3{
+    background-color: #FB8036;
+}
+
+.child-4{
+    background-color: #2D7FF9;
+}
+
+.child-5{
+    background-color: #ce00c3;
+}
+
+.child-6{
+    background-color: #969696;
+}
+
+.child-7{
+    background-color: #18e4e4;
+}
+
+.child-8{
+    background-color: #d43a47;
+}
+
+.child-9{
+    background-color: #8B46FF;
+}
+
+.student-dashboard-display-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF9F5;
     border: solid 1px #efefef;
-    padding: 70px 0;
+    padding-right: 20px;
+    margin: 30px 0;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.student-dashboard-display-flex-right img{
+    background-color: #FFE7D6;
+    width: 300px;
+    border-radius: 10px 0 0 10px;
+}
+
+.student-dashboard-display-flex-left a{
+    text-decoration: none;
+    padding: 15px;
+    background-color: #d43a47;
+    color: #fff;
+    font-weight: 600;
     border-radius: 10px;
 }
 
-.student-dashboard-display-grid-body i{
-    font-size: 32px;
-    background-color: rgb(147, 147, 255);
-    color: rgb(105, 0, 5);
-    padding: 10px;
-    border-radius: 50px;
+.student-dashboard-display-flex-left a:hover{
+    background-color: #b91e2b;
 }
-
-.student-dashboard-display-grid-body h2{
-    font-size: 32px;
-    margin: 10px 0;
-}
-.student-dashboard-my-courses-cont{
-    padding: 0 100px 100px 100px;
-}
-table {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  table caption {
-    font-size: 1.5em;
-    margin: .5em 0 .75em;
-  }
-
-  table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: .35em;
-  }
-
-  table th,
-  table td {
-    padding: .625em;
-    text-align: center;
-  }
-
-  table th {
-    font-size: .85em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-
 /* Dashboard */
 @media screen and (max-width: 800px) {
-    table {
-        border: 0;
-      }
+    .student-dashboard-display-flex-right img{
+        background-color: #FFE7D6;
+        width: 150px;
+        border-radius: 10px 0 0 10px;
+    }
 
-      table caption {
-        font-size: 1.3em;
-      }
+    .student-learn-dashboard-cont{
+        padding: 20px 20px;
+    }
 
-      table thead {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-      }
-
-      table tr {
-        border-bottom: 3px solid #ddd;
-        display: block;
-        margin-bottom: .625em;
-      }
-
-      table td {
-        border-bottom: 1px solid #ddd;
-        display: block;
-        font-size: .8em;
-        text-align: right;
-      }
-
-      table td::before {
-        /*
-        * aria-label has no advantage, it won't be read inside a table
-        content: attr(aria-label);
-        */
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      table td:last-child {
-        border-bottom: 0;
-      }
+    .student-dashboard-display-grid{
+        display: grid;
+        padding: 50px 0;
+        grid-template-columns: repeat(3, 1fr);
+    }
 
     .landing-page-container{
         padding: 20px 20px;
@@ -162,15 +177,7 @@ table {
         padding: 0px 20px !important;
     }
 
-    .student-dashboard-display-grid{
-        display: grid;
-        padding: 20px;
-        grid-template-columns: 1fr;
-    }
 
-    .student-dashboard-my-courses-cont{
-        padding: 0 20px 40px 20px;
-    }
 }
 
 

@@ -72,11 +72,11 @@
 						</a>
 
                         <ul aria-expanded="false">
-							<li><a href="{{ route('CreateCourse') }}">Create New E-Book</a></li>
+							<li><a href="{{ url('/administrator/create-ebook') }}">Create New E-Book</a></li>
 						</ul>
 
                         <ul aria-expanded="false">
-							<li><a href="{{ route('ViewCourse') }}">View Courses</a></li>
+							<li><a href="/administrator/view-ebooks">View E-Books</a></li>
 						</ul>
                     </li>
 
@@ -90,6 +90,16 @@
 						</ul>
                     </li>
 
+                    <li class="nav-label">PAYMENTS</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="ri-bank-card-fill"></i>
+							<span class="nav-text">Manage Payment</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="{{ url('/administrator/payments') }}">View All Payments</a></li>
+						</ul>
+                    </li>
+
                     <li class="nav-label">QUIZ</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="ri-question-answer-line"></i>
@@ -98,6 +108,18 @@
                         <ul aria-expanded="false">
 							<li><a href="{{ url('/administrator/cart') }}">View Carts</a></li>
 						</ul>
+                    </li>
+
+                    <li class="nav-label">REVIEWS</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="ri-star-fill"></i>
+							<span class="nav-text">Manage Reviews</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="/administrator/ebook-reviews">E-Book Reviews</a></li>
+                            <li><a href="{{ route('vision') }}">Course Reviews</a></li>
+						</ul>
+
                     </li>
 
                     <li class="nav-label">BLOG</li>

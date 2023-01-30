@@ -1,0 +1,278 @@
+.video-page-container{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    margin-top: 70px;
+}
+
+.video-page-container-left
+{
+    position: fixed;
+        width: 27%;
+        height: 100%;
+        background-color: #fcfcfc;
+        overflow-y: auto;
+        /* z-index: 10000; */
+        padding-bottom: 120px;
+        border-right: solid 1px #e6e6e6;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.video-page-container-left-header{
+    padding: 20px;
+    background-color: #f3f3f3;
+}
+
+.video-page-container-left-header p{
+    font-size: 12px;
+    color: rgb(219, 0, 0);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.video-page-container-left-header h3{
+    font-size: 18px;
+    color: #757575;
+}
+/* .over-border{
+    border-top: solid 1px #e6e6e6;
+    width: 100%;
+} */
+
+
+.video-page-container-left-topic-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+     padding: 20px 20px 0 20px;
+}
+
+.video-page-container-left-topic-content-header h3
+{
+    font-size: 16px;
+}
+
+.video-page-container-left-topic-content-header p
+{
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(219, 0, 0);
+}
+
+.video-page-container-left-topic-content p{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.video-page-container-left-topic-content-videos-body
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px 15px 20px;
+
+}
+.video-page-container-left-topic-content-videos-left
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-page-container-left-topic-content-videos-left i,
+.video-page-container-left-topic-content-videos-left p{
+    padding-right: 7px;
+}
+
+.video-page-container-left-topic-content-videos-left i
+{
+    color: rgb(219, 0, 0);
+}
+
+
+.video-page-container-right{
+    padding: 50px 100px;
+    width: 75%;
+    margin-left: 25%;
+}
+
+.video-page-container-right h2{
+    margin-bottom: 30px;
+}
+
+.video-page-container-right-prev{
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-page-container-right-prev h6{
+    margin-bottom: 12px;
+}
+
+
+.video-page-lessons-content-navigation{
+
+    display: none;
+}
+.video-page-container-right-comment-body-container{
+    margin-bottom: 50px;
+}
+
+.video-page-container-right-comment-body-container-flex{
+    display: flex;
+}
+
+.video-page-container-right-comment-body-container-flex-image img{
+    margin-right: 25px;
+}
+
+.video-page-container-right-comment-body-container-flex-body-flex-two{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.video-page-container-right-comment-body-container-flex-body-flex-two a{
+    text-decoration: none;
+}
+
+
+.video-page-container-right-comment-body-container-flex-body-flex-two a:hover{
+    color: rgb(216, 0, 0);
+}
+
+.video-page-reply{
+    padding: 0px 0 0px 70px;
+}
+
+.video-page-post-comment{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.video-page-post-comment textarea{
+    width: 100%;
+    height: 180px;
+    margin: 10px 0 5px 0;
+    padding: 5px;
+    outline: none;
+    border-radius: 0;
+    border: solid 2px #efefef;
+}
+.video-page-post-comment p{
+    padding-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.video-page-post-comment input{
+    outline: none;
+    background-color: rgb(196, 71, 71);
+    border: none;
+    padding: 10px 20px;
+    color: #f1f1f1;
+    font-weight: 600;
+}
+
+.video-page-post-comment input:hover{
+    background-color: rgb(182, 45, 45);
+}
+
+.vid-menu-close{
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    .canvas-head-video {
+        padding: 20px;
+    }
+    .video-page-container{
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        flex-direction: column-reverse;
+        margin-top: 40px;
+    }
+
+    .video-page-container-left
+{
+    display: none;
+    position: relative;
+
+}
+
+.video-page-container-left-open
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fcfcfc;
+    overflow-y: auto;
+    /* z-index: 10000; */
+    padding-bottom: 120px;
+    border-right: solid 1px #e6e6e6;
+z-index: 1000;
+
+}
+
+/* .video-page-container-right-hide{
+    display: none;
+} */
+
+.video-page-container-right{
+    padding: 50px 20px;
+    width: 100%;
+    margin-left: 0;
+}
+
+.video-page-lessons-content-navigation{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: rgb(177, 0, 0);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.video-page-lessons-content-navigation p{
+    margin-left: 8px;
+}
+
+.video-page-container-right-comment-body-container-flex-body-flex-two{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.vid-menu-close{
+    display: contents;
+    font-size: 24px;
+    color: rgb(22, 22, 22);
+    text-align: right;
+    width: 100%;
+}
+}

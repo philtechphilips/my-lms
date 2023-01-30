@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MainPages;
 use App\Http\Controllers\Controller;
 use App\Mail\CheckOut;
 use App\Models\Main\Cart;
+use App\Models\Main\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -26,10 +27,34 @@ class MainFunction extends Controller
             $cart->course_title = $request->course_title;
             $cart->course_price = $request->course_price;
             $cart->ini_price = $request->ini_price;
+            $cart->type = "course";
             $cart->status = "pending";
             $save = $cart->save();
             if($save){
                 echo "Course Added to Cart Successfully!";
+            }else{
+                echo "Something Went Wrong!";
+            }
+        }
+    }
+
+
+    public function AddEbookCart(Request $request){
+        $old_cart = Cart::where("course_id", "=", $request->course_id)->where("user_id", "=", Auth::user()->id)->count();
+        if($old_cart > 0){
+            echo "Cart Exists!";
+        }else{
+            $cart = new Cart();
+            $cart->user_id = $request->user_id;
+            $cart->course_id = $request->course_id;
+            $cart->course_title = $request->course_title;
+            $cart->course_price = $request->course_price;
+            $cart->ini_price = $request->ini_price;
+            $cart->type = "ebook";
+            $cart->status = "pending";
+            $save = $cart->save();
+            if($save){
+                echo "E-Book Added to Cart Successfully!";
             }else{
                 echo "Something Went Wrong!";
             }
@@ -73,15 +98,25 @@ class MainFunction extends Controller
     $result = json_decode($response);
 
     $status = $result->status;
-    // $payment_reference = $result->reference;
-    // $verification_id = $result->id;
-    // $amount = $result->amount;
-    // $message = $result->message;
+    $payment_reference = $reference;
+    $verification_id = $result->data->id;
+    $amount = $result->data->amount;
+    $message = $result->message;
     if($status === true){
         $cart = Cart::where('user_id', '=', Auth::user()->id)->where('status', '=', 'pending')->get();
 
+         //Update Payment Table
+         $payment = new Payment();
+         $payment->status = $status;
+         $payment->payment_reference = $payment_reference;
+         $payment->verification_id = $verification_id;
+         $payment->amount = $amount;
+         $payment->user_id = Auth::user()->id;
+         $payment->save();
+
         foreach($cart as $item){
             $item->status = "paid";
+            $item->payment_reference = $payment_reference;
             $update = $item->update();
         }
 

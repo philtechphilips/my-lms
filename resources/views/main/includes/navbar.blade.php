@@ -11,7 +11,7 @@
         <div class="departments">
             @if (Auth::check())
               <div class="mobile-head-signin">
-                <div class="mobile-head-signin-left">
+                <div class="mobile-head-signin-left"> 
                   <h3>
                     @php
                         $fetched_name = Auth::user()->name;
@@ -57,63 +57,19 @@
         <hr style="color: #222; opacity: .3; margin: 15px -15px 15px -15px; ">
         <nav>
             <h4>Popular Schools</h4>
+
+
+            {{-- @foreach ($schools as $nav_sch)
             <div class="mobile-nav-links">
-                <a href="#">School of Politics True Governance</a>
-                <i class="fa-solid fa-angle-right"></i>
+                <a href="#">{{$nav_sch->name}}</a>
             </div>
 
-            <div class="mobile-nav-links">
-                <a href="#">The Billionaire Masterclass Club</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="mobile-nav-links">
-                <a href="#">School of Preminent Power</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="mobile-nav-links">
-                <a href="#">School of Politics True Governance</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="mobile-nav-links">
-                <a href="#">The Billionaire Masterclass Club</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="mobile-nav-links">
-                <a href="#">School of Preminent Power</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="mobile-nav-links">
-                <a href="#">School of Politics True Governance</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="mobile-nav-links">
-                <a href="#">The Billionaire Masterclass Club</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-
-            <div class="mobile-nav-links">
-                <a href="#">The Billionaire Masterclass Club</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-            <div class="mobile-nav-links">
-                <a href="#">The Billionaire Masterclass Club</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-            <div class="mobile-nav-links">
-                <a href="#">The Billionaire Masterclass Club</a>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
+            @endforeach --}}
 
             <div class="mobile-nav-links">
                 <a href="#">All Schools</a>
-                <i class="fa-solid fa-angle-right"></i>
             </div>
+
         </nav>
         <hr style="color: #222; opacity: .3; margin: 15px -15px 15px -15px; ">
         <div class="thebottom-nav">
@@ -155,7 +111,7 @@
             <li><a href="{{ route('allEbooks') }}">All E-books</a></li>
             <li><a href="{{ route('schools') }}">Schools</a></li>
             <li><a href="{{ route('about') }}">About Us</a></li>
-            <li><a href="#">Blogs</a></li>
+            <li><a href="{{route('blog')}}">Blogs</a></li>
             </ul>
         </div>
     </div>
@@ -187,11 +143,11 @@
             </div>
             <div class="header-bottom-container-right">
                 <div class="header-login-button">
-                    <a href="#" class="menu-hide"><p>Courses</p></a>
+                    <a href="/main/courses" class="menu-hide"><p>Courses</p></a>
                 </div>
 
                 <div class="header-login-button user">
-                    <a href="#"><i class="ri-user-line"></i></a>
+                    <a href="/main/profile"><i class="ri-user-line"></i></a>
                 </div>
 
                 @if(Auth::check())
@@ -220,7 +176,7 @@
                 </div>
 
                 <div class="header-login-button sign-up">
-                    <a href="#" class="menu-hide"><p>Account</p></a>
+                    <a href="/main/profile" class="menu-hide"><p>Account</p></a>
                 </div>
 
                 {{-- <div class="header-login-button"> --}}

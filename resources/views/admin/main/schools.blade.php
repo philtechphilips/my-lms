@@ -48,7 +48,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-sm">
+                                        <a href="/administrator/edit-schools/{{$item->id}}" class="btn btn-success btn-sm">
                                             <i class="ri-edit-box-line"></i>
                                         </a>
                                     </td>
@@ -74,8 +74,7 @@
 
 @section('scripts')
 
-<script src={{ asset("vendor/datatables/js/jquery.dataTables.min.js")}}></script>
-<script src={{ asset("js/plugins-init/datatables.init.js") }}></script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
    function deleteStudent(id){

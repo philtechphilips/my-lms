@@ -21,7 +21,11 @@
 }
 
 .dashboard-navbar{
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .dashboard-navbar-container
@@ -142,7 +146,7 @@
 }
 
 @media screen and (max-width: 800px) {
-    .dashboard-navbar-links{
+    .mobile-hide{
         display: none;
     }
     .my-container{
@@ -159,12 +163,13 @@
         background-color: #fcfcfc;
         overflow-y: auto;
         z-index: 1000;
-        padding: 15px;
+        padding: 50px 15px 50px 15px;
         transform: translateX(-100%);
         visibility: hidden;
         transition: transform .4s visibility .4s;
         will-change: transform, visibility;
         /* border: solid 1px #efefef; */
+        margin-top: -35px;
     }
 
     .showmenu .site-off{

@@ -1,0 +1,53 @@
+.student-learn-dashboard-ebook-cont-right-assess-content
+{
+    display: flex;
+    align-items: center;
+    width: 550px;
+    border: solid 1px #efefef;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content p{
+    margin-left: 10px;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 550px;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-body{
+    border: solid 1px #efefef;
+    border-radius: 10px;
+    width: 550px;
+}
+.student-learn-dashboard-ebook-cont-right-assess-content-body .wrapper-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+@media screen and (max-width: 600px) {
+    .student-learn-dashboard-ebook-cont-right-assess-content
+{
+    width: 100%;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-heading{
+    width: 100%;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-body{
+    width: 100%;
+}
+}

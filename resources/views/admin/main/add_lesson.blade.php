@@ -109,7 +109,7 @@
                                 </div> --}}
 
                             <div class="form-group">
-                                <input type="submit" id="submit" value="Create Course" class="btn btn-primary">
+                                <input type="submit" id="submit" value="Create Lesson" class="btn btn-primary">
                             </div>
                         </form>
                     </div>
@@ -160,7 +160,7 @@
                                 <a href="/administrator/view-lesson/{{$lessons->id}}"><i class="ri-play-circle-fill" style="font-size: 22px;"></i></a>
                             </td>
                             <td>
-                                <a href="#" class="btn btn-warning">
+                                <a href="/administrator/edit-lesson/{{$lessons->id}}" class="btn btn-warning">
                                     <i class="ri-edit-2-fill"></i>
                                 </a>
                             </td>

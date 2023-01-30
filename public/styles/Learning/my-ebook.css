@@ -1,0 +1,201 @@
+.student-learn-dashboard-ebook-cont
+{
+
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+.student-learn-dashboard-ebook-cont-left
+{
+    width: 6%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 80;
+    height: fit-content;
+    background-color: #fcfcfc;
+    overflow-y: auto;
+}
+.student-learn-dashboard-ebook-cont-right
+{
+    margin-left: 6%;
+    width: 94%;
+    /* background-color: aquamarine; */
+    height: 40px;
+    padding: 50px;
+}
+
+.student-learn-dashboard-ebook-cont-left-ul
+{
+    /* padding: 10px; */
+    text-align: center;
+}
+
+.student-learn-dashboard-ebook-cont-left-ul li a{
+    text-decoration: none;
+
+}
+
+.student-learn-dashboard-ebook-cont-left-ul li a i{
+    font-size: 24px;
+    padding: 22px 0;
+    color: #CBCDCB;
+
+}
+
+
+
+.student-learn-dashboard-ebook-cont-left-ul li .active i{
+    color: #8B46FF !important;
+    background-color: #F8F3FF;
+    padding: 22px 27px;
+    border-right: solid 3px #5d1fc7;
+}
+
+
+.student-learn-dashboard-ebook-cont-right-back{
+    display: flex;
+    align-items: center;
+    color: #8B46FF;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.student-learn-dashboard-ebook-cont-right-content{
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-learn-dashboard-ebook-cont-right-content p{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 10px;
+}
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body{
+    width: 260px;
+    border: solid 1px #efefef;
+    margin-bottom: 20px;
+}
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body img{
+    width: 260px;
+    height: 160px;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body h4{
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body .time{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: .5;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body-flex-time{
+    display: flex;
+    align-items: center;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body-flex-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid-body-flex-info a{
+    text-decoration: none;
+}
+@media screen and (max-width: 1280px) {
+    .student-learn-dashboard-ebook-cont-left-ul li .active i{
+        padding: 22px 24px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .student-learn-dashboard-ebook-cont-left-ul li .active i{
+        padding: 22px 20px;
+    }
+
+    .student-learn-dashboard-ebook-cont-left-ul li a i{
+        font-size: 20px;
+        padding: 20px 0;
+        color: #CBCDCB;
+
+    }
+
+    .student-learn-dashboard-ebook-cont-right-content{
+        padding: 80px 0;
+    }
+
+    .student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px 10px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .student-learn-dashboard-ebook-cont-left-ul li .active i{
+        padding: 22px 12px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .student-learn-dashboard-ebook-cont-left
+    {
+       display: none;
+    }
+
+    .student-learn-dashboard-ebook-cont-right
+{
+    margin-left: 0%;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .student-learn-dashboard-ebook-cont-right-assess-content-ebook-grid{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 40px 0px;
+    }
+}
+}

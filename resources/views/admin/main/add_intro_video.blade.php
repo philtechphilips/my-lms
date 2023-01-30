@@ -96,7 +96,6 @@
                             <iframe width="800" height="500" src="{{ $intro_video->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="d-flex justify-content-center my-2">
-                            <a href="#" class="btn btn-success mr-3"><i class="ri-edit-2-fill"></i></a>
                             <a href="javascript:void(0)" onclick="deleteIntro({{$intro_video->id}})" class="btn btn-danger mr-3"><i class="ri-delete-bin-line"></i></a>
                         </div>
                     </div>

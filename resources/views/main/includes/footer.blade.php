@@ -78,14 +78,14 @@
             <nav>
                 <ul class="footer-menu-flex">
                     <li class="footer-menu-links">
-                        <a href="#">
+                        <a href="/">
                             <i class="ri-home-line"></i>
                             <span>Home</span>
                         </a>
                     </li>
 
                     <li class="footer-menu-links">
-                        <a href="#">
+                        <a href="/main/courses">
                             <i class="ri-book-read-line"></i>
                             <span>Courses</span>
                         </a>
@@ -93,7 +93,7 @@
 
 
                     <li class="footer-menu-links">
-                        <a href="#">
+                        <a href="/main/profile">
                             <i class="ri-user-line"></i>
                             <span>Account</span>
                         </a>
@@ -107,7 +107,7 @@
                         </a>
                     </li>
 
-                    
+
                 </ul>
             </nav>
         </div>
