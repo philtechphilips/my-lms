@@ -41,7 +41,7 @@
 
                             <input type="hidden" name="password" value="administrator">
                             <input type="hidden" name="password_confirmation" value="administrator">
-                            <input type="hidden" name="user_type" value="administrator">
+                            <input type="hidden" name="user_type" value="admin">
 
 
                             <div class="form-group">
@@ -53,6 +53,17 @@
                                 <input type="submit" class="btn btn-primary" class="form-control">
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card d-flex justify-content">
+                    <div class="card-header">
+                        <h4 class="card-title">Notice</h4>
+                    </div>
+                    <div class="card-body">
+                       <h6>New Administrator Password By Default is <b class="text text-danger">administrator</b></h6>
                     </div>
                 </div>
             </div>

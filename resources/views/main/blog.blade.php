@@ -19,12 +19,12 @@
 
                 @foreach ($blogs as $blogs)
                 <div class="blogPage-container-section1-body">
-                    <a href="/main/read-blog-post/{{$blogs->id}}" style="color: #222;">
+                    <a href="/main/read-blog-post/{{Crypt::encrypt($blogs->id)}}" style="color: #222;">
                     <img src="{{asset('blogImages/'.$blogs->image)}}" style="width: 300px; height: 250px;">
                     <h2>{{$blogs->name}}</h2>
                     </a>
                     <p> {!! htmlspecialchars_decode(nl2br(Str::limit($blogs->blog, 100))) !!}</p>
-                    <a href="/main/read-blog-post/{{$blogs->id}}">Read Article</a>
+                    <a href="/main/read-blog-post/{{Crypt::encrypt($blogs->id)}}">Read Article</a>
                 </div>
                 @endforeach
 

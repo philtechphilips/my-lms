@@ -9,6 +9,10 @@ class About extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'about',
+        'user_id', 'about',
     ];
+
+
+
+
 }

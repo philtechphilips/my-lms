@@ -9,7 +9,7 @@
     <div class="course-info-row">
         <div class="course-info-right">
             <div class="course-info-right-content">
-                <p><a href="" class="course-info-link">Online Courses</a> / <span><a href="#" class="course-info-link">Business & Management</a></span></p>
+                <p><a href="javascript:void()" class="course-info-link">Online Courses</a> / <span><a href="" class="course-info-link">Business & Management</a></span></p>
                 <h1 class="course-info-right-title">Inclusive Management and Leadership Skills.</h1>
                 <p class="course-info-right-content-text">Explore how to effectively manage a diverse team inclusively and create an environment where everyone feels a sense of belonging.</p>
                 <div class="course-info-right-content-icons">
@@ -50,12 +50,12 @@
                         <div class="accordion_header" style="background-color: #c4b5fd; ">
                           <span>
                            Intoduction
-                          </span> 
+                          </span>
                           <div class="icon">
                             +
                           </div>
                         </div>
-                
+
                         <div class="accordion_content" style="margin-top: 15px;">
                           <i class="fa-solid fa-file"></i>
                           <p style="font-size: 15px; font-weight: 500;">
@@ -67,18 +67,18 @@
                         <div class="accordion_header">
                           <span>
                             JavaScript
-                          </span> 
+                          </span>
                           <div class="icon">
                             +
                           </div>
                         </div>
-                
+
                         <div class="accordion_content">
                           <p>
-                            JavaScript® (às vezes abreviado para JS) é uma linguagem leve, 
-                            interpretada e baseada em objetos com funções de primeira classe, 
-                            mais conhecida como a linguagem de script para páginas Web, 
-                            mas usada também em vários outros ambientes sem browser, tais como node.js, 
+                            JavaScript® (às vezes abreviado para JS) é uma linguagem leve,
+                            interpretada e baseada em objetos com funções de primeira classe,
+                            mais conhecida como a linguagem de script para páginas Web,
+                            mas usada também em vários outros ambientes sem browser, tais como node.js,
                             Apache CouchDB e Adobe Acrobat.
                         </div>
                       </div>
@@ -86,15 +86,15 @@
                         <div class="accordion_header">
                           <span>
                             CSS
-                          </span> 
+                          </span>
                           <div class="icon">
                             +
                           </div>
                         </div>
-                
+
                         <div class="accordion_content">
                           <p>
-                            CSS (Cascading Style Sheets ou Folhas de Estilo em Cascata) 
+                            CSS (Cascading Style Sheets ou Folhas de Estilo em Cascata)
                             é uma linguagem de estilo (en-US) usada para descrever a apresentação de um documento escrito em HTML.
                           </p>
                         </div>
@@ -116,45 +116,45 @@
                     Do you want to become a programmer? Do you want to learn how to create games, automate your browser, visualize data, and much more?
 
                     If you’re looking to learn Python for the very first time or need a quick brush-up, this is the course for you!
-                    
+
                     Python has rapidly become one of the most popular programming languages around the world. Compared to other languages such as Java or C++, Python consistently outranks and outperforms these languages in demand from businesses and job availability. The average Python developer makes over $100,000 - this number is only going to grow in the coming years.
-                    
+
                     The best part? Python is one of the easiest coding languages to learn right now. It doesn’t matter if you have no programming experience or are unfamiliar with the syntax of Python. By the time you finish this course, you'll be an absolute pro at programming!
-                    
+
                     This course will cover all the basics and several advanced concepts of Python. We’ll go over:
-                    
+
                     The fundamentals of Python programming
-                    
+
                     Writing and Reading to Files
-                    
+
                     Automation of Word and Excel Files
-                    
+
                     Web scraping with BeautifulSoup4
-                    
+
                     Browser automation with Selenium
-                    
+
                     Data Analysis and Visualization with MatPlotLib
-                    
+
                     Regex parsing and Task Management
-                    
+
                     GUI and Gaming with Tkinter
-                    
+
                     And much more!
-                    
+
                     If you read the above list and are feeling a bit confused, don’t worry! As an instructor and student on Udemy for almost 4 years, I know what it’s like to be overwhelmed with boring and mundane. I promise you’ll have a blast learning the ins and outs of python. I’ve successfully taught over 200,000+ students from over 200 countries jumpstart their programming journeys through my courses.
-                    
+
                     Here’s what some of my students have to say:
-                    
+
                     “I wish I started programming at a younger age like Avi.  This Python course was excellent for those that cringe at the thought of starting over from scratch with attempts to write programs once again. Python is a great building language for any beginner programmer. Thank you Avi!”
-                    
-                    
-                    
+
+
+
                     “I had no idea about any programming language. With Avi's lectures, I'm now aware of several python concepts and I'm beginning to write my own programs. Avi is crisp and clear in his lectures and it is easy to catch the concepts and the depth of it through his explanations. Thanks, Avi for the wonderful course, You're awesome! It's helping me a lot :)”
-                    
-                    
-                    
+
+
+
                     "Videos are short and concise and well-defined in their title, this makes them easy to refer back to when a refresher is needed. Explanations aren't convoluted with complicated examples, which adds to the quick pace of the videos. I am very pleased with the decision to enroll in this course. Not only has it increased the pace I'm learning Python but I actively look forward to continuing the course, whenever I get the chance. Avi is friendly and energetic, absolutely delightful as an instructor.”
-                    
+
                     So what are you waiting for? Jumpstart your programming journey and dive into the world of Python by enrolling in this course today!
                    </p>
                 </div>
@@ -167,7 +167,7 @@
                     If you’re looking to learn Python for the very first time or need a quick brush-up, this is the course for you!
                    </p>
                 </div>
-                
+
             </div>
         </div>
         <div class="course-info-left">
@@ -212,7 +212,7 @@
       <div class="review-rating-right">
         <progress  min="0" max="5"></progress>
       </div>
-      
+
     </div>
   </div>
 </section>

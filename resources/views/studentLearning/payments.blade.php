@@ -41,13 +41,13 @@
                     </li>
 
                     <li>
-                        <a href="/good"><i class="fa-solid fa-bullhorn"></i></a>
+                        <a href="/dashboard/notification"><i class="fa-solid fa-bullhorn"></i></a>
 
                     </li>
 
                 </ul>
             </div>
-            <div class="student-learn-dashboard-ebook-cont-right">
+            <div class="student-learn-dashboard-ebook-cont-right" style="margin-bottom: 10px !important">
                 <div class="student-learn-dashboard-ebook-cont-right-back" id="go-back">
                     <i class="ri-arrow-left-s-line"></i>
                     <p>Back</p>

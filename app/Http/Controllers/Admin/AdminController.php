@@ -10,6 +10,7 @@ use App\Models\Main\Cart;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -66,6 +67,22 @@ class AdminController extends Controller
         $description = Describe::get();
         return view('admin.main.about-me', compact('description'));
     }
+
+    public function EditAbout($id){
+        $description = Describe::where('id', '=', Crypt::decrypt($id))->first();
+        return view('admin.main.edit_about_me', compact('description'));
+    }
+
+
+    public function EditAboutMe(Request $request, $id){
+        $describe = Describe::find($id);
+        $describe->describe = htmlspecialchars($request->mission);
+        $update = $describe->update();
+        if($update){
+            return "Record Updated Sucessfully!";
+        }
+    }
+
 
         // Add Admin description to Database
         public function AddAboutMe(Request $request){

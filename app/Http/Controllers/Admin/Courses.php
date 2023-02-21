@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\CourseImage;
 use App\Models\Admin\Courses as AdminCourses;
 use App\Models\Admin\Lesson;
+use App\Models\Admin\Reply;
 use App\Models\Admin\School;
 use App\Models\Admin\Topic;
 use App\Models\Main\Cart;
+use App\Models\Main\Comment;
+use App\Models\Main\Coursereview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -102,7 +105,7 @@ class Courses extends Controller
             $courses->un_id = uniqid();
             $save = $courses->save();
             if($save){
-                return redirect()->back()->with('success','Course Created Successfully!');
+                return redirect()->back()->with('success','Course Created Successfully!'); 
                 // return 'Course Created Successfully!';
             }else{
                 return redirect()->back()->with('error','Something Went Wrong!');
@@ -431,6 +434,67 @@ class Courses extends Controller
     public function DeleteLesson($id){
         $lesson = Lesson::find($id);
         $delete = $lesson->delete();
+    }
+
+
+    public function Comment(){
+        $comment = Comment::all();
+        return view('admin.main.comment', compact('comment'));
+    }
+
+
+    public function ReplyComment($id, $lesson_id){
+        $comment = Comment::find($id);
+        return view('admin.main.reply-comment', compact('comment', 'lesson_id'));
+    }
+
+
+    public function ReplyCommentDB(Request $request){
+        $validated = $request->validate([
+            'reply'=> 'required|string',
+            'comment_id' => 'required',
+            'lesson_id' => 'required'
+        ]);
+
+        $reply = new Reply();
+        $reply->user_id = Auth::user()->id;
+        $reply->course_id = $request->comment_id;
+        $reply->lesson_id = $request->lesson_id;
+        $reply->comment = $request->reply;
+        $save = $reply->save();
+
+        if($save){
+            return redirect()->back()->with('success','Reply Posted');
+        }else{
+
+            return redirect()->back()->with('error','Something Went Wrong!');
+        }
+    }
+
+
+    public function DeleteComment($id){
+        $comment = Comment::find($id);
+        $delete = $comment->delete();
+    }
+
+
+    public function CourseReviews()
+    {
+        $course_review = Coursereview::all();
+        return view('admin.main.course-review', compact('course_review'));
+    }
+
+    public function DeleteCourseReview($id)
+    {
+        $course_review = Coursereview::find($id);
+        $delete = $course_review->delete();
+    }
+
+    public function UpdateCourseReview($id)
+    {
+        $course_review = Coursereview::find($id);
+        $course_review->status = "Approved";
+        $update = $course_review->update();
     }
 
 }

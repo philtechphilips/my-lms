@@ -12,7 +12,7 @@
                 <a href="/main/school-courses/{{$schools->id}}">
                     <h3>{{$schools->name}}</h3>
                 </a>
-                <p>56 Students</p>
+                {{-- <p>{{$schools->course->count()}} Students</p> --}}
             </div>
             @endforeach
 

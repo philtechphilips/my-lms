@@ -62,7 +62,7 @@
                                 <tr>
                                     <th>S/N</th>
                                     <th>Banner Text</th>
-                                    <th>Status</th>
+                                    {{-- <th>Status</th> --}}
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -79,11 +79,11 @@
                                 <td>
                                     {!! htmlspecialchars_decode(nl2br($items->banner)) !!}
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <a href="#" class="btn btn-success">
                                        Active
                                     </a>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <a href="/administrator/edit-banner/{{$items->id}}" class="btn btn-warning">
                                         <i class="ri-edit-2-fill"></i>

@@ -15,7 +15,7 @@
             <div class="student-learn-dashboard-ebook-cont-left">
                 <ul class="student-learn-dashboard-ebook-cont-left-ul">
                     <li>
-                        <a href="/good"><i class="fa-solid fa-house"></i></a>
+                        <a href="/dashboard"><i class="fa-solid fa-house"></i></a>
                     </li>
 
                     <li>
@@ -37,11 +37,12 @@
 
 
                     <li>
-                        <a href="/good"><i class="fa-solid fa-credit-card"></i></a>
+                        <a href="/dashboard/payments"><i class="fa-solid fa-credit-card"></i></a>
                     </li>
 
                     <li>
-                        <a href="/good"><i class="fa-solid fa-bullhorn"></i></a>
+                        <a href="/dashboard/notification"><i class="fa-solid fa-bullhorn"></i></a>
+
                     </li>
 
                 </ul>

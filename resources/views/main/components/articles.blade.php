@@ -10,7 +10,7 @@
         <div class="recent-articles-grid-body">
             <img src="{{ asset('blogImages/' . $blog->image) }}" width="300">
             <div class="recent-articles-grid-body-content">
-                <a href="/main/read-blog-post/{{ $blog->slug }}">
+                <a href="/main/read-blog-post/{{ Crypt::encrypt($blog->id) }}">
                     <h2>
                         {{ $blog->name }}
                     </h2>

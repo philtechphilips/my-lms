@@ -11,4 +11,8 @@ class School extends Model
     protected $fillable = [
         'name', 'recommended',
     ];
+
+    public function course(){
+        return $this->belongsTo(Courses::class, 'school', 'name');
+    }
 }

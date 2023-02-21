@@ -9,7 +9,7 @@
 @include('main.components.hero')
 
 
-@include('main.components.courses')
+@include('main.components.courses') 
 
 
 @include('main.components.landingpageCta')

@@ -19,10 +19,10 @@ class MainFunction extends Controller
     public function AddCart(Request $request){
         $old_cart = Cart::where("course_id", "=", $request->course_id)->where("user_id", "=", Auth::user()->id)->count();
         if($old_cart > 0){
-            echo "Cart Exists!";
+            echo "Cart Exists or Course Purchased!";
         }else{
             $cart = new Cart();
-            $cart->user_id = $request->user_id;
+            $cart->user_id = Auth::user()->id;
             $cart->course_id = $request->course_id;
             $cart->course_title = $request->course_title;
             $cart->course_price = $request->course_price;
@@ -42,7 +42,7 @@ class MainFunction extends Controller
     public function AddEbookCart(Request $request){
         $old_cart = Cart::where("course_id", "=", $request->course_id)->where("user_id", "=", Auth::user()->id)->count();
         if($old_cart > 0){
-            echo "Cart Exists!";
+            echo "Cart Exists or E-Book Has Been Purchased!";
         }else{
             $cart = new Cart();
             $cart->user_id = $request->user_id;

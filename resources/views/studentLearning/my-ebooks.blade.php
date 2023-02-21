@@ -37,11 +37,12 @@
 
 
                     <li>
-                        <a href="/good"><i class="fa-solid fa-credit-card"></i></a>
+                        <a href="/dashboard/payments"><i class="fa-solid fa-credit-card"></i></a>
                     </li>
 
                     <li>
-                        <a href="/good"><i class="fa-solid fa-bullhorn"></i></a>
+                        <a href="/dashboard/notification"><i class="fa-solid fa-bullhorn"></i></a>
+
                     </li>
 
                 </ul>
@@ -120,7 +121,7 @@
                     </div>
                     @endforeach
                 </div>
-                @else 
+                @else
                 <div class="student-learn-dashboard-ebook-cont-right-content">
                     <img src="{{asset('image/empty-box.de242ea5.png')}}">
                     <p>No E-Book in Record</p>

@@ -14,7 +14,7 @@ class CreateEbookreviewsTable extends Migration
     public function up()
     {
         Schema::create('ebookreviews', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             $table->string('title');
             $table->longText('content');
             $table->integer('user_id');

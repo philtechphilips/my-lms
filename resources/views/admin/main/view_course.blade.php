@@ -51,6 +51,7 @@
                                             <i class="ri-edit-box-line"></i>
                                         </a>
                                     </td>
+
                                     <td>
                                         {{-- <input type="hidden" class="delete_id_value" value="{{$item->id}}"> --}}
                                         <a href="javascript:void(0)" onclick="deleteStudent({{$item->id}})"  class="btn btn-primary btn-sm">
@@ -110,5 +111,5 @@
             }
         })
     }
-</script>
+</script> 
 @endsection

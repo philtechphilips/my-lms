@@ -8,25 +8,69 @@
 
 
 <section class="course_content">
+    <div class="popup" id="popup-1">
+        <div class="n_overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup()">&times;</div>
+            <div class="container auth-form">
+                <form method="POST" id="form" class="form" autocomplete="off">
+                    @csrf
+                    <div class="form-heading">
+                        <h1>Give us a Feedback About The Course</h1>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="input-active" id="input2" onchange="Form()" name="title" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <label for="title" id="placeholder2" class="i_active">Title</label>
+
+                        <input type="hidden" id="course" value="{{$course->id}} ">
+                        {{-- @error('email')
+                        <span style="color: rgb(124, 0, 0);">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror --}}
+                    </div>
+                    <div class="input-group">
+                        <textarea  class="input-active" id="input3" onchange="Form()" rows="7" name="comment" required autocomplete="current-password"></textarea>
+                        <label for="comment" id="placeholder3" class="i_active">Comment</label>
+
+                        {{-- @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                         @enderror --}}
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" id="submit" name="submit" class="submit">
+                    </div>
+
+
+                    <hr style="margin-top: 20px;">
+                    <h4 style="text-align: center; margin-top: 10px; font-weight: 700;">Rate E-Book</h4>
+                  <div class="ebook-datails-rating">
+                    <a href="#" id="rating-star-1"><i class="ri-star-line"></i></a>
+                    <a href="#" id="rating-star-2"><i class="ri-star-line"></i></a>
+                    <a href="#" id="rating-star-3"><i class="ri-star-line"></i></a>
+                    <a href="#" id="rating-star-4"><i class="ri-star-line"></i></a>
+                    <a href="#" id="rating-star-5"><i class="ri-star-line"></i></a>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="course_content_banner">
          <div class="course_content_banner_header" id="">
             <div class="course_content_right_links">
-                <a href="" style="padding-right: 5px;">{{$course->school}}
+                <a href="javscript:void(0)" style="padding-right: 5px;">{{$course->school}}
                 </a>
                 <i class="fa-solid fa-angle-right" style="color: #fff"></i>
-                <a href="" style="padding-left: 5px;">{{$course->title}}</a>
+                <a href="javscript:void(0)" style="padding-left: 5px;">{{$course->title}}</a>
             </div>
             <h1>{{$course->title}}</h1>
-            <p>{{ Str::limit($course->title, 55)}} | {{$course->school}} | Becoming A Billionaire</p>
+            <p>{{ Str::limit($course->title, 55)}} | {{$course->school}}</p>
             <div class="course_content_right_ratings" style="display: flex;">
-                <p>4.7
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <a href="" style="color: rgb(255, 8, 58);">(1,327) ratings</a>
-                        <a> 3498 Students</a>
+                <p>
+                    <a href="javscript:void(0)" style="color: rgb(255, 37, 81);">{{$reviews_count}} Review(s)</a>
+                    <a> {{$registered_students}} Registered Student(s)</a>
                 </p>
             </div>
 
@@ -34,7 +78,11 @@
                 <p>Created By {{$course->course->name}}</p>
                 <p><i class="fa-solid fa-upload"></i>
                     <span>
-                        <a>Last Updated {{$course->updated_at}}</a>
+                        <a>Last Updated  @php
+                            // date("M jS, Y", strtotime("2011-01-05"));
+                            $c_date = strtotime($course->updated_at);
+                            echo date("M j, Y", $c_date);
+                            @endphp</a>
                     </span>
                 </p>
 
@@ -47,8 +95,12 @@
             </div>
 
             <div class="course_content_header_cta">
-                <h1 style="font-weight: 600; padding-bottom: 10px">&#x20A6;20,000</h1>
-                <a href="#" id="mobile_cart"> Add to Cart </a>
+                <h1 style="font-weight: 600; padding-bottom: 10px">&#x20A6; {{number_format($course->real_price)}}</h1>
+                @if(Auth::check())
+                    <a href="javascript:void(0)" id="mobile_cart"> Add to Cart </a>
+                @else
+                    <a href="/login" id="mobile_cart">Login</a>
+                @endif
             </div>
         </div>
 
@@ -71,12 +123,11 @@
             <div class="course_content_requirements">
                 <h1>Requirements</h1>
                 <ul>
+                    @foreach ($requirement as $requirement)
                     <li>
-                        Willingness to take the course
+                        {{$requirement}}
                     </li>
-                    <li>
-                        Dedicated time for the course
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -88,7 +139,7 @@
                 <h1>Demo Video</h1>
                 {{-- <video src="" autoplay controls></video> --}}
                 <div class="plyr_video-embed" id="player">
-                    <iframe width="800" height="500" src="https://www.youtube.com/watch?v=HR1VG8L7iGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="800" height="500" src="{{$course->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -163,7 +214,7 @@
                         {!! htmlspecialchars_decode(nl2br($course->description)) !!}
                     </div>
                 </div>
-                <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
+                <a class="more"> </a>
             </div>
         </div>
 
@@ -172,9 +223,11 @@
             <div class="course_content_requirements">
                 <h1>Who this course is for:</h1>
                 <ul>
-                    <li>Those who are wishing to become billionaires.</li>
-                    <li>Those Who want to learn how to get wealth from God.</li>
-                    <li>Those who want to learn how to maintain their finance</li>
+                    @foreach ($audience as $audience)
+                    <li>
+                        {{$audience}}
+                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -182,9 +235,9 @@
 
         <div class="course_content_requirements">
             <div class="course_content_requirements">
-                <h1>Instructors</h1>
+                <h1>Instructor</h1>
                 <div class="instructor">
-                    <h3 style="color: rgb(255, 8, 58); text-decoration: underline;">Temidara Matthew</h3>
+                    <h3 style="color: rgb(255, 8, 58); text-decoration: underline;">{{$course->course->name}}</h3>
                 </div>
                 <div class="instruction_profile">
                     <div class="instruction_image">
@@ -198,27 +251,40 @@
                     </div>
                 </div>
                 <div class="description_body">
+                    @if($course->about != '')
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, ratione quae incidunt recusandae nam molestias rerum quibusdam aliquid esse nisi voluptatibus, accusantium adipisci minus quam expedita accusamus nulla. A, temporibus.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse neque quos autem quam magnam nobis enim, fugiat impedit iusto quae repudiandae quo perspiciatis doloribus animi itaque natus ut ea? Accusamus?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae excepturi nulla autem commodi, eius sunt voluptate omnis. Voluptates, pariatur. Error optio deserunt esse alias a atque minima veritatis nobis dolorum?
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla esse porro quia sed distinctio dolore enim, laboriosam dolorem, error corporis in iste numquam quisquam. Neque aut rerum temporibus harum aliquam.
+                        {!! htmlspecialchars_decode(nl2br($course->about->describe)) !!}
                     </p>
+                    @else
+                        <p>About Instructor Not Avaliable</p>
+                    @endif
                 </div>
-                <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
+                <a class="more"> </a>
             </div>
         </div>
 
 
         <div class="course_content_requirements">
             <div class="course_content_requirements review">
-                <h1>Reviews:</h1>
-                <div class="review_row">
+                <h1 style="font-size: 28px; font-weight: 600;">Reviews:</h1>
+                <div class="all-review-grid">
+                @foreach ($review as $review)
+
+                <div class="review_row" style="margin-top: 20px;">
                     <div class="review_row_right">
-                        <h3>OS</h3>
+                        {{-- <img src="{{ asset('image/'.Auth::user()->passport) }}" style="border: solid 1px #efefef;" width="50px"> --}}
+                        <h3>@php
+                            $f= $review->user->name;
+                            $n = preg_split("/\s+/", $f);
+                            $acrony = "";
+                            foreach ($n as $wf) {
+                                $acrony .= $wf[0];
+                            }
+                            echo substr($acrony, 0, 2);
+                       @endphp</h3>
                     </div>
                     <div class="review_row_left">
-                        <h3>OLA S.</h3>
+                        <h3>{{$review->user->name}}.</h3>
                         <p>
                             <span>
                                 <i class="fa-solid fa-star"></i>
@@ -227,149 +293,51 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </span>
-                            2 weeks ago
-                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
+
+                            @php
+                                $date_string = $review->created_at;
+                                echo date("W", strtotime($date_string)) . "weeks(s) ago";
+                            @endphp
+                            <h5>{{$review->title}}</h5>
+                            <p>{{$review->content}}</p>
                         </p>
-                        <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                        <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
+                        {{-- <span>Helpful?</span>
+                        <a href=""><i class="fa-regular fa-thumbs-up" style="font-size: 14px;"></i></a>
+                        <a href=""><i class="fa-regular fa-thumbs-down" style="font-size: 14px;"></i></a> --}}
                     </div>
                 </div>
-                <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
+                @endforeach
 
-
-
-                <div class="review_row">
-                    <div class="review_row_right">
-                        <h3>OS</h3>
-                    </div>
-                    <div class="review_row_left">
-                        <h3>OLA S.</h3>
-                        <p>
-                            <span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                            2 weeks ago
-                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
-                        </p>
-                        <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                        <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
-                    </div>
-                </div>
-                <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
-
-
-                <div class="review_row">
-                    <div class="review_row_right">
-                        <h3>OS</h3>
-                    </div>
-                    <div class="review_row_left">
-                        <h3>OLA S.</h3>
-                        <p>
-                            <span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                            2 weeks ago
-                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
-                        </p>
-                        <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                        <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
-                    </div>
-                </div>
-                <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
-
-
-                <div class="review_row">
-                    <div class="review_row_right">
-                        <h3>OS</h3>
-                    </div>
-                    <div class="review_row_left">
-                        <h3>OLA S.</h3>
-                        <p>
-                            <span>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                            2 weeks ago
-                            <p>I have been greatly blessed after taking this course, my life has been greatly transformed.</p>
-                        </p>
-                        <a href=""><i class="fa-regular fa-thumbs-up"></i></a>
-                        <a href=""><i class="fa-regular fa-thumbs-down"></i></a>
-                    </div>
-                </div>
-                <hr style="opacity: .3; margin-top: 15px; margin-bottom: 15px;">
-
-
+            </div>
             </div>
         </div>
 
-
         <div class="course_content_requirements">
             <div class="course_content_requirements">
-                <h1>More Courses by <span style="font-weight: 600; color:#FF083A;"><b>Temidara Matthew</b></span></h1>
+                <h1>More Courses by <span style="font-weight: 600; color:#FF083A;"><b>{{$course->course->name}}</b></span></h1>
                 <div class="more-courses-grid">
 
+                    @foreach ($more_course  as $more_course)
                     <div class="more-courses-grid-body">
 
                         <div class="more-courses-grid-body-image">
-                            <a>
-                                <img src="{{ asset('assets/images/billionaire.jpg')}}">
+                            <a href="/main/course/{{Crypt::encrypt($more_course->id)}}">
+                                <img src="{{ asset('/course/'.$more_course->image)}}">
                             </a>
                         </div>
                         <div class="more-courses-grid-body-contents">
-                        <a href="#">
-                            <h2>The Billionaire Master Class (Finance)</h2>
+                        <a href="/main/course/{{Crypt::encrypt($more_course->id)}}">
+                            <h2>{{$more_course->title}}</h2>
                         </a>
-                            <p>A Course By: Temidara Matthew</p>
-                            <h2> &#8358;3,500</h2>
+                            <p>A Course By: {{$more_course->course->name}}</p>
+                            <h2> &#8358;{{number_format($more_course->real_price)}}</h2>
                         </div>
                     </div>
 
                     <hr style="display: none;">
+                    @endforeach
 
-                    <div class="more-courses-grid-body">
 
-                        <div class="more-courses-grid-body-image">
-                            <a>
-                                <img src="{{ asset('assets/images/billionaire.jpg')}}">
-                            </a>
-                        </div>
-                        <div class="more-courses-grid-body-contents">
-                        <a href="#">
-                            <h2>The Billionaire Master Class (Finance)</h2>
-                        </a>
-                            <p>A Course By: Temidara Matthew</p>
-                            <h2> &#8358;3,500</h2>
-                        </div>
-                    </div>
-
-                    <hr style="display: none;">
-
-                    <div class="more-courses-grid-body">
-
-                        <div class="more-courses-grid-body-image">
-                            <a>
-                                <img src="{{ asset('assets/images/billionaire.jpg')}}">
-                            </a>
-                        </div>
-                        <div class="more-courses-grid-body-contents">
-                        <a href="#">
-                            <h2>The Billionaire Master Class (Finance)</h2>
-                        </a>
-                            <p>A Course By: Temidara Matthew</p>
-                            <h2> &#8358;3,500</h2>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -382,24 +350,52 @@
             <div class="course_content_sticky_right_body">
                 <h1 style="margin-bottom: 20px;">&#8358;{{number_format($course->real_price, 0)}}</h1>
                  @if(Auth::check())
-                 <a href="javascript:void(0)" class="course_content_sticky_right_body_button" id="cart">Add to Cart</a>
-                 <div class="sticky_buttons" style="margin-top: 40px">
-                     <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a>
-                 </div>
-                 <form>
-                    @csrf
-                    <input type="hidden" id="user_id" value="{{Auth::user()->id}}">
-                    <input type="hidden" id="course_id" value="{{$course->id}}">
-                    <input type="hidden" id="course_title" value="{{$course->title}}">
-                    <input type="hidden" id="course_price" value="{{$course->real_price}}">
-                    <input type="hidden" id="ini_price" value="{{$course->ini_price}}">
-                 </form>
+                    @if($enrolled_course !='')
+                        <a href="javascript:void(0)" class="course_content_sticky_right_body_button">Lessons</a>
+                        <div class="sticky_buttons" style="margin-top: 40px">
+                            <a href="javascript:void(0)" class="course_content_sticky_right_body_button_two" onclick="togglePopup()">Review</a>
+                        </div>
+
+                    @else
+                        <a href="javascript:void(0)" class="course_content_sticky_right_body_button" id="cart">Add to Cart</a>
+                        <div class="sticky_buttons" style="margin-top: 40px">
+                        <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a>
+                        </div>
+                        <form>
+                       @csrf
+                       <input type="hidden" id="user_id" value="{{Auth::user()->id}}">
+                       <input type="hidden" id="course_id" value="{{$course->id}}">
+                       <input type="hidden" id="course_title" value="{{$course->title}}">
+                       <input type="hidden" id="course_price" value="{{$course->real_price}}">
+                       <input type="hidden" id="ini_price" value="{{$course->ini_price}}">
+                        </form>
+                    @endif
+
                  @else
                     <div class="sticky_buttons" style="margin-top: 40px">
                         <a href="/login" class="course_content_sticky_right_body_button_three">Get Started Now</a>
                     </div>
                  @endif
-                <p style="margin-top: 20px; text-align: center;">Full Lifetime Access</p>
+                 <div style="margin-top: 20px; font-size: 16px; color: #5e5e5e; display: flex; align-items: center;">
+                    <i class="ri-lock-unlock-line"></i>
+                    <span>Full Lifetime Access</span>
+                </div>
+
+                <div style="margin-top: 12px; font-size: 16px; color: #5e5e5e; display: flex; align-items: center;">
+                    <i class="ri-user-line"></i>
+                    <span>{{$enrolled_course_number}} Students</span>
+                </div>
+
+                <div style="margin-top: 12px; font-size: 16px; color: #5e5e5e; display: flex; align-items: center;">
+                    <i class="ri-award-fill"></i>
+                    <span>Certificate of Completion</span>
+                </div>
+
+
+                <div style="margin-top: 12px; font-size: 16px; color: #5e5e5e; display: flex; align-items: center;">
+                    <i class="ri-user-line"></i>
+                    <span>{{$lessons}} Lessons</span>
+                </div>
                 <div id="share"></div>
             </div>
         </div>
@@ -409,8 +405,8 @@
     <div class="course_content_requirements">
         <div class="course_content_requirements sticky_footer">
             <div class="sticky_footer_content">
-                <p>&#8358;24,000</p>
-                <a href="">Buy Now</a>
+                <p>&#8358;{{number_format($course->real_price)}}</p>
+                <a href="javascript:void(0)" id="buy_now">Buy Now</a>
             </div>
         </div>
     </div>
@@ -441,11 +437,11 @@
 
     let see_all = document.querySelectorAll('.see_all');
 
-for(let i = 0; i<see_all.length; i++){
+    for(let i = 0; i<see_all.length; i++){
     see_all[i].addEventListener('click', function(){
         see_all[i].parentNode.classList.toggle('see_all_activate');
     })
-}
+    }
 </script>
 <script>
     $(document).ready(function () {
@@ -492,11 +488,84 @@ for(let i = 0; i<see_all.length; i++){
             });
            }
         })
+
+
+        $('#mobile_cart').click(function(){
+           if(course_id =='' || user_id =='' || course_title=='' ||course_price==''){
+                toastr.warning("Mising Parameters", 'Error!', {timeOut: 5000});
+           }else{
+            $.ajax({
+                method: "POST",
+                url: "/main/add-to-cart",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data:{
+                    'user_id': user_id,
+                    'course_id': course_id,
+                    'course_title': course_title,
+                    'course_price': course_price,
+                    'ini_price': ini_price,
+                },
+
+                success: function (response){
+                    // alert(response);
+                    if(response == 'Course Added to Cart Successfully!'){
+                        toastr.success('Course Added to Cart Successfully!', 'Success!', {timeOut: 7000});
+                        $.ajax({
+                                type: "GET",
+                                url: "/main/count-cart",
+                                success: function(response){
+                                 $("#cart_count").text(response);
+                                //    alert(response)
+                                }
+                        })
+                    }else{
+                        toastr.warning(response, 'Error!', {timeOut: 5000});
+                     }
+                }
+            });
+           }
+        })
+
+        $('#buy_now').click(function(){
+           if(course_id =='' || user_id =='' || course_title=='' ||course_price==''){
+                toastr.warning("Mising Parameters", 'Error!', {timeOut: 5000});
+           }else{
+            $.ajax({
+                method: "POST",
+                url: "/main/add-to-cart",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data:{
+                    'user_id': user_id,
+                    'course_id': course_id,
+                    'course_title': course_title,
+                    'course_price': course_price,
+                    'ini_price': ini_price,
+                },
+
+                success: function (response){
+                    // alert(response);
+                    if(response == 'Course Added to Cart Successfully!'){
+                        toastr.success('Course Added to Cart Successfully!', 'Success!', {timeOut: 7000});
+                        $.ajax({
+                                type: "GET",
+                                url: "/main/count-cart",
+                                success: function(response){
+                                 $("#cart_count").text(response);
+                                //    alert(response)
+                                }
+                        })
+                    }else{
+                        toastr.warning(response, 'Error!', {timeOut: 5000});
+                     }
+                }
+            });
+           }
+        })
     })
 </script>
 
 
-<script>
+{{-- <script>
     $(document).ready(function () {
         let cart_error = $('#cart_error')
         let mobile_cart = $('#mobile_cart ');
@@ -542,7 +611,7 @@ for(let i = 0; i<see_all.length; i++){
            }
         })
     })
-</script>
+</script> --}}
 
 {{-- JS Socials --}}
 <script>
@@ -554,4 +623,41 @@ for(let i = 0; i<see_all.length; i++){
     })
 </script>
 {{-- Js Socials --}}
+
+<script>
+    function togglePopup(){
+        document.getElementById("popup-1").classList.toggle("p_active");
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#submit').click(function (e) {
+            e.preventDefault();
+            let title = $("#input2").val();
+            let content = $("#input3").val();
+            let course = $("#course").val();
+            $.ajax({
+            method: "POST",
+            url: "/main/add-course-review",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data:{
+                'title': title,
+                'content': content,
+                'course': course,
+            },
+
+            success: function (response){
+                // alert(response);
+            if(response == 'Review Submitted Awaiting Approval!'){
+                toastr.success(response, 'Success!', {timeOut: 7000});
+                $("#form").get(0).reset();
+            }else{
+                toastr.warning(response, 'Error!', {timeOut: 5000});
+            }
+            }
+            });
+        });
+    });
+</script>
 @endsection

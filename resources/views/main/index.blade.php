@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('styles/about-us.css')}}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/verify-page.css')}}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/404.css')}}>
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/video-page.css')}}>
     <link rel="stylesheet" href={{ asset('css/swiper.css')}} >
     <link rel="stylesheet" type="text/css" href={{ asset('styles/checkout.css') }}>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -85,11 +86,11 @@
 </div>
 
 
- 
+
 
     {{-- Adding Jquery --}}
     <script  src={{ asset('scripts/jquery.js') }}></script>
-     {{-- Adding Jquery --}}
+     {{-- Adding Jquery --}} 
 
       {{-- Adding Main Navigation Script--}}
     <script src={{ asset('scripts/mainnavigation.js')}}></script>

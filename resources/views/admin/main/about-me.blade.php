@@ -81,7 +81,7 @@
                                 {!! htmlspecialchars_decode(nl2br($items->describe)) !!}
                             </td>
                             <td>
-                                <a href="#" class="btn btn-warning">
+                                <a href="/administrator/edit-about-me/{{Crypt::encrypt($items->id)}}" class="btn btn-warning">
                                     <i class="ri-edit-2-fill"></i>
                                 </a>
                             </td>

@@ -169,7 +169,7 @@
         transition: transform .4s visibility .4s;
         will-change: transform, visibility;
         /* border: solid 1px #efefef; */
-        margin-top: -35px;
+        margin-top: -10px;
     }
 
     .showmenu .site-off{
@@ -274,10 +274,9 @@
 
     .mobile-head-signin-left{
         color: #fff;
-        padding: 17px 20px;
+        padding: 17px 5px;
         border-radius: 50%;
-        background-color: #222;
-        margin-right: 15px;
+        margin-right: 10px; 
     }
 
     .dashboard-navbar-right-profile-image-dropdown{

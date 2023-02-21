@@ -36,6 +36,10 @@ class Courses extends Model
         return $this->belongsTo(User::class, 'author', 'id');
     }
 
+    public function about(){
+        return $this->belongsTo(Describe::class, 'author', 'user_id');
+    }
+
     public function topic(){
         return $this->hasMany(Topic::class);
     }

@@ -8,6 +8,7 @@ use App\Models\Admin\Ebookfile;
 use App\Models\Admin\Ebookimage;
 use App\Models\Admin\School;
 use App\Models\Main\Ebookreview;
+use App\Models\Main\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -304,5 +305,27 @@ class Ebook extends Controller
         $ebook_review = Ebookreview::find($id);
         $ebook_review->status = "Approved";
         $update = $ebook_review->update();
+    }
+
+
+    public function FeedBacks()
+    {
+        $feedback = Feedback::all();
+        return view('admin.main.feedback', compact('feedback'));
+    }
+
+
+    public function DeleteFeedback($id)
+    {
+        $feedback = Feedback::find($id);
+        $delete = $feedback->delete();
+    }
+
+
+    public function UpdateFeedback($id)
+    {
+        $feedback = Feedback::find($id);
+        $feedback->status = "1";
+        $update = $feedback->update();
     }
 }

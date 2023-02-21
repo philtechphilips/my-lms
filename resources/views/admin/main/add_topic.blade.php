@@ -78,7 +78,7 @@
                                         <th>Topic Name</th>
                                         <th>Topic Summary</th>
                                         <th>Add Lesson</th>
-                                        <th>Add Quiz</th>
+                                        {{-- <th>Add Quiz</th> --}}
                                         <th>Edit Topic</th>
                                         <th>Delete</th>
                                     </tr>
@@ -98,11 +98,11 @@
                                             Add Lesson
                                         </a>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="#" class="btn btn-success btn-sm">
                                             Add Quiz
                                         </a>
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <button class="btn btn-warning btn-sm">
                                             <i class="ri-edit-2-fill"></i>

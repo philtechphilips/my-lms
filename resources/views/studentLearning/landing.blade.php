@@ -28,7 +28,7 @@
         </div>
         <div class="student-dashboard-display-grid">
             <div class="student-dashboard-display-grid-body">
-                <a href="#">
+                <a href="/dashboard/learn/history">
                     <i class="ri-bar-chart-box-fill child-1"></i>
                     <p>Assessment History</p>
                 </a>
@@ -69,19 +69,33 @@
                 </a>
             </div>
 
-            <div class="student-dashboard-display-grid-body">
+            {{-- <div class="student-dashboard-display-grid-body">
                 <a href="">
                     <i class="ri-volume-up-fill child-7"></i>
                     <p>Annoncements</p>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="student-dashboard-display-grid-body">
+                <a href="/dashboard/feedback">
+                    <i class="ri-feedback-fill child-7"></i>
+                    <p>Feedback</p>
+                </a>
+            </div>
+
+            {{-- <div class="student-dashboard-display-grid-body">
+                <a href="">
+                    <i class="ri-volume-up-fill child-7"></i>
+                    <p>Annoncements</p>
+                </a>
+            </div> --}}
+
+            {{-- <div class="student-dashboard-display-grid-body">
                 <a href="">
                     <i class="ri-arrow-down-circle-fill child-8"></i>
                     <p>Referrals</p>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="student-dashboard-display-grid-body">
                 <a href="/main/profile">

@@ -61,7 +61,7 @@
                                     {!! htmlspecialchars_decode(nl2br(Str::limit($items->blog, 100))) !!}
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-warning">
+                                    <a href="/administrator/edit-blog/{{Crypt::encrypt($items->id)}}" class="btn btn-warning">
                                         <i class="ri-edit-2-fill"></i>
                                     </a>
                                 </td>

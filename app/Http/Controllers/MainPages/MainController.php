@@ -11,27 +11,32 @@ use App\Models\Admin\Courses;
 use App\Models\Admin\Ebook;
 use App\Models\Admin\Ebookimage;
 use App\Models\Admin\Intro_video;
+use App\Models\Admin\Lesson;
 use App\Models\Admin\Mission;
 use App\Models\Admin\School;
 use App\Models\Admin\Vision;
+use App\Models\Main\Bcomment;
 use App\Models\Main\Cart;
+use App\Models\Main\Comment;
+use App\Models\Main\Coursereview;
 use App\Models\Main\Ebookreview;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
     public function index(){
          // Get Vision
-         $vision = Vision::first();
+         $vision = Vision::latest()->first();
 
          // Get Mission
-         $mission = Mission::first();
+         $mission = Mission::latest()->first();
 
         // Get Introduction Video
-        $intro = Intro_video::first();
+        $intro = Intro_video::latest()->first();
 
         // Get Schools
         $schools = DB::table('schools')
@@ -40,7 +45,7 @@ class MainController extends Controller
                 ->where('recommended', '=', 'h_recommended')
                 ->get();
         // Get Banner Text
-        $banner = Banner::first();
+        $banner = Banner::latest()->first();
 
         // Get Courses
         $courses = Courses::limit(16)->inRandomOrder()->get();
@@ -74,18 +79,30 @@ class MainController extends Controller
     }
 
     public function ebookInfo($slug){
-        $ebook = Ebook::where('slug', '=', $slug)->first();
+        $ebook = Ebook::where('id', '=', Crypt::decrypt($slug))->first();
         $what_you_learn = explode(",", $ebook->learn);
         $related_ebook = Ebook::where('author', '=', $ebook->author)->limit(3)->inRandomOrder()->get();
         $ebook_image = Ebookimage::all();
-        $review = Ebookreview::where('ebook_id', '=', $ebook->id)->get();
+        $review = Ebookreview::where('ebook_id', '=', $ebook->id)->where('status', '=', 'Approved')->get();
         return view('main.ebookinfo', compact('ebook', 'what_you_learn', 'related_ebook', 'ebook_image', 'review'));
     }
 
     public function courseInfo($slug){
-        $course = Courses::where('slug', '=', $slug)->first();
+        $course = Courses::where('id', '=', Crypt::decrypt($slug))->first();
+        $enrolled_course = Cart::where('course_id', '=', $course->id)->where('user_id', '=', Auth::user()->id)->where('status', '=', 'paid')->first();
+        $lessons = Lesson::where('course_id', '=', $course->id)->count();
+        $enrolled_course_number = Cart::where('course_id', '=', $course->id)->where('status', '=', 'paid')->count();
         $what_you_learn = explode(",", $course->learn);
-        return view('main.courseInfo2', compact('course', 'what_you_learn'));
+        $requirement = explode(",", $course->requirement);
+        $audience = explode(",", $course->audience);
+        $review = Coursereview::where('course_id', '=', $course->id)->where('status', '=', 'Approved')->get();
+
+        $reviews_count = Coursereview::where('course_id', '=', $course->id)->where('status', '=', 'Approved')->count();
+
+        $registered_students = Cart::where('course_id', '=', Crypt::decrypt($slug))->where('status', '=', 'paid')->where('type', '=', 'course')->count();
+
+        $more_course = Courses::where('author', '=', $course->course->id)->get();
+        return view('main.courseInfo2', compact('course', 'more_course', 'registered_students', 'reviews_count', 'requirement', 'review', 'audience', 'what_you_learn', 'lessons', 'enrolled_course', 'enrolled_course_number'));
     }
 
     public function schools(){
@@ -152,13 +169,13 @@ class MainController extends Controller
 
     public function about(){
         // Get Who We Are
-        $about = About::first();
+        $about = About::latest()->first();
 
         // Get Vision Are
-        $vision = Vision::first();
+        $vision = Vision::latest()->first();
 
         // Get Mission
-        $mission = Mission::first();
+        $mission = Mission::latest()->first();
 
 
         return view('main.about', compact('about', 'vision', 'mission'));
@@ -171,9 +188,10 @@ class MainController extends Controller
     }
 
     public function blogSingle($slug){
-        // Get Blogs
-        $blogs = Blogs::get();
-        return view('main.blog-single', compact('blogs'));
+        $blogs = Blogs::where('id', '=', Crypt::decrypt($slug))->first();
+        $recent = Blogs::limit(4)->get();
+        $comment = Bcomment::where('blog_id', '=', Crypt::decrypt($slug))->get();
+        return view('main.blog-single', compact('blogs', 'recent', 'comment'));
     }
 
     public function dashboard(){
@@ -190,11 +208,84 @@ class MainController extends Controller
 
     public function admin(){
         $users = User::count();
+        $new_user = User::where('user_type', '=', 'user')->limit(10)->latest()->get();
+        $comment =  Comment::limit(10)->latest()->get();
         $courses = Courses::count();
         $ebooks = Ebook::count();
         $pending_cart = Cart::where('status', '=', 'pending')->count();
         $pending_ebook_review = Ebookreview::where('status', '=', 'Pending')->count();
-        return view('admin.main.dashboard', compact('users', 'courses', 'ebooks', 'pending_cart', 'pending_ebook_review'));
+        $recent_trans = Cart::where('status', '=', 'paid')->limit(10)->latest()->get();
+        $amount_made = Cart::select(
+            DB::raw("(sum(course_price)) as price"),
+            DB::raw("(DATE_FORMAT(created_at, '%d-%m-%Y')) as date")
+            )
+            ->orderBy('created_at')
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))->limit(7)->latest()
+            ->get();
+
+
+            $amount_mad = Cart::select(
+                DB::raw("(sum(course_price)) as price"),
+                DB::raw("(DATE_FORMAT(created_at, '%d-%m-%Y')) as date")
+                )
+                ->orderBy('created_at')
+                ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))->limit(7)->latest()
+                ->get();
+
+
+                $paid_c = Cart::select(
+                    DB::raw("(count(course_price)) as b_courses"),
+                    DB::raw("(DATE_FORMAT(created_at, '%d-%m-%Y')) as date")
+                    )
+                    ->orderBy('created_at')
+                    ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))->limit(7)->latest()
+                    ->get();
+
+                $paid_course = Cart::select(
+                    DB::raw("(count(course_price)) as b_courses"),
+                    DB::raw("(DATE_FORMAT(created_at, '%d-%m-%Y')) as date")
+                    )
+                    ->orderBy('created_at')
+                    ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))->limit(7)->latest()
+                    ->get();
+
+                $new_user_graph = User::select(
+                    DB::raw("(count(id)) as user"),
+                    DB::raw("(DATE_FORMAT(created_at, '%d-%m-%Y')) as date")
+                    )
+                    ->orderBy('created_at')
+                    ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))->limit(7)->latest()->where('user_type', '=', 'user')
+                    ->get();
+
+
+                    $new_user_graph_2 = User::select(
+                        DB::raw("(count(id)) as user"),
+                        DB::raw("(DATE_FORMAT(created_at, '%d-%m-%Y')) as date")
+                        )
+                        ->orderBy('created_at')
+                        ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))->limit(7)->latest()->where('user_type', '=', 'user')
+                        ->get();
+
+
+                        $amount_made_per_month = Cart::select(
+                            DB::raw("(sum(course_price)) as price"),
+                            DB::raw("(DATE_FORMAT(created_at, '%M')) as month_year")
+                            )
+                            ->orderBy('created_at')
+                            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%M')"))->where('status', '=', 'paid')
+                            ->get();
+
+
+
+                            $amount_made_per_month_2 = Cart::select(
+                                DB::raw("(sum(course_price)) as price"),
+                                DB::raw("(DATE_FORMAT(created_at, '%M')) as month_year")
+                                )
+                                ->orderBy('created_at')
+                                ->groupBy(DB::raw("DATE_FORMAT(created_at, '%M')"))->where('status', '=', 'paid')
+                                ->get();
+
+        return view('admin.main.dashboard', compact('users', 'paid_course', 'amount_made_per_month', 'amount_made_per_month_2', 'new_user_graph', 'new_user_graph_2', 'recent_trans', 'paid_c', 'amount_made', 'amount_mad', 'comment', 'new_user', 'courses', 'ebooks', 'pending_cart', 'pending_ebook_review'));
     }
 
 
@@ -223,11 +314,20 @@ class MainController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);
 
-         $imageName = date('YmdHis') . '.' . $request->image->extension();
-         $request->image->move(public_path('image'), $imageName);
-          $user->passport = $imageName;
+          $file = $request->image;
+          $filename = time()."_".$file->getClientOriginalName();
+
+          $extension = $file->getClientOriginalExtension();
+
+          // Upload Location
+          $location = "image";
+
+          $file->move($location,$filename);
+          $filepath = url('image/'.$filename);
+          $user->passport = $filename;
           $user->update();
-          return redirect('/administrator/profile')->with(['message' => 'Profile Photo Updated Successfully!!', 'status' => 'success']);
+
+          return redirect('/main/profile-image')->with(['message' => 'Profile Photo Updated Successfully!!', 'status' => 'success']);
     }
 
     public function admin_profile(){

@@ -1,0 +1,51 @@
+.student-learn-dashboard-ebook-cont-right-score-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 25px 0;
+}
+
+.student-learn-dashboard-ebook-cont-right-score-grid-body p{
+    margin: 8px 0;
+}
+
+.student-learn-dashboard-ebook-cont-right-score-grid-body a{
+    text-decoration: none;
+    background-color: rgb(0, 168, 0);
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.student-learn-dashboard-ebook-cont-right-score-grid-body .wrong{
+    text-decoration: none;
+    background-color: rgb(218, 0, 0);
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.student-learn-dashboard-ebook-cont-right-score-grid-body
+{
+    padding: 15px;
+    border: solid 1px #efefef;
+    margin: 10px;
+}
+
+@media (max-width: 800px) {
+    .student-learn-dashboard-ebook-cont-right-score-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 25px 0;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .student-learn-dashboard-ebook-cont-right-score-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 25px 0 80px 0;
+    }
+}

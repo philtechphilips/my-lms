@@ -21,6 +21,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/ebook-details.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/payments.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/video-page.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/quiz.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/view-score.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.css" />
     {{-- Toastr --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" target="_blank">
@@ -123,12 +125,14 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- Sweet Alert --}}
 
+
+
        {{-- Adding Extra Script From Other Pages--}}
        @yield('scripts')
        {{-- Adding Extra Script From Other Pages--}}
 
 
-     
+
 
 </body>
 </html>

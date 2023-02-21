@@ -53,9 +53,27 @@ Route::get('/dashboard/read-ebook/{id}', [App\Http\Controllers\MainPages\Dashboa
 Route::get('/dashboard/ebook-details/{id}', [App\Http\Controllers\MainPages\Dashboard::class, 'EbookDetails'])->middleware('auth');
 Route::post('/main/add-ebook-review', [App\Http\Controllers\MainPages\Dashboard::class, 'EbookReview'])->middleware('auth');
 Route::get('/dashboard/payments', [App\Http\Controllers\MainPages\Dashboard::class, 'Payments'])->middleware('auth');
+Route::post('/main/add-course-review', [App\Http\Controllers\MainPages\Dashboard::class, 'CourseReview'])->middleware('auth');
 Route::get('/dashboard/video-course/{id}', [App\Http\Controllers\MainPages\Videos::class, 'index'])->middleware('auth');
 Route::get('/dashboard/take-lessons/{course_id}/{lesson_id}', [App\Http\Controllers\MainPages\Videos::class, 'watch'])->middleware('auth');
 Route::post('/dashboard/course-comment', [App\Http\Controllers\MainPages\Videos::class, 'Comment'])->middleware('auth');
+Route::post('/dashboard/blog-comment', [App\Http\Controllers\MainPages\Videos::class, 'BlogComment'])->middleware('auth');
+Route::post('/dashboard/complete-lesson', [App\Http\Controllers\MainPages\Videos::class, 'FinishCourse'])->middleware('auth');
+
+
+
+// QUiz Routes
+Route::get('/dashboard/attempt/quiz/{course_id}/{quiz_id}/{quest_id}', [App\Http\Controllers\MainPages\Dashboard::class, 'QuizPage'])->middleware('auth');
+Route::post('/dashboard/submit-answer', [App\Http\Controllers\MainPages\Dashboard::class, 'AddQuiz'])->middleware('auth');
+Route::post('/dashboard/finish-quiz', [App\Http\Controllers\MainPages\Dashboard::class, 'FinishQuiz'])->middleware('auth');
+Route::get('/dashboard/assessment-score/{quiz_id}', [App\Http\Controllers\MainPages\Dashboard::class, 'ViewScore'])->middleware('auth');
+// Quiz Routes
+
+
+// Feedback
+Route::get('/dashboard/feedback', [App\Http\Controllers\MainPages\Dashboard::class, 'FeedBack'])->middleware('auth');
+Route::post('/dashboard/feedback', [App\Http\Controllers\MainPages\Dashboard::class, 'FeedBackDB'])->middleware('auth');
+// Feedback
 // User Authenticated Routes
 
 // Admin Routes
@@ -63,6 +81,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin', [App\Http\Controllers\MainPages\MainController::class, 'admin'])->name('admin-landing');
     Route::get('/administrator/all-admins', [App\Http\Controllers\Admin\MainFunctions::class, 'allAdmins']);
     Route::get('/administrator/add-admin', [App\Http\Controllers\Admin\MainFunctions::class, 'addAdmin']);
+    Route::delete('/administrator/delete-admin/{id}', [App\Http\Controllers\Admin\MainFunctions::class, 'DeleteAdmin']);
     Route::get('/administrator/all-users', [App\Http\Controllers\Admin\MainFunctions::class, 'allUsers']);
     Route::get('/administrator/profile', [App\Http\Controllers\MainPages\MainController::class, 'admin_profile']);
     Route::post('/administrator/profile-picture/{id}', [App\Http\Controllers\MainPages\MainController::class, 'upload_image']);
@@ -96,16 +115,25 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('/administrator/update-banner/{id}', [App\Http\Controllers\Admin\MainFunctions::class, 'UpdateBanner']);
     Route::post('/administrator/add-banner', [App\Http\Controllers\Admin\MainFunctions::class, 'AddBanner']);
     Route::delete('/administrator/delete-banner/{id}', [App\Http\Controllers\Admin\MainFunctions::class, 'DeleteBanner']);
+
     Route::get('/administrator/add-blog', [App\Http\Controllers\Admin\MainFunctions::class, 'AddBlog'])->name('BlogPage');
+    Route::get('/administrator/blog-comment', [App\Http\Controllers\Admin\MainFunctions::class, 'BlogComment']);
+    Route::delete('/administrator/delete-blog-comment/{id}', [App\Http\Controllers\Admin\MainFunctions::class, 'DeleteBlogComment']);
+
+    Route::put('/administrator/updtae-blog/{id}', [App\Http\Controllers\Admin\MainFunctions::class, 'UpdateBlog']);
+    Route::get('/administrator/edit-blog/{id}', [App\Http\Controllers\Admin\MainFunctions::class, 'EditBlog']);
     Route::post('/administrator/add-blog', [App\Http\Controllers\Admin\AdminController::class, 'AddBlogDB']);
     Route::get('/administrator/blog-posts', [App\Http\Controllers\Admin\AdminController::class, 'BlogPost'])->name('AllBlogPost');
     Route::delete('/administrator/delete-blog/{id}', [App\Http\Controllers\Admin\AdminController::class, 'DeleteBlog']);
     Route::get('/administrator/create-course', [App\Http\Controllers\Admin\AdminController::class, 'CreateCourse'])->name('CreateCourse');
 
     Route::get('/administrator/about-me', [App\Http\Controllers\Admin\AdminController::class, 'AboutMe']);
+    Route::get('/administrator/edit-about-me/{id}', [App\Http\Controllers\Admin\AdminController::class, 'EditAbout']);
+    Route::put('/administrator/update-about-me/{id}', [App\Http\Controllers\Admin\AdminController::class, 'EditAboutMe']);
     Route::post('/administrator/add-about-me', [App\Http\Controllers\Admin\AdminController::class, 'AddAboutMe']);
     Route::delete('/administrator/delete-description/{id}', [App\Http\Controllers\Admin\AdminController::class, 'DeleteAboutMe']);
     Route::get('/administrator/cart', [App\Http\Controllers\Admin\AdminController::class, 'Cart']);
+
 
     // Courses Routes
     Route::post('/administrator/create-course', [App\Http\Controllers\Admin\Courses::class, 'CreateCourseDB']);
@@ -126,6 +154,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/administrator/edit-topic/{id}/{c_id}', [App\Http\Controllers\Admin\Courses::class, 'EditTopic']);
     Route::get('/administrator/edit-lesson/{id}', [App\Http\Controllers\Admin\Courses::class, 'EditLesson']);
     Route::put('/administrator/edit-lesson/{id}', [App\Http\Controllers\Admin\Courses::class, 'UpdateLesson']);
+    Route::get('/admin/course-comment', [App\Http\Controllers\Admin\Courses::class, 'Comment']);
+    Route::delete('/administrator/delete-comment/{id}', [App\Http\Controllers\Admin\Courses::class, 'DeleteComment']);
+    Route::get('/admin/comment-reply/{id}/{lesson_id}', [App\Http\Controllers\Admin\Courses::class, 'ReplyComment']);
+    Route::post('/administrator/reply-comment', [App\Http\Controllers\Admin\Courses::class, 'ReplyCommentDB']);
     // Courses Routes
 
     // E-Book Routes
@@ -147,6 +179,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/administrator/ebook-reviews', [App\Http\Controllers\Admin\Ebook::class, 'EbookReviews']);
     Route::delete('/administrator/delete-e-review/{id}', [App\Http\Controllers\Admin\Ebook::class, 'DeleteEbookReview']);
     Route::put('/administrator/update-review/{id}', [App\Http\Controllers\Admin\Ebook::class, 'UpdateEbookReview']);
+    Route::get('/administrator/course-reviews', [App\Http\Controllers\Admin\Courses::class, 'CourseReviews']);
+    Route::delete('/administrator/delete-c-review/{id}', [App\Http\Controllers\Admin\Courses::class, 'DeleteCourseReview']);
+    Route::put('/administrator/update-review/{id}', [App\Http\Controllers\Admin\Courses::class, 'UpdateCourseReview']);
+    Route::get('/administrator/feedbacks', [App\Http\Controllers\Admin\Ebook::class, 'FeedBacks']);
+    Route::delete('/administrator/delete-feedback-review/{id}', [App\Http\Controllers\Admin\Ebook::class, 'DeleteFeedback']);
+    Route::put('/administrator/update-feedback/{id}', [App\Http\Controllers\Admin\Ebook::class, 'UpdateFeedback']);
     // Reviews
 
 
@@ -154,7 +192,31 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/administrator/payments', [App\Http\Controllers\Admin\Payment::class, 'Payment']);
 
     // Payment Routes
+
+    // Quiz routes
+    Route::get('/administrator/add-quiz/{id}', [App\Http\Controllers\Admin\Quiz::class, 'Index']);
+    Route::post('/administrator/add-Quiz', [App\Http\Controllers\Admin\Quiz::class, 'AddQuiz']);
+    Route::delete('/administrator/delete-Quiz/{id}', [App\Http\Controllers\Admin\Quiz::class, 'DeleteQuiz']);
+    Route::get('/administrator/add-question/{id}/{course_id}', [App\Http\Controllers\Admin\Quiz::class, 'AddQuestion']);
+    Route::post('/administration/options', [App\Http\Controllers\Admin\Quiz::class, 'CorrectAns']);
+    Route::post('/administrator/add-question', [App\Http\Controllers\Admin\Quiz::class, 'AddQuestionDB']);
+    Route::delete('/administrator/delete-Question/{id}', [App\Http\Controllers\Admin\Quiz::class, 'DeleteQuest']);
+    Route::get('/administrator/edit-Question/{id}', [App\Http\Controllers\Admin\Quiz::class, 'EditQuestion']);
+    Route::put('/administrator/edit-Question/{id}', [App\Http\Controllers\Admin\Quiz::class, 'EditQuest']);
+    // Quiz Routes
 });
 
 
 // Admin Routes
+
+
+
+
+
+// Teacher Routes
+Route::middleware(['auth', 'teacher'])->group(function () {
+    Route::get('/teacher/dashboard', [App\Http\Controllers\MainPages\MainController::class, 'admin'])->name('admin-landing');
+});
+
+
+// Teacher Routes

@@ -74,7 +74,7 @@
                             <div class="col-md-12 mt-2">
                                 <h4>Actions:</h4>
                             </div>
-                            <div class="col-md-3 mt-1">
+                            {{-- <div class="col-md-3 mt-1">
                                 <a href="/administrator/upload-ebook-image/{{$ebook->id}}" class="btn btn-warning btn-sm" style="font-weight: 600;">Upload Image</a>
                             </div>
 
@@ -82,10 +82,10 @@
                                 <a href="/administrator/upload-ebook-file/{{$ebook->id}}" class="btn btn-success btn-sm" style="font-weight: 600;">
                                     Upload E-Book File
                                 </a>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-3 mt-1">
-                                <a href="#" class="btn btn-primary btn-sm" style="font-weight: 600;">
+                                <a href="/administrator/edit-ebook/{{$ebook->id}}" class="btn btn-success btn-sm" style="font-weight: 600;">
                                     Edit E-Book
                                 </a>
                             </div>

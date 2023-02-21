@@ -61,7 +61,13 @@
                         </div>
                     </div>
                     <div class="description_body">
-                        {!! htmlspecialchars_decode(nl2br($ebook->user_details->describe)) !!}
+                        @if($ebook->user_details != '')
+                        <p>
+                            {!! htmlspecialchars_decode(nl2br($ebook->user_details->describe)) !!}
+                        </p>
+                        @else
+                            <p>About Instructor Not Avaliable</p>
+                        @endif
                     </div>
                     <a class="more"> <i class="fa-solid fa-angle-down"></i></a>
                 </div>
@@ -95,7 +101,11 @@
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </span>
-                                2 weeks ago
+
+                                @php
+                                    $date_string = $review->created_at;
+                                    echo date("W", strtotime($date_string)) . "weeks(s) ago";
+                                @endphp
                                 <h5>{{$review->title}}</h5>
                                 <p>{{$review->content}}</p>
                             </p>
@@ -192,8 +202,14 @@
 <div class="course_content_requirements">
     <div class="course_content_requirements sticky_footer">
         <div class="sticky_footer_content">
-            <p>&#8358;24,000</p>
-            <a href="">Buy Now</a>
+            <p>&#8358;{{number_format($ebook->real_price, 0)}}</p>
+            @if(Auth::check())
+                <a href="javascript:void(0)" id="m_cart">Buy Now</a>
+            @else
+                <a href="/login">Buy Now</a>
+            @endif
+
+
         </div>
     </div>
 </div>
@@ -215,6 +231,42 @@
         let ini_price = $('#ini_price').val();
 
         $('#cart').click(function(){
+           if(course_id =='' || user_id =='' || course_title=='' ||course_price==''){
+                toastr.warning("Mising Parameters", 'Error!', {timeOut: 5000});
+           }else{
+            $.ajax({
+                method: "POST",
+                url: "/main/add-ebook-to-cart",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data:{
+                    'user_id': user_id,
+                    'course_id': course_id,
+                    'course_title': course_title,
+                    'course_price': course_price,
+                    'ini_price': ini_price,
+                },
+
+                success: function (response){
+                    // alert(response);
+                    if(response == 'E-Book Added to Cart Successfully!'){
+                        toastr.success('E-Book Added to Cart Successfully!', 'Success!', {timeOut: 7000});
+                        $.ajax({
+                                type: "GET",
+                                url: "/main/count-cart",
+                                success: function(response){
+                                 $("#cart_count").text(response);
+                                //    alert(response)
+                                }
+                        })
+                    }else{
+                        toastr.warning(response, 'Error!', {timeOut: 5000});
+                     }
+                }
+            });
+           }
+        })
+
+        $('#m_cart').click(function(){
            if(course_id =='' || user_id =='' || course_title=='' ||course_price==''){
                 toastr.warning("Mising Parameters", 'Error!', {timeOut: 5000});
            }else{

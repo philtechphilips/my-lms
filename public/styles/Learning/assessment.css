@@ -37,6 +37,18 @@
     margin-top: 10px;
     font-size: 14px;
 }
+.assessment-button{
+    padding: 5px 15px;
+    border: solid 1px #3a3939;
+    font-size: 12px;
+    color: black;
+    font-weight: 600;
+}
+
+.assessment-button:hover{
+    background-color: aliceblue;
+}
+
 @media screen and (max-width: 600px) {
     .student-learn-dashboard-ebook-cont-right-assess-content
 {

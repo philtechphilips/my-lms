@@ -21,9 +21,10 @@
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
-                                        <th>Name</th>
+                                        <th>User</th>
                                         <th>Title</th>
                                         <th>Price</th>
+                                        <th>Payment Reference</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -34,11 +35,12 @@
                                   @foreach ($cart as $item)
                                     <tr>
                                     <td>{{ $count++ }}</td>
-                                    <td>{{ $item->cart->name }}</td>
+                                    <td><img src={{asset("/image/".$item->cart->passport)}} width="50" height="50" style="border-radius: 50%;"></td>
                                     <td>{{ $item->course_title }}</td>
                                     <td>
-                                        &#8358;{{ $item->course_price }}
+                                        &#8358;{{  number_format($item->course_price) }}
                                     </td>
+                                    <td>{{ $item->payment_reference }}</td>
                                     <td>
                                         <a href="javasript:void(0)" class="btn btn-warning">{{ Str::upper($item->status) }}</a>
                                     </td>

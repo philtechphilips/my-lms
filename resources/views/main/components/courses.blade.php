@@ -7,7 +7,7 @@
         {{-- Show Courses --}}
         @foreach ($courses as $courses)
         <div class="landingpage-courses-grid-body">
-            <a href="/main/course/{{$courses->slug}}">
+            <a href="/main/course/{{Crypt::encrypt($courses->id)}}">
             <div class="landingpage-courses-grid-body-image">
                 <img src="{{ asset('course/'.$courses->image)}}" >
                 {{-- @foreach ($courses_image as $c_img)
@@ -58,7 +58,7 @@
     <div class="mobile-landingpage-courses-grid swiper-wrapper">
         @foreach ($mobile_courses as $m_c)
             <div class="mobile-landingpage-courses-grid-body swiper-slide">
-            <a href="/main/course/{{$m_c->slug}}">
+            <a href="/main/course/{{Crypt::encrypt($m_c->id)}}">
             <div class="mobile-landingpage-courses-grid-body-image">
                 <img src="{{ asset('course/'.$m_c->image)}}" >
                 {{-- @foreach ($courses_image as $c_img)

@@ -11,16 +11,14 @@
         <div class="main-profile-page-container">
             <div class="main-profile-page-container-left">
                 <div class="user-name">
-                    {{-- <img src="" alt="IP"> --}}
-                    <h1>IP</h1>
-                    <h3>Isola Pelumi</h3>
+                    <img src="{{ asset('image/'.Auth::user()->passport) }}" style="border: solid 1px #efefef;" width="50px">
                 </div>
                 <div class="profile-links">
                     <a href="{{ route('profile') }}">Update Profile</a>
                     <a href="{{ route('profile_image') }}">Profile Image</a>
-                    <a href="#">Courses</a>
-                    <a href="#">E-Books</a>
-                    <a href="#">Payments</a>
+                    <a href="/dashboard/my-courses">Courses</a>
+                    <a href="/dashboard/my-ebooks">E-Books</a>
+                    <a href="/dashboard/payments">Payments</a>
                 </div>
             </div>
             <div class="main-profile-page-container-right">

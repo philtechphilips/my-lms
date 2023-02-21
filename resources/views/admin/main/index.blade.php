@@ -18,6 +18,43 @@
     <title>
         @yield('title')
     </title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Opening Move', 'Percentage'],
+          ["King's pawn (e4)", 44],
+          ["Queen's pawn (d4)", 31],
+          ["Knight to King 3 (Nf3)", 12],
+          ["Queen's bishop pawn (c4)", 10],
+          ['Other', 3]
+        ]);
+
+        var options = {
+          title: 'Chess opening moves',
+          width: 900,
+          legend: { position: 'none' },
+          chart: { title: 'Chess opening moves',
+                   subtitle: 'popularity by percentage' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Percentage'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+      };
+    </script>
+
+
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
 	<link rel="stylesheet" href="{{ asset('vendor/chartist/css/chartist.min.css') }}">
@@ -41,6 +78,9 @@
     {{-- VideoJs --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.12.0/video-js.min.css" />
     {{-- VideoJs --}}
+
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
@@ -193,6 +233,11 @@
      <script src={{ asset("vendor/bootstrap-select/dist/js/bootstrap-select.min.js") }}></script>
      <!-- Dashboard 1 -->
      <script src={{ asset("js/dashboard/dashboard-1.js") }}></script>
+
+    <!-- Chart ChartJS plugin files -->
+    <script src={{ asset("vendor/chart.js/Chart.bundle.min.js")}}></script>
+    <script src={{ asset("js/plugins-init/chartjs-init.js") }}></script>
+
 {{--
      <script src={{ asset("vendor/owl-carousel/owl.carousel.js") }}></script> --}}
      <script src={{ asset("js/custom.min.js") }}></script>

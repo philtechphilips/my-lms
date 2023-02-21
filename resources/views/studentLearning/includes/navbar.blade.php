@@ -12,17 +12,7 @@
             @if (Auth::check())
               <div class="mobile-head-signin">
                 <div class="mobile-head-signin-left">
-                  <h3>
-                    @php
-                        $fetched_name = Auth::user()->name;
-                        $name = preg_split("/\s+/", $fetched_name);
-                        $acronym = "";
-                        foreach ($name as $w) {
-                            $acronym .= $w[0];
-                        }
-                        echo $acronym;
-                   @endphp
-                  </h3>
+                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="60px" height="60px" style="border-radius: 50%;">
                 </div>
 
                 <div class="mobile-head-signin-right">
@@ -38,7 +28,7 @@
         <nav>
             <h3>Quick Links</h3>
             <div class="mobile-nav-links">
-                <a href="#">Home</a>
+                <a href="/dashboard">Home</a>
             </div>
 
             <div class="mobile-nav-links">
@@ -107,12 +97,12 @@
         </div>
     </div>
 </aside>
- 
+
 
 <div class="dashboard-navbar" id="header-bottom'">
     <div class="dashboard-navbar-container my-container">
         <div class="header-bottom-container-menu-icon desktop-hide">
-            <a href="#" class="trigger" style="text-decoration: none;">
+            <a href="javascript:void(0);" class="trigger" style="text-decoration: none;">
                 <i class="ri-menu-line"></i>
             </a>
         </div>
@@ -130,12 +120,12 @@
                 <ul class="dashboard-navbar-links-ul">
 
                 <li>
-                    <a href="" style="text-transform: capitalize;"><i class="ri-question-fill"></i>Help</a>
+                    <a href="#" style="text-transform: capitalize;"><i class="ri-question-fill"></i>Help</a>
                 </li>
-
+{{-- 
                 <li>
-                    <a href=""><i class="ri-notification-fill"></i></a>
-                </li>
+                    <a href="#"><i class="ri-notification-fill"></i></a>
+                </li> --}}
 
 
                 </ul>
@@ -147,8 +137,8 @@
                     <p style="text-align: right; font-size: 13px;">Student</p>
                 </div>
                <div class="m-wrapper">
-                    <a href="#" class="dropdown-trigger">
-                    <img src="{{ asset('assets/images/profile image.jpg') }}" width="50px">
+                    <a href="javascript:void(0)" class="dropdown-trigger">
+                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="50px" height="50px">
                     <i class="ri-arrow-drop-down-line"></i>
                     </a>
                </div>

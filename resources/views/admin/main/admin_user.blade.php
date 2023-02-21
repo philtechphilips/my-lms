@@ -24,7 +24,6 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Edit Details</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
@@ -39,14 +38,9 @@
                                     <td>{{ $all_admin->email }}</td>
                                     <td>{{ $all_admin->phone }}</td>
                                     <td>
-                                        <button class="btn btn-success btn-sm">
-                                            Edit Details
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger btn-sm">
-                                            Delete
-                                        </button>
+                                        <a href="javascript:void(0)" onclick="deleteAdmin({{$all_admin->id}})"  class="btn btn-primary btn-sm">
+                                            <i class="ri-delete-bin-line"></i>
+                                        </a>
                                     </td>
                                     </tr>
                                   @endforeach
@@ -64,6 +58,43 @@
 
 @section('scripts')
 
-
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function deleteAdmin(id){
+     swal({
+             title: "Are you sure?",
+             text: "Once deleted, you will not be able to recover!",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+           })
+         .then((willDelete) =>{
+             if (willDelete) {
+                 $.ajax({
+                     url:'/administrator/delete-admin/'+id,
+                     type: "Delete",
+                     data:{
+                         _token : $("input[name=_token").val()
+                     },
+                     success:function(response){
+                         $("#sid"+id).remove();
+                         if($("#sid"+id).remove()){
+                             swal({
+                                 title: "Successful!",
+                                 text: "Admin Deleted Sucessfully!!",
+                                 icon: "success",
+                                 buttons: true,
+                                 dangerMode: false,
+                             }).then((result) =>{
+                                 if(result){
+                                     location.reload();
+                                 }
+                             });
+                         }
+                     }
+                 });
+             }
+         })
+     }
+ </script>
 @endsection

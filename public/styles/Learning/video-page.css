@@ -62,7 +62,6 @@
 
 .video-page-container-left-topic-content-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
      padding: 20px 20px 0 20px;
@@ -71,6 +70,7 @@
 .video-page-container-left-topic-content-header h3
 {
     font-size: 16px;
+    padding-left: 20px;
 }
 
 .video-page-container-left-topic-content-header p
@@ -203,6 +203,30 @@
 
 .vid-menu-close{
     display: none;
+}
+
+.lesson-links{
+    list-style-type: none;
+}
+
+.lesson-links a{
+    text-decoration: none;
+}
+
+.lesson-links a{
+    color: #222;
+}
+
+.lesson-links a hr{
+    opacity: .3 !important;
+}
+
+.lesson_active .video-page-container-left-topic-content-videos{
+    background-color: #efefef;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
+    margin-top: 5px;
 }
 @media screen and (max-width: 1000px) {
     .canvas-head-video {

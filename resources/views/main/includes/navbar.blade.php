@@ -2,27 +2,17 @@
     <div class="off-canvas">
         <div class="canvas-head flexitem">
             <div class="logo">
-                <a href="#">
+                <a href="/">
                     MoGah
                 </a>
             </div>
-            <a href="#" class="t-close"><i class="ri-close-line"></i></a>
+            <a href="javascript:void(0);" class="t-close"><i class="ri-close-line"></i></a>
         </div>
         <div class="departments">
             @if (Auth::check())
               <div class="mobile-head-signin">
-                <div class="mobile-head-signin-left"> 
-                  <h3>
-                    @php
-                        $fetched_name = Auth::user()->name;
-                        $name = preg_split("/\s+/", $fetched_name);
-                        $acronym = "";
-                        foreach ($name as $w) {
-                            $acronym .= $w[0];
-                        }
-                        echo $acronym;
-                   @endphp
-                  </h3>
+                <div class="mobile-head-signin-left">
+                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="60px" height="60px" style="border-radius: 50%;">
                 </div>
 
                 <div class="mobile-head-signin-right">
@@ -67,7 +57,7 @@
             @endforeach --}}
 
             <div class="mobile-nav-links">
-                <a href="#">All Schools</a>
+                <a href="/main/schools">All Schools</a>
             </div>
 
         </nav>
@@ -119,7 +109,7 @@
     <div class="header-bottom" id="header-bottom">
         <div class="header-bottom-container">
             <div class="header-bottom-container-menu-icon">
-                <a href="#" class="trigger">
+                <a href="javascript:void(0);" class="trigger">
                     <span class="i ri-menu-3-line"></span>
                 </a>
             </div>

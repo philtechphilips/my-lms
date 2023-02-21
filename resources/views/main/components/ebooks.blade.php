@@ -7,7 +7,7 @@
 
         @foreach ($ebook as $ebook)
         <div class="landingpage-courses-grid-body">
-            <a href="/main/ebook/{{$ebook->slug}}">
+            <a href="/main/ebook/{{Crypt::encrypt($ebook->id)}}">
             <div class="landingpage-courses-grid-body-image">
                 <img src="{{ asset('ebook/'.$ebook->image)}}" >
                  {{-- @foreach ($ebook_image as $e_img)
@@ -59,7 +59,7 @@
 
         @foreach ($mobile_ebook as $mobile_ebook)
         <div class="mobile-landingpage-courses-grid-body swiper-slide">
-            <a href="#">
+            <a href="/main/ebook/{{Crypt::encrypt($mobile_ebook->id)}}">
             <div class="mobile-landingpage-courses-grid-body-image">
                 <img src="{{ asset('ebook/'.$mobile_ebook->image)}}">
                 {{-- <i class="ri-play-fill play"></i> --}}

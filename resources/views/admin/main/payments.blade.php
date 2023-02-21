@@ -45,7 +45,7 @@
                                         {{ $item->verification_id}}
                                     </td>
                                     <td>
-                                        {{ $item->amount}}
+                                        &#8358; {{ number_format($item->amount/100) }}
                                     </td>
                                     <td>
                                         {{ $item->created_at}}

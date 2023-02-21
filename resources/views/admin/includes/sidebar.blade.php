@@ -61,7 +61,17 @@
 						</ul>
 
                         <ul aria-expanded="false">
+							<li><a href="/admin/course-comment">Course Comments</a></li>
+						</ul>
+
+
+                        <ul aria-expanded="false">
 							<li><a href="{{ route('ViewCourse') }}">View Courses</a></li>
+						</ul>
+
+
+                        <ul aria-expanded="false">
+							<li><a href="/dashboard/schedule-live-class">Schedule Live Class</a></li>
 						</ul>
                     </li>
 
@@ -79,6 +89,20 @@
 							<li><a href="/administrator/view-ebooks">View E-Books</a></li>
 						</ul>
                     </li>
+
+                    <li class="nav-label">REVIEWS</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="ri-star-fill"></i>
+							<span class="nav-text">Manage Reviews</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="/administrator/ebook-reviews">E-Book Reviews</a></li>
+                            <li><a href="/administrator/course-reviews">Course Reviews</a></li>
+                            <li><a href="/administrator/feedbacks">Feedback</a></li>
+						</ul>
+
+                    </li>
+
 
                     <li class="nav-label">PURCHASES</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -110,17 +134,7 @@
 						</ul>
                     </li>
 
-                    <li class="nav-label">REVIEWS</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="ri-star-fill"></i>
-							<span class="nav-text">Manage Reviews</span>
-						</a>
-                        <ul aria-expanded="false">
-							<li><a href="/administrator/ebook-reviews">E-Book Reviews</a></li>
-                            <li><a href="{{ route('vision') }}">Course Reviews</a></li>
-						</ul>
 
-                    </li>
 
                     <li class="nav-label">BLOG</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -130,29 +144,31 @@
                         <ul aria-expanded="false">
 							<li><a href="{{ route('BlogPage')}}">Add New Blog Post</a></li>
                             <li><a href="{{ route('AllBlogPost') }}">Blog Posts</a></li>
+                            <li><a href="/administrator/blog-comment">Blog Comment</a></li>
 						</ul>
 
                     </li>
 
-                    <li class="nav-label first">Profile</li>
-                    <li><a class="ai-icon" href="/administrator/profile" aria-expanded="false">
+                    <li class="nav-label">PROFILE</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="ri-user-line"></i>
-							<span class="nav-text">My Profile</span>
+							<span class="nav-text">Manage Profile</span>
 						</a>
+                        <ul aria-expanded="false">
+							<li><a href="/administrator/about-me">About Me</a></li>
+                            <li><a href="/administrator/profile">Edit Profile</a></li>
+						</ul>
+
                     </li>
-                    <li>
-                        <a class="ai-icon" href="/administrator/about-me" aria-expanded="false">
-                            <i class="ri-user-line"></i>
-                            <span class="nav-text">About Me</span>
-                        </a>
-                    </li>
+
                 </ul>
-                </div>
-				<div class="copyright">
-					<p><strong>Mogah Admin Dashboard</strong> © @php
+                <div class="copyright">
+					<p><strong>{{{getenv("APP_NAME")}}} Admin Dashboard</strong> © @php
                         echo date('Y');
-                    @endphp All Rights Reserved</p>
+                    @endphp All Rights Reserved <b class="text text-danger">Developed By: 07063623539</b></p>
 			</div>
+                </div>
+
         </div>
         <!--**********************************
             Sidebar end

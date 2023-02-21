@@ -16,17 +16,17 @@
                         <h4 class="card-title">All Users</h4>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive text-center">
                             <table id="example" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Edit Details</th>
                                         <th>Mail</th>
-                                        <th>Send SMS</th>
+                                        {{-- <th>Send SMS</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,24 +37,20 @@
 
                                     <tr>
                                     <td>{{ $count++ }}</td>
+                                    <td><img src="{{asset('image/'.$all_admin->passport)}}" width="50" height="50" style="border-radius: 50%;"></td>
                                     <td>{{ $all_admin->name }}</td>
                                     <td>{{ $all_admin->email }}</td>
                                     <td>{{ $all_admin->phone }}</td>
                                     <td>
                                         <button class="btn btn-success btn-sm">
-                                            Edit Details
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm">
                                             Mail Now
                                         </button>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <button class="btn btn-danger btn-sm">
                                             Message
                                         </button>
-                                    </td>
+                                    </td> --}}
                                     </tr>
                                   @endforeach
                                 </tbody>
@@ -71,7 +67,7 @@
 
 @section('scripts')
 
-<script src={{ asset("vendor/datatables/js/jquery.dataTables.min.js")}}></script>
-<script src={{ asset("js/plugins-init/datatables.init.js") }}></script>
+{{-- <script src={{ asset("vendor/datatables/js/jquery.dataTables.min.js")}}></script>
+<script src={{ asset("js/plugins-init/datatables.init.js") }}></script> --}}
 
 @endsection

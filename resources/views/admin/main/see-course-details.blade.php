@@ -104,13 +104,19 @@
                                 <h4>Actions:</h4>
                             </div>
 
-                            <div class="col-md-3 mt-1">
+                            {{-- <div class="col-md-3 mt-1">
                                 <a href="/administrator/upload-course-image/{{$course->slug}}" class="btn btn-warning btn-sm" style="font-weight: 600;">Upload Cover Image</a>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-3 mt-1">
                                 <a href="/administrator/add-topic/{{$course->slug}}/{{$course->un_id}}/{{$course->id}}" class="btn btn-success btn-sm" style="font-weight: 600;">
                                     Add Topic
+                                </a>
+                            </div>
+
+                            <div class="col-md-3 mt-1">
+                                <a href="/administrator/add-quiz/{{$course->id}}" class="btn btn-warning btn-sm" style="font-weight: 600;">
+                                    Add Quiz
                                 </a>
                             </div>
 

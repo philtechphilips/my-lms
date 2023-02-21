@@ -1,3 +1,163 @@
+.auth-form{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+}
+.form{
+	max-width: 320px;
+	margin-bottom: 50px;
+}
+.form-heading h1{
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+.input-group{
+	position: relative;
+}
+.input-group .input{
+	outline: none;
+	padding: 17px 12px !important;
+	margin-top: 15px !important;
+	width: 320px;
+	border-radius: 0;
+	border: solid 1px #222;
+}
+.remember{
+    margin-top: 15px !important;
+    display: flex;
+}
+.remember input{
+    padding: 10px !important;
+    border-radius: 0;
+}
+.input-group .submit{
+border: none;
+background-color: var(--primary-color);
+color: #fff;
+font-size: 16px;
+font-weight: 600;
+outline: none;
+	padding: 17px 12px !important;
+	margin-top: 10px !important;
+	width: 320px !important;
+	border-radius: 0;
+}
+
+.input-group .submit:hover{
+	background-color: var(--primary-color-sharp);
+}
+.placeholder{
+	position: absolute;
+	top: 40%;
+	left: 4%;
+	font-size: 16px;
+	padding: 5px 0px !important;
+	color: #888;
+	transition: 0.3s;
+	pointer-events: none;
+	font-weight: 600;
+}
+.input:focus + .placeholder{
+	top: 5px;
+	color: var(--primary-color);
+	background-color: #fff;
+	padding: 2px 5px !important;
+	font-size: 12px;
+}
+.input:focus{
+	border: solid 2px var(--primary-color);
+}
+.i_active{
+	position: absolute;
+	top: 0px !important;
+	color: var(--primary-color);
+	background-color: #fff;
+	padding: 2px 5px !important;
+	left: 4%;
+	transition: 0.3s;
+	pointer-events: none;
+	font-weight: 600;
+	font-size: 12px;
+}
+.input-active{
+	outline: none;
+	padding: 17px 12px;
+	margin-top: 10px;
+	width: 320px;
+	border-radius: 0;
+	border: solid 2px var(--primary-color);
+}
+.form-terms{
+	font-size: 10.5px !important;
+	font-weight: 600;
+	padding-top: 20px !important;
+}
+.login-link{
+	color: var(--primary-color);
+}
+.login-link:hover{
+	color: var(--primary-color);
+}
+
+
+
+
+.popup .n_overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: none;
+
+}
+
+.popup .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 450px;
+    height: fit-content;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 150px;
+    z-index: 1000;
+}
+
+.popup .close-btn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup.p_active .n_overlay{
+    display: block;
+}
+
+
+.popup.p_active .content{
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
 a{
     text-decoration: none;
 }
@@ -9,6 +169,11 @@ p{
     font-size: 15px;
     line-height: 25px;
 }
+
+.course_content{
+    position: relative;
+}
+
 .course_content_banner{
     background-color: rgb(26, 26, 59);
     width: 100%;
@@ -753,5 +918,73 @@ height: auto;
         display: block;
         padding: 0px 20px 50px 20px;
     }
+
+
+
+
+
+    .ebook-right-info-flex p{
+        margin-right: 5px;
+        opacity: .8;
+    }
+
+    .ebook-right-info-rating-flex a{
+        text-decoration: none;
+        margin-right: 3px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .popup .content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: #fff;
+        width: 320px;
+        height: fit-content;
+        z-index: 1000;
+        text-align: center;
+        padding: 20px 20px 20px 0;
+        box-sizing: border-box;
+    }
+
+    .form{
+        width: 250px;
+        margin-bottom: 50px;
+    }
+
+    .input-group .input{
+        outline: none;
+        padding: 17px 12px !important;
+        margin-top: 15px !important;
+        width: 100% !important;
+        border-radius: 0;
+        border: solid 1px #222;
+    }
+
+    .input-active{
+        outline: none;
+        padding: 17px 12px;
+        margin-top: 10px;
+        width: 280px;
+        border-radius: 0;
+        border: solid 2px var(--primary-color);
+    }
+
+    .input-group .submit{
+        border: none;
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        outline: none;
+            padding: 17px 12px !important;
+            margin-top: 10px !important;
+            width: 280px !important;
+            border-radius: 0;
+        }
+
 
 }

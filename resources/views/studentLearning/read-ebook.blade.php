@@ -14,13 +14,7 @@
 </head>
 <body>
     <div class="student-learn-dashboard-ebook-cont-right-content-read-ebook">
-
-       @foreach($ebooks_file as $file)
-        @if($file->ebook_id == $ebooks->course_id)
-            <iframe src="{{asset('ebook/'.$file->ebook_files)}}" style="width: 99%; height: 98vh;">
-        @else
-        @endif
-       @endforeach
+        <iframe src="{{asset('ebook/'.$ebooks->ebook->file)}}" style="width: 99%; height: 98vh;">
     </div>
 </body>
 </html>

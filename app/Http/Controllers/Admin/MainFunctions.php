@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\About;
 use App\Models\Admin\Banner;
+use App\Models\Admin\Blogs;
 use App\Models\Admin\Ebook;
 use App\Models\Admin\Intro_video;
 use App\Models\Admin\Mission;
 use App\Models\Admin\School;
 use App\Models\Admin\Vision;
+use App\Models\Main\Bcomment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -43,6 +46,7 @@ class MainFunctions extends Controller
 
         $user = new User();
         $user->name = $request->name;
+        $user->user_type = $request->user_type;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
@@ -57,6 +61,12 @@ class MainFunctions extends Controller
             return redirect('/administrator/add-admin')->with(['message' => 'Password and Confirm Password Must Be Same', 'status' => 'danger']);
         }
     }
+
+    public function DeleteAdmin($id){
+       $user = User::find($id);
+       $user->delete();
+    }
+
 
     // Show School Page
     public function schools(){
@@ -494,10 +504,55 @@ class MainFunctions extends Controller
        // Delete Banner Text From Database
 
 
+           // Delete Blog Comment
+           public function DeleteBlogComment($id)
+           {
+              $blog_comment = Bcomment::find($id);
+              $blog_comment->delete();
+           }
+           // Delete Blog Comment
+
+
         // Show Blog Page
         public function AddBlog()
         {
           return view('admin.main.add_blog');
+        }
+
+        public function EditBlog($id)
+        {
+            $blog = Blogs::find(Crypt::decrypt($id));
+          return view('admin.main.edit_blog', compact('blog'));
+        }
+
+
+         // Show Blog Page
+         public function BlogComment()
+         {
+            $comment = Bcomment::all();
+           return view('admin.main.blog-comment', compact('comment'));
+         }
+
+
+        public function UpdateBlog(Request $request, $id)
+        {
+            $blog = Blogs::find(Crypt::decrypt($id));
+            $request->validate([
+                'name' => 'required',
+                'blog' => 'required|string',
+              ]);
+
+                $blog->name = $request->name;
+                $blog->blog = htmlspecialchars($request->blog);
+                $blog->slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->name);
+
+                $save = $blog->update();
+
+                if($save){
+                    return redirect()->back()->with(['message' => 'Blog Post Updated Sucessfully!', 'status' => 'success']);
+                }else{
+                    return redirect()->back()->with(['message' => 'Something Went wrong!', 'status' => 'danger']);
+                }
         }
         // Show Blog Page
 

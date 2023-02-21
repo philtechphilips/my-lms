@@ -36,7 +36,7 @@
                                     <tr id="sid{{$item->id}}">
                                     <td>{{ $count++ }}</td>
                                     <td>
-                                       <img src="{{asset('image/'.$item->user->passport)}}" width="50">
+                                       <img src="{{asset('image/'.$item->user->passport)}}" width="50" height="50" style="border-radius: 50%;">
                                     </td>
                                     <td>
                                         {{ $item->title }}
