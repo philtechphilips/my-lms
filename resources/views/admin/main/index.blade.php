@@ -175,6 +175,17 @@
         .dash-img{
             width: 50px;
         }
+
+        #drag_drop{
+            background-color: #f9f9f9;
+            border: #ccc 2px dashed;
+            line-height: 250px;
+            padding: 12px;
+            font-size: 24px;
+            text-align: center;
+            width: 100%;
+        }
+
         @media (max-width: 800px){
             .vid-cont .popup-video iframe{
                 width: 90%;

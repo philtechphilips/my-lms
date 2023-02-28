@@ -34,6 +34,7 @@ class CreateCoursesTable extends Migration
             $table->string('ini_price');
             $table->string('image')->nullable();
             $table->string('un_id');
+            $table->string('status')->default('unpublished');
             $table->timestamps();
         });
     }

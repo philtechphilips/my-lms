@@ -132,7 +132,6 @@
                                         <option value="yt"><i class="ri-youtube-line"></i> YouTube</option>
                                         <option value="vm">Vimeo</option>
                                         <option value="mp4">MP4</option>
-                                        <option value="emb">Embeded</option>
                                     </select>
                                     @error('source')
                                         <p class="text text-danger">{{ $message }}</p>

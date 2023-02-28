@@ -105,7 +105,7 @@
 
 
 {{-- Featured Courses --}}
-<div class="all-courses-featured-courses">
+{{-- <div class="all-courses-featured-courses">
     <div class="landingpage-courses-header">
         <h1>Featured  E-Book</h1>
     </div>
@@ -133,7 +133,7 @@
         </div>
 
     </div>
-</div>
+</div> --}}
 {{-- Featured Courses --}}
 
 

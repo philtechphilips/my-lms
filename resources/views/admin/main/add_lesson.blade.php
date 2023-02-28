@@ -44,7 +44,9 @@
                                     Lesson Name
                                 </h5>
                                 <input id="name" name="name" class="form-control" placeholder="Lesson Name">
-                                <p style="display: flex; justify-content: content;"><i class="ri-error-warning-line"></i> Lesson titles are displayed publicly wherever required.</p>
+                                <p style="display: flex; justify-content: content;"><i
+                                        class="ri-error-warning-line"></i> Lesson titles are displayed publicly wherever
+                                    required.</p>
                                 <p id="error1" class="text text-danger"></p>
                             </div>
 
@@ -56,21 +58,26 @@
                                         <option value="yt"><i class="ri-youtube-line"></i> YouTube</option>
                                         <option value="vm">Vimeo</option>
                                         <option value="mp4">MP4</option>
-                                        <option value="emb">Embeded</option>
                                     </select>
                                     <p id="error2" class="text text-danger"></p>
                                 </div>
 
-                                <div class="form-group border"  id="ytForm" style="display: none; border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
-                                    <input type="text" name="yt" class="form-control" id="in" placeholder="Enter Youtube Link">
+                                <div class="form-group border" id="ytForm"
+                                    style="display: none; border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
+                                    <input type="text" name="yt" class="form-control" id="in"
+                                        placeholder="Enter Youtube Link">
                                 </div>
 
-                                <div class="form-group border"  id="vmForm" style="display: none; border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
-                                    <input type="text" name="vm" class="form-control input-data1" id="in1" placeholder="Enter Vimeo Link">
+                                <div class="form-group border" id="vmForm"
+                                    style="display: none; border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
+                                    <input type="text" name="vm" class="form-control input-data1" id="in1"
+                                        placeholder="Enter Vimeo Link">
                                 </div>
 
-                                <div class="form-group border"  id="emForm" style="display: none; border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
-                                    <textarea type="text" name="em" class="form-control input-data2" id="in2" placeholder="Place Embeded Code Here"></textarea>
+                                <div class="form-group border" id="emForm"
+                                    style="display: none; border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
+                                    <textarea type="text" name="em" class="form-control input-data2" id="in2"
+                                        placeholder="Place Embeded Code Here"></textarea>
                                 </div>
                                 <p id="error3" class="text text-danger"></p>
                             </div>
@@ -82,11 +89,13 @@
                                     <p>Hours</p>
                                 </div>
                                 <div class="col-4 form-group">
-                                    <input id="minute" type="number" name="minute" class="form-control" placeholder="00">
+                                    <input id="minute" type="number" name="minute" class="form-control"
+                                        placeholder="00">
                                     <p>Minutes</p>
                                 </div>
                                 <div class="col-4 form-group">
-                                    <input id="seconds" type="number" name="second" class="form-control" placeholder="00">
+                                    <input id="seconds" type="number" name="second" class="form-control"
+                                        placeholder="00">
                                     <p>Seconds</p>
                                 </div>
                                 <p id="error4" class="text text-danger"></p>
@@ -97,16 +106,20 @@
                                 <textarea id="description" name="content" class="textarea">
 
                                 </textarea>
-                                <p style="display: flex; justify-content: content;"><i class="ri-error-warning-line"></i> The idea of a summary is a short text to prepare students for the activities within the topic or week. The text is shown on the course page under the topic name.</p>
+                                <p style="display: flex; justify-content: content;"><i
+                                        class="ri-error-warning-line"></i> The idea of a summary is a short text to
+                                    prepare students for the activities within the topic or week. The text is shown on
+                                    the course page under the topic name.</p>
                                 <p id="error5" class="text text-danger"></p>
                             </div>
 
 
-                                {{-- <h5>Upload exercise files to the Lesson</h5>
-                                <div class="form-group border"  style="border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
-                                    <input type="file" name="file" id="file" class="upload_box" />
-                                    <span class="text-danger error-text course_image_error"></span>
-                                </div> --}}
+                            {{-- <h5>Upload exercise files to the Lesson</h5>
+                            <div class="form-group border"
+                                style="border-style: dashed !important; padding: 30px !important; border-color: rgb(255, 60, 53)!important; border-radius: 10px;">
+                                <input type="file" name="file" id="file" class="upload_box" />
+                                <span class="text-danger error-text course_image_error"></span>
+                            </div> --}}
 
                             <div class="form-group">
                                 <input type="submit" id="submit" value="Create Lesson" class="btn btn-primary">
@@ -137,6 +150,7 @@
                                     <th>Lesson Name</th>
                                     <th>Lesson Content</th>
                                     <th>Lesson Video</th>
+                                    <th>Lesson Files</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -144,33 +158,41 @@
                             <tbody>
                                 @php
                                 $count = 1;
-                            @endphp
-                           @foreach ($lessons as $lessons)
-                           <tr id="sid{{$lessons->id}}">
-                            <td>
-                                {{ $count++ }}
-                            </td>
-                            <td>
-                                {{$lessons->name}}
-                            </td>
-                            <td>
-                                {!! htmlspecialchars_decode(nl2br(Str::limit($lessons->content, 150))) !!}
-                            </td>
-                            <td>
-                                <a href="/administrator/view-lesson/{{$lessons->id}}"><i class="ri-play-circle-fill" style="font-size: 22px;"></i></a>
-                            </td>
-                            <td>
-                                <a href="/administrator/edit-lesson/{{$lessons->id}}" class="btn btn-warning">
-                                    <i class="ri-edit-2-fill"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="javascript:void(0)" onclick="deleteLesson({{$lessons->id}})"  class="btn btn-primary btn-sm">
-                                    <i class="ri-delete-bin-line"></i>
-                                </a>
-                            </td>
-                           </tr>
-                           @endforeach
+                                @endphp
+                                @foreach ($lessons as $lessons)
+                                <tr id="sid{{$lessons->id}}">
+                                    <td>
+                                        {{ $count++ }}
+                                    </td>
+                                    <td>
+                                        {{$lessons->name}}
+                                    </td>
+                                    <td>
+                                        {!! htmlspecialchars_decode(nl2br(Str::limit($lessons->content, 150))) !!}
+                                    </td>
+                                    <td>
+                                        <a href="/administrator/view-lesson/{{$lessons->id}}"><i
+                                                class="ri-play-circle-fill" style="font-size: 22px;"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="/administrator/lesson-files/{{Crypt::encrypt($lessons->id)}}"
+                                            class="btn btn-success">
+                                            <i class="ri-upload-cloud-2-fill"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="/administrator/edit-lesson/{{$lessons->id}}" class="btn btn-warning">
+                                            <i class="ri-edit-2-fill"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0)" onclick="deleteLesson({{$lessons->id}})"
+                                            class="btn btn-primary btn-sm">
+                                            <i class="ri-delete-bin-line"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -180,39 +202,42 @@
             <div class="popup-video" id="pop">
                 <span id="can">&times;</span>
                 <div class="plyr_video-embed" id="player">
-                    <iframe  name="iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe name="iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                {{-- <iframe
-                    src="https://www.youtube.com/embed/tgbNymZ7vqY" name="iframe" id="pop-vi">
+                {{-- <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" name="iframe" id="pop-vi">
                 </iframe> --}}
             </div>
         </div>
     </div>
 
-@endsection
+    @endsection
 
 
-@section('scripts')
-{{-- SweetAlert --}}
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-{{-- SweetAlert --}}
+    @section('scripts')
+    {{-- SweetAlert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- SweetAlert --}}
 
-{{-- TinyMce --}}
+    {{-- TinyMce --}}
 
-<script src="https://cdn.tiny.cloud/1/8vaw02fi90vsx6y5o4xyua2hdewj5pbynpercqmes9jzv0la/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
+    <script src="https://cdn.tiny.cloud/1/8vaw02fi90vsx6y5o4xyua2hdewj5pbynpercqmes9jzv0la/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
       selector: '.textarea',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     });
-</script>
-{{-- TinyMce --}}
+    </script>
+    {{-- TinyMce --}}
 
-{{-- Toastr --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
- toastr.options = {
+    {{-- Toastr --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.options = {
   "closeButton": true,
   "newestOnTop": false,
   "progressBar": true,
@@ -228,12 +253,12 @@
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
 }
-</script>
-{{-- Toastr --}}
+    </script>
+    {{-- Toastr --}}
 
 
-<script>
-    $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
         let videoType = $("#videoType");
         let ytForm = $("#ytForm");
         let vmForm = $("#vmForm");
@@ -322,10 +347,10 @@
             });
         });
     });
-</script>
+    </script>
 
-<script type="text/javascript">
-    function deleteLesson(id){
+    <script type="text/javascript">
+        function deleteLesson(id){
      swal({
              title: "Are you sure?",
              text: "Once deleted, you will not be able to recover!",
@@ -361,5 +386,5 @@
              }
          })
      }
-</script>
-@endsection
+    </script>
+    @endsection

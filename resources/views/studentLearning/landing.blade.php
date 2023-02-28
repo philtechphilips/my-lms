@@ -35,9 +35,9 @@
             </div>
 
             <div class="student-dashboard-display-grid-body">
-                <a href="">
+                <a href="/dashboard/my-courses">
                     <i class="ri-vidicon-fill child-2"></i>
-                    <p>Live Class Recordings</p>
+                    <p>Live Class Schedule</p>
                 </a>
             </div>
 
@@ -63,7 +63,7 @@
             </div>
 
             <div class="student-dashboard-display-grid-body">
-                <a href="">
+                <a href="/dashboard/certificate">
                     <i class="ri-file-download-fill child-6"></i>
                     <p>Certificates</p>
                 </a>

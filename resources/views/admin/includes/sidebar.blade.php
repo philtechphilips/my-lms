@@ -71,7 +71,11 @@
 
 
                         <ul aria-expanded="false">
-							<li><a href="/dashboard/schedule-live-class">Schedule Live Class</a></li>
+							<li><a href="/administrator/schedule-live-class">Schedule Live Class</a></li>
+						</ul>
+
+                        <ul aria-expanded="false">
+							<li><a href="/administrator/certificate">Upload Certificate</a></li>
 						</ul>
                     </li>
 

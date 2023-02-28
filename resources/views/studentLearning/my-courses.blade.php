@@ -89,6 +89,9 @@
                             </div>
                         </div>
 
+                        <div style="text-align: right;">
+                            <a href="/dashboard/live-schedules/{{Crypt::encrypt($mycourses->course->id)}}" style="font-size: 14px; font-weight: 600;">View Live Schedules</a>
+                        </div>
                         </div>
                     </div>
                     @endforeach

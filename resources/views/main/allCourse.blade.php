@@ -37,7 +37,7 @@
                 <i class="ri-play-fill play"></i>
             </div>
             <div class="landingpage-courses-grid-body-contents">
-                <h2>{{Str::limit($courses->title, 65)}}</h2>
+                <h2>{{Str::limit($courses->title, 55)}}</h2>
             </a>
                 <p>A Course By: {{$courses->course->name}}</p>
                 <div class="landingpage-courses-grid-body-contents-flex">
@@ -109,7 +109,7 @@
 
 
 {{-- Featured Courses --}}
-<div class="all-courses-featured-courses">
+{{-- <div class="all-courses-featured-courses">
     <div class="landingpage-courses-header">
         <h1>Featured Course</h1>
     </div>
@@ -137,7 +137,7 @@
         </div>
 
     </div>
-</div>
+</div> --}}
 {{-- Featured Courses --}}
 
 
@@ -158,7 +158,7 @@
                 <i class="ri-play-fill play"></i>
             </div>
             <div class="landingpage-courses-grid-body-contents">
-                <h2>{{Str::limit($all_courses->title, 65)}}</h2>
+                <h2>{{Str::limit($all_courses->title, 55)}}</h2>
             </a>
                 <p>A Course By: {{$all_courses->course->name}}</p>
                 <div class="landingpage-courses-grid-body-contents-flex">

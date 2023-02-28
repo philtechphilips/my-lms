@@ -48,10 +48,37 @@
                             </div>
                             <div style="width: 100%" class="px-3">
                                 <h3>Lesson Video:</h3>
-                                <div class="plyr_video-embed" id="player">
-                                    <iframe  name="iframe" src="{{$lessons->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                @if($lessons->source == "mp4")
+                               <video id="player" playsinline controls>
+                                <source src="{{asset('lesson_video/'.$lessons->video->video)}}" type="video/mp4" />
+                              </video>
+                              @elseif($lessons->source == "vm")
+                              <div class="plyr__video-embed" playsinline controls id="player">
+                                <iframe
+                                  src="{{$lessons->url}}"
+                                  allowfullscreen
+                                  allowtransparency
+                                  allow="autoplay"
+                                ></iframe>
+                              </div>
+                               @else
+                               <div class="plyr_video-embed" playsinline controls id="player">
+                                     <iframe  name="iframe" src="{{$lessons->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
+                               @endif
                             </div>
+                            <div class="col-md-12 mt-2">
+                                <h4>Actions:</h4>
+                            </div>
+                            @if($lessons->source == "mp4")
+                            <div class="col-md-3 mt-1">
+                            <a href="/administrator/upload-lesson-video-file/{{Crypt::encrypt($lessons->id)}}" class="btn btn-danger btn-sm" style="font-weight: 600;">
+                                Upload Video File
+                            </a>
+                            </div>
+                            @else
+
+                            @endif
                         </div>
 
                     </div>

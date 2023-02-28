@@ -159,7 +159,13 @@
                 @if (Auth::check())
                 <div class="header-login-button log-in">
                     @if(Auth::check())
-                        <a href="{{ route('admin-landing') }}" class="menu-hide"><p>Dashboard</p></a>
+                        @if(Auth::user()->user_type == 'admin')
+                            <a href="/admin" class="menu-hide"><p>Dashboard</p></a>
+                        @elseif (Auth::user()->user_type == 'teacher')
+                            <a href="/teacher/dashboard" class="menu-hide"><p>Dashboard</p></a>
+                        @else
+                            <a href="/dashboard" class="menu-hide"><p>Dashboard</p></a>
+                        @endif
                     @else
                         <a href="{{ route('home') }}" class="menu-hide"><p>Dashboard</p></a>
                     @endif

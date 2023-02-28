@@ -138,9 +138,24 @@
             <div class="course-info-right-demo-video">
                 <h1>Demo Video</h1>
                 {{-- <video src="" autoplay controls></video> --}}
-                <div class="plyr_video-embed" id="player">
-                    <iframe width="800" height="500" src="{{$course->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                @if($course->source == "mp4")
+                <video id="player" playsinline controls data-poster="{{asset('course/'.$course->image)}}">
+                 <source src="{{asset('video/'.$course->video->video)}}" type="video/mp4" />
+               </video>
+               @elseif($course->source == "vm")
+               <div class="plyr__video-embed" playsinline controls id="player">
+                 <iframe
+                 src="{{$course->url}}"
+                   allowfullscreen
+                   allowtransparency
+                   allow="autoplay"
+                 ></iframe>
+               </div>
+                @else
+                <div class="plyr_video-embed" playsinline controls id="player">
+                      <iframe  name="iframe" src="{{$course->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 </div>
+                @endif
             </div>
         </div>
 
@@ -241,7 +256,7 @@
                 </div>
                 <div class="instruction_profile">
                     <div class="instruction_image">
-                        <img src="{{ asset('assets/images/281449169_3219140161738409_6693812234263747743_n.jpg') }}">
+                        <img src="{{ asset('image/'.$course->course->passport) }}">
                     </div>
                     <div class="instruction_profile_body">
                         <p><span><i class="fa-solid fa-star"></i></span> 4.4 Instructor Rating</p>

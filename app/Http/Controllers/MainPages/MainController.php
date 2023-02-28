@@ -20,6 +20,7 @@ use App\Models\Main\Cart;
 use App\Models\Main\Comment;
 use App\Models\Main\Coursereview;
 use App\Models\Main\Ebookreview;
+use App\Models\Main\Feedback;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,9 +49,9 @@ class MainController extends Controller
         $banner = Banner::latest()->first();
 
         // Get Courses
-        $courses = Courses::limit(16)->inRandomOrder()->get();
-        $mobile_courses = Courses::inRandomOrder()->get();
-        $courses_image = CourseImage::get();
+        $courses = Courses::limit(16)->inRandomOrder()->where('status', '=', 'published')->get();
+        $mobile_courses = Courses::inRandomOrder()->where('status', '=', 'published')->get();
+        // $courses_image = CourseImage::get();
         //Get Courses
 
         // Get E-Books
@@ -67,7 +68,9 @@ class MainController extends Controller
         // Get Auth Users
         // Get Blog Posts
         $blog = Blogs::limit(4)->inRandomOrder()->get();
-        return view('main.landingPage', compact('ebook', 'mobile_ebook', 'ebook_image', 'vision', 'mission', 'intro', 'schools', 'banner', 'blog', 'courses', 'courses_image','mobile_courses', 'n'));
+
+        $testimonial = Feedback::limit(3)->inRandomOrder()->where('status', '=', 1)->get();
+        return view('main.landingPage', compact('ebook', 'testimonial', 'mobile_ebook', 'ebook_image', 'vision', 'mission', 'intro', 'schools', 'banner', 'blog', 'courses', 'mobile_courses', 'n'));
     }
 
     public function learnings(){

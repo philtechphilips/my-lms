@@ -5,58 +5,26 @@
     </div>
 
     <div class="testimonial-section-grid">
+
+
+        @foreach ($testimonial as $testimonial)
         <div class="testimonial-section-grid-body">
             <div class="testimonial-section-grid-body-image">
-                <img src="{{ asset('assets/images/profile image.jpg') }}">
-                   <div style="margin: 10px 0">
+                <img src="{{ asset('image/'.$testimonial->user->passport) }}" height="70">
+                   {{-- <div style="margin: 10px 0">
                     <i class="fa-solid fa-star star"></i>
                     <i class="fa-solid fa-star star"></i>
                     <i class="fa-solid fa-star star"></i>
                     <i class="fa-solid fa-star star"></i>
                     <i class="fa-solid fa-star star"></i>
-                   </div>
+                   </div> --}}
             </div>
             <p>
-                <q>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</q>
+                <q>{{$testimonial->feedback}}</q>
             </p>
-            <h3>Temidara Matthew</h3>
+            <h3>{{$testimonial->user->name}}</h3>
         </div>
-
-
-        <div class="testimonial-section-grid-body">
-            <div class="testimonial-section-grid-body-image">
-                <img src="{{ asset('assets/images/profile image.jpg') }}">
-                   <div style="margin: 10px 0">
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                   </div>
-            </div>
-            <p>
-                <q>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</q>
-            </p>
-            <h3>Temidara Matthew</h3>
-        </div>
-
-
-        <div class="testimonial-section-grid-body">
-            <div class="testimonial-section-grid-body-image">
-                <img src="{{ asset('assets/images/profile image.jpg') }}">
-                   <div style="margin: 10px 0">
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                    <i class="fa-solid fa-star star"></i>
-                   </div>
-            </div>
-            <p>
-                <q>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quam blanditiis necessitatibus molestiae? Porro exercitationem blanditiis laborum quas repellat</q>
-            </p>
-            <h3>Temidara Matthew</h3>
-        </div>
+        @endforeach
 
 
     </div>

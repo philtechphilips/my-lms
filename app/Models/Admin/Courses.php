@@ -2,6 +2,8 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Main\Online;
+use App\Models\Main\Video;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -29,7 +31,8 @@ class Courses extends Model
         'real_price',
         'ini_price',
         'image',
-        'un_id'
+        'un_id',
+        'status'
     ];
 
     public function course(){
@@ -47,4 +50,15 @@ class Courses extends Model
     public function lesson(){
         return $this->hasMany(Lesson::class);
     }
+
+
+    public function video(){
+        return $this->belongsTo(Video::class, 'id', 'course_id');
+    }
+
+
+    // public function live()
+    // {
+    //     return $this->hasMany(Online::class, 'course_id', 'id');
+    // }
 }

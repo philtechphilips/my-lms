@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/video-page.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/quiz.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/Learning/view-score.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/certificate.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.css" />
     {{-- Toastr --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" target="_blank">

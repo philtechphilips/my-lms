@@ -95,9 +95,9 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm">
+                                        <a href="/administrator/edit-Quiz/{{Crypt::encrypt($Quizs->id)}}" class="btn btn-warning btn-sm">
                                             <i class="ri-edit-2-fill"></i>
-                                        </button>
+                                        </a>
                                     </td>
                                     <td>
                                         <a href="javascript:void(0)" onclick="deleteQuiz({{$Quizs->id}})">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\MainPages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Certificate;
 use App\Models\Admin\Ebook;
 use App\Models\Admin\Ebookfile;
 use App\Models\Admin\Ebookimage;
@@ -14,6 +15,7 @@ use App\Models\Main\Coursereview;
 use App\Models\Main\Ebookreview;
 use App\Models\Main\Feedback;
 use App\Models\Main\Fq;
+use App\Models\Main\Online;
 use App\Models\Main\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -183,6 +185,18 @@ class Dashboard extends Controller
           if($save){
             return redirect()->back()->with('success','FeedBack Submitted!');
         }
+    }
+
+
+    public function LiveClass($id){
+        $live = Online::where('course_id', '=', Crypt::decrypt($id))->get();
+        return view('studentLearning.live-class', compact('live'));
+    }
+
+
+    public function Certificate(){
+        $certificate = Certificate::where('user_id', '=', Auth::user()->id)->get();
+        return view('studentLearning.certificate', compact('certificate'));
     }
 
 }

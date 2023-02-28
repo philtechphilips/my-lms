@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Question;
 use App\Models\Admin\Quiz as AdminQuiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 class Quiz extends Controller
 {
@@ -40,6 +41,42 @@ class Quiz extends Controller
 
 
     }
+
+
+    public function EditQuiz($id){
+        $id = Crypt::decrypt($id);
+        $quiz = AdminQuiz::find($id);
+        return view('admin.main.edit-quiz', compact('id', 'quiz'));
+    }
+
+
+    public function UpdateQuiz(Request $request, $id){
+        $id = Crypt::decrypt($id);
+        $quiz = AdminQuiz::find($id);
+        $name =  $request->name;
+        $c_id =  $request->c_id;
+        $summary = $request->summary;
+
+        // return $request->all();
+        if($name == ''){
+            return "Enter a QuizName";
+        }else if ($summary == '') {
+            return "Enter a Quiz Summary";
+        }else{
+            $quiz->name = $request->name;
+            $quiz->summary = $request->summary;
+            $quiz->course_id = $c_id;
+            $save = $quiz->update();
+            if($save){
+                return "Quiz Updated Sucessfully!";
+            }else{
+                return "Something Went Wrong!";
+            }
+        }
+
+
+    }
+
 
 
     public function DeleteQuiz($id){

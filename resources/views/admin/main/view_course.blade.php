@@ -25,6 +25,7 @@
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>See Details</th>
+                                        <th>Status</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -45,6 +46,17 @@
                                         <a href="/administrator/view-course-details/{{$item->id}}" class="btn btn-success btn-sm">
                                             <i class="ri-eye-fill"></i>
                                         </a>
+                                    </td>
+                                    <td>
+                                        @if($item->status == "unpublished")
+                                        <a  href="javascript:void(0)" onclick="updateStatus({{$item->id}})" class="btn btn-warning btn-sm">
+                                            Unpublished
+                                        </a>
+                                        @else
+                                        <a  href="javascript:void(0)" onclick="updateStatus({{$item->id}})" class="btn btn-primary btn-sm">
+                                            Published
+                                        </a>
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="/administrator/edit-course/{{$item->id}}" class="btn btn-success btn-sm">
@@ -111,5 +123,43 @@
             }
         })
     }
-</script> 
+</script>
+
+
+<script type="text/javascript">
+    function updateStatus(id){
+     swal({
+             title: "Are you sure?",
+             text: "You want to Publish Course?",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+           })
+         .then((willDelete) =>{
+             if (willDelete) {
+                 $.ajax({
+                     url:'/administrator/publish-course/'+id,
+                     type: "PUT",
+                     data:{
+                         _token : $("input[name=_token").val()
+                     },
+                     success:function(response){
+                        swal({
+                        title: "Course Status",
+                         text: "Sucessfully Changed!",
+                        icon: "success",
+                    buttons: true,
+                    dangerMode: false,
+                }).then((update) => {
+                    if(update){
+                        location.reload();
+                    }
+                })
+
+                     }
+                 });
+             }
+         })
+     }
+</script>
 @endsection

@@ -29,6 +29,12 @@ class Cart extends Model
     public function ebook(){
         return $this->belongsTo(Ebook::class, 'course_id', 'id');
     }
+
+    public function live()
+    {
+        return $this->hasMany(Online::class, 'course_id', 'course_id');
+    }
+
 }
 
 

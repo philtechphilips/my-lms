@@ -34,10 +34,10 @@
                $count = 1;
            @endphp
            @foreach ($topics->lesson as $lesson)
-<ul class="lesson-links">
-    <li>
-         <a href="/dashboard/take-lessons/{{$course->id}}/{{$lesson->id}}">
-            <div class="video-page-container-left-topic-content-videos">
+            <ul class="lesson-links">
+            <li>
+            <a href="/dashboard/take-lessons/{{$course->id}}/{{$lesson->id}}">
+                <div class="video-page-container-left-topic-content-videos">
                 <div style="width: 100%; height: 3px; border-bottom: 1px solid #efefef;"></div>
                 <div class="video-page-container-left-topic-content-videos">
                <div class="video-page-container-left-topic-content-videos-body">
@@ -61,10 +61,10 @@
                </div>
                <p style="padding-left: 60px; margin-top: -12px; margin-bottom: 15px; opacity: .6;">Duration: {{$lesson->duration}}</p>
                 </div>
-           </div>
-        </a>
-    </li>
-</ul>
+                </div>
+             </a>
+            </li>
+            </ul>
            @endforeach
 
 
@@ -115,9 +115,28 @@
         <p>Lesson Navigation</p>
     </div>
     <h2>{{$w_lesson->name}}</h2>
-    <div class="plyr_video-embed" id="player">
+    {{-- <div class="plyr_video-embed" id="player">
         <iframe width="800" height="500" src="{{$w_lesson->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    </div> --}}
+
+             @if($w_lesson->source == "mp4")
+                <video id="player" playsinline controls data-poster="{{asset('course/'.$course->image)}}">
+                 <source src="{{asset('lesson_video/'.$w_lesson->video->video)}}" type="video/mp4" />
+               </video>
+               @elseif($course->source == "vm")
+               <div class="plyr__video-embed" playsinline controls id="player">
+                 <iframe
+                 src="{{$$w_lesson->url}}"
+                   allowfullscreen
+                   allowtransparency
+                   allow="autoplay"
+                 ></iframe>
+               </div>
+                @else
+                <div class="plyr_video-embed" playsinline controls id="player">
+                      <iframe  name="iframe" src="{{$w_lesson->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 </div>
+                @endif
     <h3 style="margin-top: 30px;">Lesson Description</h3>
     <p style="margin-top: 10px; font-size: 12px !important;">{!! htmlspecialchars_decode(nl2br($w_lesson->content)) !!}</p>
     <hr style="opacity: .3; margin: 20px 0;">

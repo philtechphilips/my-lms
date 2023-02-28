@@ -20,7 +20,7 @@
                 <i class="ri-play-fill play"></i>
             </div>
             <div class="landingpage-courses-grid-body-contents">
-                <h2>{{$courses->title}}</h2>
+                <h2>{{Str::limit($courses->title, 55)}}</h2>
             </a>
                 <p>A Course By:
                     {{$courses->course->name}}
@@ -71,7 +71,7 @@
                 <i class="ri-play-fill play"></i>
             </div>
             <div class="mobile-landingpage-courses-grid-body-contents">
-                <h2>{{$m_c->title}}</h2>
+                <h2>{{Str::limit($m_c->title, 55)}}</h2>
             </a>
                 <p>A Course By: {{$m_c->course->name}}</p>
                 <div class="mobile-landingpage-courses-grid-body-contents-flex">
