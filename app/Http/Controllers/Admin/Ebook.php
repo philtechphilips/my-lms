@@ -3,32 +3,38 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewEbook;
 use App\Models\Admin\Ebook as AdminEbook;
 use App\Models\Admin\Ebookfile;
 use App\Models\Admin\Ebookimage;
 use App\Models\Admin\School;
 use App\Models\Main\Ebookreview;
 use App\Models\Main\Feedback;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class Ebook extends Controller
 {
-    public function Ebook(){
+    public function Ebook()
+    {
         $schools = School::all();
         return view('admin.main.create-ebook', compact('schools'));
     }
 
 
-    public function EditEbook($id){
+    public function EditEbook($id)
+    {
         $schools = School::all();
         $ebook = AdminEbook::where('id', '=', $id)->first();
         return view('admin.main.edit-ebook', compact('schools', 'ebook'));
     }
 
 
-    public function UpdateEbook(Request $request, $id){
+    public function UpdateEbook(Request $request, $id)
+    {
         $validated = $request->validate([
             'title' => 'required|max:255',
             'school' => 'required',
@@ -54,9 +60,9 @@ class Ebook extends Controller
         $real_price = $request->realPrice;
         $author = Auth::user()->id;
 
-        if($ini_price < $real_price){
-            return redirect()->back()->with('error','Intial Price Smaller Than Real Price!');
-        }else{
+        if ($ini_price < $real_price) {
+            return redirect()->back()->with('error', 'Intial Price Smaller Than Real Price!');
+        } else {
             $ebook->title = $title;
             $ebook->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->title));
             $ebook->school = $school;
@@ -71,15 +77,16 @@ class Ebook extends Controller
             $ebook->author = $author;
 
             $save = $ebook->save();
-            if($save){
-                return redirect()->back()->with('success','E-Book Updated Successfully!');
-            }else{
-                return redirect()->back()->with('error','Something Went Wrong!');
+            if ($save) {
+                return redirect()->back()->with('success', 'E-Book Updated Successfully!');
+            } else {
+                return redirect()->back()->with('error', 'Something Went Wrong!');
             }
         }
     }
 
-    public function AddEbook(Request $request){
+    public function AddEbook(Request $request)
+    {
         $validated = $request->validate([
             'title' => 'required|unique:ebooks|max:255',
             'school' => 'required',
@@ -98,33 +105,33 @@ class Ebook extends Controller
 
         // Upload E-Book Cover
 
-                $cover = $request->cover;
-                $filename = time()."_".$cover->getClientOriginalName();
+        $cover = $request->cover;
+        $filename = time() . "_" . $cover->getClientOriginalName();
 
-                $extension = $cover->getClientOriginalExtension();
+        $extension = $cover->getClientOriginalExtension();
 
-                // Upload Location
-                $location = "ebook";
+        // Upload Location
+        $location = "ebook";
 
-                $cover->move($location,$filename);
-                 $filepath = url('ebook/'.$filename);
-
-        // Upload E-Book Cover
+        $cover->move($location, $filename);
+        $filepath = url('ebook/' . $filename);
 
         // Upload E-Book Cover
 
-            $ebook_file = $request->file;
-            $f_filename = time()."_".$ebook_file->getClientOriginalName();
+        // Upload E-Book Cover
 
-            $extension = $ebook_file->getClientOriginalExtension();
+        $ebook_file = $request->file;
+        $f_filename = time() . "_" . $ebook_file->getClientOriginalName();
 
-            // Upload Location
-            $n_location = "ebook";
+        $extension = $ebook_file->getClientOriginalExtension();
 
-            $ebook_file->move($n_location,$f_filename);
-            $filepath = url('ebook/'.$f_filename);
+        // Upload Location
+        $n_location = "ebook";
 
-    // Upload E-Book Cover
+        $ebook_file->move($n_location, $f_filename);
+        $filepath = url('ebook/' . $f_filename);
+
+        // Upload E-Book Cover
 
         $ebook = new AdminEbook();
         $title = $request->title;
@@ -138,9 +145,9 @@ class Ebook extends Controller
         $real_price = $request->realPrice;
         $author = Auth::user()->id;
 
-        if($ini_price < $real_price){
-            return redirect()->back()->with('error','Intial Price Smaller Than Real Price!');
-        }else{
+        if ($ini_price < $real_price) {
+            return redirect()->back()->with('error', 'Intial Price Smaller Than Real Price!');
+        } else {
             $ebook->title = $title;
             $ebook->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->title));
             $ebook->school = $school;
@@ -157,34 +164,39 @@ class Ebook extends Controller
             $ebook->file = $f_filename;
 
             $save = $ebook->save();
-            if($save){
-                return redirect()->back()->with('success','E-Book Upload is Successfull!');
-            }else{
-                return redirect()->back()->with('error','Something Went Wrong!');
+            if ($save) {
+                return redirect()->back()->with('success', 'E-Book Upload is Successfull!');
+            } else {
+                return redirect()->back()->with('error', 'Something Went Wrong!');
             }
         }
     }
 
 
-    public function ViewEbook(){
+    public function ViewEbook()
+    {
         $ebooks = AdminEbook::all();
         return view('admin.main.view-ebook', compact('ebooks'));
     }
 
-    public function DeleteEbook($id){
+    public function DeleteEbook($id)
+    {
         $ebook = AdminEbook::find($id);
         $delete = $ebook->delete();
     }
 
-    public function ViewEbookUp($id){
+    public function ViewEbookUp($id)
+    {
         return view('admin.main.upload_ebook_image', compact('id'));
     }
 
-    public function UploadEbook($id){
+    public function UploadEbook($id)
+    {
         return view('admin.main.upload_ebook_image', compact('id'));
     }
 
-    public function UploadEbookImageDB(Request $request, $id){
+    public function UploadEbookImageDB(Request $request, $id)
+    {
 
         // Fetch E-Book ID
         $ebook_id = $id;
@@ -196,44 +208,46 @@ class Ebook extends Controller
             'file' => 'required|mimes:png,jpg,jpeg,csv,pdf,txt'
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             $data['success'] = 1;
             $data['message'] = $validator->errors()->first('file');
-        }else{
-                $file = $request->file;
-                $filename = time()."_".$file->getClientOriginalName();
+        } else {
+            $file = $request->file;
+            $filename = time() . "_" . $file->getClientOriginalName();
 
-                $extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalExtension();
 
-                // Upload Location
-                $location = "course";
+            // Upload Location
+            $location = "course";
 
-                $file->move($location,$filename);
-                $filepath = url('course/'.$filename);
+            $file->move($location, $filename);
+            $filepath = url('course/' . $filename);
+            $data['success'] = 1;
+            $data['message'] = "E-Book Image Uploaded Successfully!";
+            // Saving Data
+            $image_upload->ebook_image = $filename;
+            $image_upload->ebook_id = $id;
+            $save = $image_upload->save();
+
+
+            if ($save) {
                 $data['success'] = 1;
-                $data['message'] = "E-Book Image Uploaded Successfully!";
-                // Saving Data
-                $image_upload->ebook_image = $filename;
-                $image_upload->ebook_id = $id;
-                $save = $image_upload->save();
-
-
-                if($save){
-                    $data['success'] = 1;
-                    $data['message'] = "Image Uploaded Successfully!";
-                }else{
-                    $data['success'] = 1;
-                    $data['message'] = "Something Went Wrong";
-                }
-                return response()->json($data);
+                $data['message'] = "Image Uploaded Successfully!";
+            } else {
+                $data['success'] = 1;
+                $data['message'] = "Something Went Wrong";
+            }
+            return response()->json($data);
         }
     }
 
-    public function EbookFile($id){
+    public function EbookFile($id)
+    {
         return view('admin.main.upload-ebook-file', compact('id'));
     }
 
-    public function UploadEbookFile(Request $request, $id){
+    public function UploadEbookFile(Request $request, $id)
+    {
 
         // Fetch E-Book ID
         $ebook_id = $id;
@@ -245,41 +259,62 @@ class Ebook extends Controller
             'file' => 'required|mimes:pdf,txt,doc,docx'
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             $data['success'] = 1;
             $data['message'] = $validator->errors()->first('file');
-        }else{
-                $file = $request->file;
-                $filename = time()."_".$file->getClientOriginalName();
+        } else {
+            $file = $request->file;
+            $filename = time() . "_" . $file->getClientOriginalName();
 
-                $extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalExtension();
 
-                // Upload Location
-                $location = "ebook";
+            // Upload Location
+            $location = "ebook";
 
-                $file->move($location,$filename);
-                $filepath = url('ebook/'.$filename);
+            $file->move($location, $filename);
+            $filepath = url('ebook/' . $filename);
+            $data['success'] = 1;
+            $data['message'] = "E-Book File Uploaded Successfully!";
+            // Saving Data
+            $image_upload->ebook_files = $filename;
+            $image_upload->ebook_id = $id;
+            $save = $image_upload->save();
+
+
+            if ($save) {
                 $data['success'] = 1;
-                $data['message'] = "E-Book File Uploaded Successfully!";
-                // Saving Data
-                $image_upload->ebook_files = $filename;
-                $image_upload->ebook_id = $id;
-                $save = $image_upload->save();
-
-
-                if($save){
-                    $data['success'] = 1;
-                    $data['message'] = "E-Book Uploaded Successfully!";
-                }else{
-                    $data['success'] = 1;
-                    $data['message'] = "Something Went Wrong";
-                }
-                return response()->json($data);
+                $data['message'] = "E-Book Uploaded Successfully!";
+            } else {
+                $data['success'] = 1;
+                $data['message'] = "Something Went Wrong";
+            }
+            return response()->json($data);
         }
     }
 
+    public function PublishEbook(Request $request, $id)
+    {
+        $course = AdminEbook::find($id);
+        if ($course->status == "published") {
+            $course->status = "unpublished";
+        } else {
+            $course->status = "published";
 
-    public function ViewEbookDetails(Request $request, $id){
+            $user = User::all();
+            $id = $course->id;
+            $title = $course->title;
+            $description = $course->description;
+            foreach($user as $user){
+                Mail::to($user->email)->send(new NewEbook($title, $user, $description, $id));
+            }
+        }
+        $update = $course->update();
+    }
+
+
+
+    public function ViewEbookDetails(Request $request, $id)
+    {
         $ebook = AdminEbook::where('id', '=', $id)->first();
         $ebook_image = Ebookimage::where('ebook_id', '=', $id)->first();
         return view('admin.main.view-ebook-details', compact('ebook', 'ebook_image'));

@@ -1,10 +1,8 @@
 @extends('main.index')
 
 @section('title')
-
-
+{{getenv('APP_FULL_NAME')}} | Cart
 @endsection
-
 
 @section('content')
 
@@ -32,7 +30,7 @@
             @foreach ($cart as $cart)
                 <div style="display: flex;">
                 <div class="shopping_cart_body_left_images">
-                    <img src="{{ asset('course/'.$cart->image) }}" width="100" height="100">
+                    <img src="{{ asset('course/'.$cart->course->image) }}" width="100" height="100">
                 {{-- @foreach ($courses_image as $image)
                     @if($image->course_id == $cart->course_id)
                          <img src="{{ asset('course/'.$image->course_image) }}" width="100" height="100">
@@ -140,16 +138,17 @@
             @foreach ($cart_ebook as $cart_ebook)
                 <div style="display: flex;">
                 <div class="shopping_cart_body_left_images">
+                    <img src="{{ asset('ebook/'.$cart_ebook->ebook->image) }}" width="100" height="100">
                 {{-- @foreach ($e_image as $e_image)
                     @if($e_image->ebook_id == $cart_ebook->course_id)
                          <img src="{{ asset('course/'.$e_image->ebook_image) }}" width="100" height="100">
                     @endif
                 @endforeach --}}
-                @foreach ($e_image as $image)
+                {{-- @foreach ($e_image as $image)
                     @if($image->ebook_id == $cart_ebook->course_id)
                         <img src="{{ asset('course/'.$image->ebook_image) }}" width="100" height="100">
                     @endif
-                @endforeach
+                @endforeach --}}
                 </div>
                 <div class="shopping_cart_body_left_text">
              <div class="shopping_cart_body_left_text_heading">

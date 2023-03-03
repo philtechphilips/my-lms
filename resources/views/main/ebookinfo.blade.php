@@ -1,7 +1,7 @@
 @extends('main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Ebook info
 @endsection
 
 @section('content')
@@ -19,15 +19,15 @@
             </h1>
             <p style="font-size: 17px;">By <span style="font-weight: 600; text-decoration: underline; cursor: pointer;">{{$ebook->user->name}}</span></p>
             <div class="ebook-right-info-rating-flex" style="margin-top: 20px;">
-                <div class="rating-container" style="display: flex; align-items:center;">
+                {{-- <div class="rating-container" style="display: flex; align-items:center;">
                     <i class="fa-solid fa-star" style="padding-right: 5px; color: rgb(231, 166, 0);"></i>
                     <i class="fa-solid fa-star" style="padding-right: 5px; color: rgb(231, 166, 0);"></i>
                     <i class="fa-solid fa-star" style="padding-right: 5px; color: rgb(231, 166, 0);"></i>
                     <i class="fa-solid fa-star" style="padding-right: 5px; color: rgb(231, 166, 0);"></i>
                     <i class="fa-solid fa-star" style="padding-right: 5px; color: rgb(231, 166, 0);"></i>
                     <p style="padding-left: 5px; font-size: 18px">4.5/5</p>
-                </div>
-                <p style="padding-left: 5px; font-size: 18px">(<span style="font-weight: 600;">454 ratings</span>)</p>
+                </div> --}}
+                <p style="font-size: 18px">(<span style="font-weight: 600;">{{$review_count}} Reviews</span>)</p>
             </div>
 
             <div class="course_content_requirements">
@@ -54,10 +54,8 @@
                             <img src="{{ asset('assets/images/profile image.jpg') }}">
                         </div>
                         <div class="instruction_profile_body">
-                            <p><span><i class="fa-solid fa-star"></i></span> 4.4 Instructor Rating</p>
-                            <p><span><i class="fa-solid fa-award" style="padding-right: 5px;"></i></span> 74,429 Reviews</p>
-                            <p><span><i class="fa-solid fa-users"></i></span> 900,672 Students</p>
-                            <p><span><i class="fa-solid fa-circle-play"></i></span> 16 Courses</p>
+                            <p><span><i class="fa-solid fa-star"></i></span> {{$author_ebook}} E-Book(s)</p>
+                            <p><span><i class="fa-solid fa-circle-play"></i></span> {{$author_course}} Course(s)</p>
                         </div>
                     </div>
                     <div class="description_body">
@@ -109,9 +107,7 @@
                                 <h5>{{$review->title}}</h5>
                                 <p>{{$review->content}}</p>
                             </p>
-                            <span>Helpful?</span>
-                            <a href=""><i class="fa-regular fa-thumbs-up" style="font-size: 14px;"></i></a>
-                            <a href=""><i class="fa-regular fa-thumbs-down" style="font-size: 14px;"></i></a>
+                           
                         </div>
                     </div>
                     @endforeach

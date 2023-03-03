@@ -3,58 +3,22 @@
     <div class="home-page-footer-grid">
         <div class="home-page-footer-grid-body">
             <h1>Quick Links</h1>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Courses</a>
-            <a href="#">E-Books</a>
-            <a href="#">Contact Us</a>
+            <a href="/">Home</a>
+            <a href="/main/schools">Schools</a>
+            <a href="/main/courses">Courses</a>
+            <a href="/main/ebooks">E-Books</a>
+            <a href="/main/contact-us">Contact Us</a>
         </div>
 
         <div class="home-page-footer-grid-body">
-            <h1>Recent Courses</h1>
-            <div class="home-page-footer-grid-body-courses">
-                <img src="{{ asset('assets/images/finalcourse.png')}} " width="100" height="80">
-                <div class="home-page-footer-grid-body-courses-info" style="margin-left: 5px;">
-                    <a href="#">
-                        <h2>Billionaires Master Class Finance Seminar</h2>
-                    </a>
-                        <p>By Temidara Matthew</p>
-                </div>
-            </div>
-
-            <div class="home-page-footer-grid-body-courses">
-                <img src="{{ asset('assets/images/finalcourse.png')}} " width="100" height="80">
-                <div class="home-page-footer-grid-body-courses-info" style="margin-left: 5px;">
-                    <a href="#">
-                        <h2>Billionaires Master Class Finance Seminar</h2>
-                    </a>
-                        <p>By Temidara Matthew</p>
-                </div>
-            </div>
+            <h1>Join Us</h1>
+            <a href="">Tutor Request</a>
         </div>
 
         <div class="home-page-footer-grid-body">
-            <h1>E-Books</h1>
-
-            <div class="home-page-footer-grid-body-courses">
-                <img src="{{ asset('assets/images/finalcourse.png')}} " width="100" height="80">
-                <div class="home-page-footer-grid-body-courses-info" style="margin-left: 5px;">
-                    <a href="#">
-                        <h2>Billionaires Master Class Finance Seminar</h2>
-                    </a>
-                        <p>By Temidara Matthew</p>
-                </div>
-            </div>
-
-            <div class="home-page-footer-grid-body-courses">
-                <img src="{{ asset('assets/images/finalcourse.png')}} " width="100" height="80">
-                <div class="home-page-footer-grid-body-courses-info" style="margin-left: 5px;">
-                    <a href="#">
-                        <h2>Billionaires Master Class Finance Seminar</h2>
-                    </a>
-                        <p>By Temidara Matthew</p>
-                </div>
-            </div>
+            <h1>About Us</h1>
+            <a href="/main/about-us">About Us</a>
+            <a href="/main/blog">Blog</a>
         </div>
 
         <div class="home-page-footer-grid-body">
@@ -101,10 +65,11 @@
 
 
                     <li class="footer-menu-links">
-                        <a href="#0" class="t-search">
+                        <a href="javascript:void()" class="t-search">
                             <i class="ri-search-line"></i>
                             <span>Search</span>
                         </a>
+
                     </li>
 
 
@@ -117,10 +82,11 @@
 {{-- Footer Search --}}
     <div class="search-bottom">
         <div class="search-bottom-container">
-            <form action="#" class="search">
-                <a href="#" class="t-close search-close"><i class="ri-close-line"></i></a>
+            <form action="/main/search" method="POST" class="search">
+                @csrf
+                <a href="javascript:void()" class="t-close search-close"><i class="ri-close-line"></i></a>
                 <span class="icon-large"><i class="ri-search-line"></i></span>
-                <input type="text" placeholder="Search a course">
+                <input type="text" name="search" placeholder="Search a course">
             </form>
         </div>
     </div>

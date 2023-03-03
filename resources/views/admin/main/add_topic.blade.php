@@ -1,7 +1,7 @@
 @extends('admin.main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Administrator Add Topic
 @endsection
 
 

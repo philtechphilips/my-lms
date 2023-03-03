@@ -1,7 +1,7 @@
 @extends('main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}}
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
 @include('main.components.hero')
 
 
-@include('main.components.courses') 
+@include('main.components.courses')
 
 
 @include('main.components.landingpageCta')

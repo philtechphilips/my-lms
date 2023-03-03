@@ -10,16 +10,17 @@
         </div>
         <div class="departments">
             @if (Auth::check())
-              <div class="mobile-head-signin">
+            <div class="mobile-head-signin">
                 <div class="mobile-head-signin-left">
-                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="60px" height="60px" style="border-radius: 50%;">
+                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="60px" height="60px"
+                        style="border-radius: 50%;">
                 </div>
 
                 <div class="mobile-head-signin-right">
-                  <h3>{{ Auth::user()->name }}</h3>
-                  <p>Welcome Back</p>
+                    <h3>{{ Auth::user()->name }}</h3>
+                    <p>Welcome Back</p>
                 </div>
-              </div>
+            </div>
             @endif
 
 
@@ -64,15 +65,14 @@
             </div>
 
             <div class="mobile-nav-links">
-                <a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
+                    {{ __('Logout') }}
+                </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </nav>
         <hr style="color: #222; opacity: .3; margin: 15px -15px 15px -15px; ">
@@ -91,7 +91,7 @@
             </div>
             <p class="copyright">
                 &#169; @php
-                    echo date('Y')
+                echo date('Y')
                 @endphp MoGah All Rights Reserved
             </p>
         </div>
@@ -116,16 +116,16 @@
 
 
         <div class="dashboard-navbar-right mobile-hide" style="display: flex; align-items: center;">
-             <div class="dashboard-navbar-links mobile-hide" style="margin-right: 50px;">
+            <div class="dashboard-navbar-links mobile-hide" style="margin-right: 50px;">
                 <ul class="dashboard-navbar-links-ul">
 
-                <li>
-                    <a href="#" style="text-transform: capitalize;"><i class="ri-question-fill"></i>Help</a>
-                </li>
-{{-- 
-                <li>
-                    <a href="#"><i class="ri-notification-fill"></i></a>
-                </li> --}}
+                    {{-- <li>
+                        <a href="#" style="text-transform: capitalize;"><i class="ri-question-fill"></i>Help</a>
+                    </li> --}}
+                    {{--
+                    <li>
+                        <a href="#"><i class="ri-notification-fill"></i></a>
+                    </li> --}}
 
 
                 </ul>
@@ -136,12 +136,12 @@
                     <h5>{{Auth::user()->name}}</h5>
                     <p style="text-align: right; font-size: 13px;">Student</p>
                 </div>
-               <div class="m-wrapper">
+                <div class="m-wrapper">
                     <a href="javascript:void(0)" class="dropdown-trigger">
-                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="50px" height="50px">
-                    <i class="ri-arrow-drop-down-line"></i>
+                        <img src="{{ asset('image/'.Auth::user()->passport) }}" width="50px" height="50px">
+                        <i class="ri-arrow-drop-down-line"></i>
                     </a>
-               </div>
+                </div>
             </div>
         </div>
     </div>
@@ -172,8 +172,7 @@
             <div class="line"></div>
 
             <li>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
@@ -185,4 +184,3 @@
         </ul>
     </div>
 </div>
-

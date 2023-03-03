@@ -1,7 +1,7 @@
 @extends('main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | School
 @endsection
 
 @section('content')
@@ -28,7 +28,7 @@
 
         @forelse ($courses as $courses)
         <div class="landingpage-courses-grid-body">
-            <a href="/main/course/{{$courses->slug}}">
+            <a href="/main/course/{{Crypt::encrypt($courses->id)}}">
             <div class="landingpage-courses-grid-body-image">
                 <img src="{{ asset('course/'.$courses->image)}}">
                 <i class="ri-play-fill play"></i>
@@ -40,15 +40,15 @@
                 <div class="landingpage-courses-grid-body-contents-flex">
                     <div class="left">
                         <i class="ri-user-line"></i>
-                        <span>547</span>
+                        <span>{{$courses->cart->count()}}</span>
                     </div>
                     <div class="right">
-                        <i class="ri-star-fill"></i>
-                        <span>547</span>
+                        <i class="ri-question-answer-line"></i>
+                        <span>{{$courses->review->count()}}</span>
                     </div>
                 </div>
                 <div class="landingpage-courses-grid-body-contents-button">
-                    <a href="#">
+                    <a href="/main/course/{{Crypt::encrypt($courses->id)}}">
                         <i class="ri-shopping-cart-2-line" style="padding-right: 5px;"></i>
                         <span style="padding-right: 5px; font-family: Poppins !important">Buy</span>
                         <span style="padding-right: 5px; font-family: Poppins !important">&#8358; {{number_format($courses->real_price)}}</span>
@@ -76,7 +76,7 @@
 
         @forelse ($ebooks as $ebooks)
         <div class="landingpage-courses-grid-body" >
-            <a href="/main/course/{{$ebooks->slug}}">
+            <a href="/main/ebook/{{Crypt::encrypt($ebooks->id)}}">
             <div class="landingpage-courses-grid-body-image">
                 <img src="{{ asset('ebook/'.$ebooks->image)}}">
                 <i class="ri-play-fill play"></i>
@@ -88,15 +88,15 @@
                 <div class="landingpage-courses-grid-body-contents-flex">
                     <div class="left">
                         <i class="ri-user-line"></i>
-                        <span>547</span>
+                        <span>{{$ebooks->cart->count()}}</span>
                     </div>
                     <div class="right">
-                        <i class="ri-star-fill"></i>
-                        <span>547</span>
+                        <i class="ri-question-answer-line"></i>
+                        <span>{{$ebooks->review->count()}}</span>
                     </div>
                 </div>
                 <div class="landingpage-courses-grid-body-contents-button">
-                    <a href="#">
+                    <a href="/main/ebook/{{Crypt::encrypt($ebooks->id)}}">
                         <i class="ri-shopping-cart-2-line" style="padding-right: 5px;"></i>
                         <span style="padding-right: 5px; font-family: Poppins !important">Buy</span>
                         <span style="padding-right: 5px; font-family: Poppins !important">&#8358; {{number_format($ebooks->real_price)}}</span>
@@ -127,7 +127,7 @@
             <h6 style="margin-left: 87%; margin-bottom:20px; font-size: 18px;">{{number_format($m_all_courses_c)}} Results</h6>
 
         @foreach ($m_all_courses as $m_all_courses)
-        <a href="/main/ebook/{{$m_all_courses->slug}}" style="text-decoration: none; color: #222;">
+        <a href="/main/course/{{Crypt::encrypt($m_all_courses->id)}}" style="text-decoration: none; color: #222;">
         <div class="all-courses-page-all-courses-sections-flex-right-body">
             <div class="all-courses-page-all-courses-sections-flex-right-body-left">
                 <img src="{{ asset('course/'.$m_all_courses->image) }}">
@@ -136,10 +136,10 @@
             <div class="all-courses-page-all-courses-sections-flex-right-body-center-c" style="width 100%">
                 <h1 style="font-size: 17px;">{{Str::limit($m_all_courses->title, 55)}}</h1>
                 <p>{{$m_all_courses->course->name}}</p>
-                <div class="all-courses-page-all-courses-sections-flex-right-body-center-review">
+                {{-- <div class="all-courses-page-all-courses-sections-flex-right-body-center-review">
                     <p>{{$m_all_courses->hour}} Total Hours</p>
                     <p>35 Lectures</p>
-                </div>
+                </div> --}}
                 <div class="all-courses-page-all-courses-sections-flex-right-body-center-review">
                     <h3>&#8358;{{number_format($m_all_courses->real_price)}}</h3>
                     <h3 style="opacity: .5; margin-left: 5px; text-decoration: line-through; font-weight: 500;">&#8358;{{number_format($m_all_courses->ini_price)}}</h3>
@@ -175,7 +175,7 @@
             <h6 style="margin-left: 87%; margin-bottom:20px; font-size: 18px;">{{number_format($m_all_ebooks_c)}} Results</h6>
 
             @foreach ($m_all_ebooks  as $m_all_ebooks)
-            <a href="/main/ebook/{{$m_all_ebooks->slug}}" style="text-decoration: none; color: #222;">
+            <a href="/main/ebook/{{Crypt::encrypt($m_all_ebooks->id)}}" style="text-decoration: none; color: #222;">
             <div class="all-courses-page-all-courses-sections-flex-right-body">
                 <div class="all-courses-page-all-courses-sections-flex-right-body-left">
                     <img src="{{ asset('ebook/'.$m_all_ebooks->image) }}">

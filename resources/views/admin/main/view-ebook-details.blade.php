@@ -1,7 +1,7 @@
 @extends('admin.main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Administrator | E-Book
 @endsection
 
 
@@ -40,7 +40,8 @@
                                 <h4>Title: {{$ebook->title}}</h4>
                             </div>
                             <div class="col-md-4" style="text-align: right;">
-                                <a href="javascript:viod(0);" id="back" class="btn btn-primary btn-sm"><span class="mt-2"><i class="ri-arrow-go-back-line px-1"></i></span>Back</a>
+                                <a href="javascript:viod(0);" id="back" class="btn btn-primary btn-sm"><span
+                                        class="mt-2"><i class="ri-arrow-go-back-line px-1"></i></span>Back</a>
                             </div>
                             <div class="col-md-3 mt-2">
                                 <h6>School: {{$ebook->school}}</h6>
@@ -51,12 +52,12 @@
                             <div class="col-md-3 mt-2">
                                 <h6>Read Time: @if($ebook->av_read_time > 60)
                                     {{round($ebook->av_read_time, 1)}} Hours
-                                @else
+                                    @else
                                     {{$ebook->av_read_time}} Minutes
-                                @endif</h6>
+                                    @endif</h6>
                             </div>
                             <div class="col-md-3 mt-2">
-                                <h6>Price: 	&#8358;{{number_format($ebook->real_price)}}</h6>
+                                <h6>Price: &#8358;{{number_format($ebook->real_price)}}</h6>
                             </div>
                             <div class="col-md-8 mt-2">
                                 <h4>E-Book Description:</h4>
@@ -66,39 +67,60 @@
                                 <h4>E-Book Image:</h4>
                                 <img style="width: 100%;" src="{{asset('ebook/'.$ebook->image)}}">
                                 {{-- @if($ebook_image !='')
-                                    <img style="width: 100%;" src="{{asset('course/'.$ebook_image->ebook_image)}}">
+                                <img style="width: 100%;" src="{{asset('course/'.$ebook_image->ebook_image)}}">
                                 @else
-                                    <img style="width: 100%;" src="" alt="E-Book Cover">
+                                <img style="width: 100%;" src="" alt="E-Book Cover">
                                 @endif --}}
                             </div>
                             <div class="col-md-12 mt-2">
                                 <h4>Actions:</h4>
                             </div>
                             {{-- <div class="col-md-3 mt-1">
-                                <a href="/administrator/upload-ebook-image/{{$ebook->id}}" class="btn btn-warning btn-sm" style="font-weight: 600;">Upload Image</a>
+                                <a href="/administrator/upload-ebook-image/{{$ebook->id}}"
+                                    class="btn btn-warning btn-sm" style="font-weight: 600;">Upload Image</a>
                             </div>
 
                             <div class="col-md-3 mt-1">
-                                <a href="/administrator/upload-ebook-file/{{$ebook->id}}" class="btn btn-success btn-sm" style="font-weight: 600;">
+                                <a href="/administrator/upload-ebook-file/{{$ebook->id}}" class="btn btn-success btn-sm"
+                                    style="font-weight: 600;">
                                     Upload E-Book File
                                 </a>
                             </div> --}}
 
                             <div class="col-md-3 mt-1">
-                                <a href="/administrator/edit-ebook/{{$ebook->id}}" class="btn btn-success btn-sm" style="font-weight: 600;">
+                                <a href="/administrator/edit-ebook/{{$ebook->id}}" class="btn btn-success btn-sm"
+                                    style="font-weight: 600;">
                                     Edit E-Book
                                 </a>
                             </div>
 
                             <div class="col-md-3 mt-1">
-                                <a href="javascript:void(0)" onclick="deleteStudent({{$ebook->id}})"  class="btn btn-primary btn-sm" style="font-weight: 600;">
+                                @if($item->status == "unpublished")
+                                <a href="javascript:void(0)" onclick="updateStatus({{$item->id}})"
+                                    class="btn btn-warning btn-sm">
+                                    Unpublished
+                                </a>
+                                @else
+                                <a href="javascript:void(0)" onclick="updateStatus({{$item->id}})"
+                                    class="btn btn-primary btn-sm">
+                                    Published
+                                </a>
+                                @endif
+                            </div>
+
+                            <div class="col-md-3 mt-1">
+                                <a href="javascript:void(0)" onclick="deleteStudent({{$ebook->id}})"
+                                    class="btn btn-primary btn-sm" style="font-weight: 600;">
                                     Delete E-Book
                                 </a>
                             </div>
                             {{-- <div style="width: 100%" class="px-3">
                                 <h3>Lesson Video:</h3>
                                 <div class="plyr_video-embed" id="player">
-                                    <iframe  name="iframe" src="{{$lessons->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe name="iframe" src="{{$lessons->url}}" title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
                                 </div>
                             </div> --}}
                         </div>
@@ -109,20 +131,20 @@
         </div>
     </div>
 
-@endsection
+    @endsection
 
 
-@section('scripts')
-<script>
-    $(document).ready(function () {
+    @section('scripts')
+    <script>
+        $(document).ready(function () {
         $('#back').click(function () {
             history.back();
         });
     });
-</script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript">
-   function deleteStudent(id){
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        function deleteStudent(id){
     swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover!",
@@ -158,5 +180,5 @@
             }
         })
     }
-</script>
-@endsection
+    </script>
+    @endsection

@@ -2,7 +2,7 @@
 
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Administrator | Profile
 
 @endsection
 

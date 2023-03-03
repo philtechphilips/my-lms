@@ -1,7 +1,7 @@
 @extends('main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Blogpage
 @endsection
 
 @section('content')

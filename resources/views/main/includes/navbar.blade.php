@@ -10,27 +10,29 @@
         </div>
         <div class="departments">
             @if (Auth::check())
-              <div class="mobile-head-signin">
+            <div class="mobile-head-signin">
                 <div class="mobile-head-signin-left">
-                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="60px" height="60px" style="border-radius: 50%;">
+                    <img src="{{ asset('image/'.Auth::user()->passport) }}" width="60px" height="60px"
+                        style="border-radius: 50%;">
                 </div>
 
                 <div class="mobile-head-signin-right">
-                  <h3>{{ Auth::user()->name }}</h3>
-                  <p>Welcome Back</p>
+                    <h3>{{ Auth::user()->name }}</h3>
+                    <p>Welcome Back</p>
                 </div>
-              </div>
+            </div>
 
-              <div class="mobile-head-login">
+            <div class="mobile-head-login">
                 <ul class="mobile-head-login-links">
                     <li><a href="{{route('homePage')}}">Home</a></li>
                     <li><a href="{{route('about')}}">About Us</a></li>
                     <li><a href="{{route('allcourses')}}">Courses</a></li>
                     <li><a href="{{route('allEbooks')}}">Ebooks</a></li>
+                    <li><a href="/main/contact-us">Contact Us</a></li>
                 </ul>
-                </div>
+            </div>
             @else
-                <div class="mobile-head-login">
+            <div class="mobile-head-login">
                 <ul class="mobile-head-login-links">
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Sign Up</a></li>
@@ -38,8 +40,9 @@
                     <li><a href="{{route('about')}}">About Us</a></li>
                     <li><a href="{{route('allcourses')}}">Courses</a></li>
                     <li><a href="{{route('allEbooks')}}">Ebooks</a></li>
+                    <li><a href="/main/contact-us">Contact Us</a></li>
                 </ul>
-                </div>
+            </div>
             @endif
 
 
@@ -77,7 +80,7 @@
             </div>
             <p class="copyright">
                 &#169; @php
-                    echo date('Y')
+                echo date('Y')
                 @endphp MoGah All Rights Reserved
             </p>
         </div>
@@ -88,20 +91,21 @@
     <div class="header-top-links">
         <div>
             <ul class="header-top-links-link">
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-square-whatsapp"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-square-whatsapp"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
             </ul>
         </div>
 
         <div>
             <ul class="header-top-links-links">
-            <li><a href="{{ route('homePage') }}">Home</a></li>
-            <li><a href="{{ route('allcourses') }}">All Courses</a></li>
-            <li><a href="{{ route('allEbooks') }}">All E-books</a></li>
-            <li><a href="{{ route('schools') }}">Schools</a></li>
-            <li><a href="{{ route('about') }}">About Us</a></li>
-            <li><a href="{{route('blog')}}">Blogs</a></li>
+                <li><a href="{{ route('homePage') }}">Home</a></li>
+                <li><a href="{{ route('allcourses') }}">All Courses</a></li>
+                <li><a href="{{ route('allEbooks') }}">All E-books</a></li>
+                <li><a href="{{ route('schools') }}">Schools</a></li>
+                <li><a href="{{ route('about') }}">About Us</a></li>
+                <li><a href="{{route('blog')}}">Blogs</a></li>
+                <li><a href="/main/contact-us">Contact Us</a></li>
             </ul>
         </div>
     </div>
@@ -116,24 +120,27 @@
             <div class="header-bottom-container-left">
                 <a href="{{ route('homePage') }}" class="logo">MoGah</a>
                 <a href="{{ route('schools') }}" class="menu-hide">
-                @if(Auth::check())
+                    @if(Auth::check())
                     Schools
-                @else
+                    @else
                     All Schools
-                @endif
+                    @endif
                 </a>
             </div>
             <div class="header-bottom-container-center">
                 <div class="search-box">
-                    <form action="" class="search">
+                    <form action="/main/search" method="POST" class="search">
+                        @csrf
                         <span class="icon-large"><i class="ri-search-line"></i></span>
-                        <input type="search" placeholder="Search for anthing">
+                        <input type="search" name="search" placeholder="Search for anthing">
                     </form>
                 </div>
             </div>
             <div class="header-bottom-container-right">
                 <div class="header-login-button">
-                    <a href="/main/courses" class="menu-hide"><p>Courses</p></a>
+                    <a href="/main/courses" class="menu-hide">
+                        <p>Courses</p>
+                    </a>
                 </div>
 
                 <div class="header-login-button user">
@@ -142,13 +149,14 @@
 
                 @if(Auth::check())
 
-                    <div class="header-login-button" style="position: relative;">
-                        <a href="{{ route('cart') }}"><i class="cart ri-shopping-cart-line"></i>
-                        <div style="position: absolute; right: -9px; top: -6px; background-color: red; text-align: center; color: #fff; width: 17px; height: 20px; padding 0px 50px 50px 50px; border-radius: 50px;">
+                <div class="header-login-button" style="position: relative;">
+                    <a href="{{ route('cart') }}"><i class="cart ri-shopping-cart-line"></i>
+                        <div
+                            style="position: absolute; right: -9px; top: -6px; background-color: red; text-align: center; color: #fff; width: 17px; height: 20px; padding 0px 50px 50px 50px; border-radius: 50px;">
                             <p id="cart_count" style="margin-top: -2px; font-weight: 600; font-size: 13px;">0</p>
                         </div>
-                        </a>
-                    </div>
+                    </a>
+                </div>
                 @else
                 <div class="header-login-button">
                     <a href="{{ route('cart') }}"><i class="cart ri-shopping-cart-line"></i></a>
@@ -159,27 +167,41 @@
                 @if (Auth::check())
                 <div class="header-login-button log-in">
                     @if(Auth::check())
-                        @if(Auth::user()->user_type == 'admin')
-                            <a href="/admin" class="menu-hide"><p>Dashboard</p></a>
-                        @elseif (Auth::user()->user_type == 'teacher')
-                            <a href="/teacher/dashboard" class="menu-hide"><p>Dashboard</p></a>
-                        @else
-                            <a href="/dashboard" class="menu-hide"><p>Dashboard</p></a>
-                        @endif
+                    @if(Auth::user()->user_type == 'admin')
+                    <a href="/admin" class="menu-hide">
+                        <p>Dashboard</p>
+                    </a>
+                    @elseif (Auth::user()->user_type == 'teacher')
+                    <a href="/teacher/dashboard" class="menu-hide">
+                        <p>Dashboard</p>
+                    </a>
                     @else
-                        <a href="{{ route('home') }}" class="menu-hide"><p>Dashboard</p></a>
+                    <a href="/dashboard" class="menu-hide">
+                        <p>Dashboard</p>
+                    </a>
+                    @endif
+                    @else
+                    <a href="{{ route('home') }}" class="menu-hide">
+                        <p>Dashboard</p>
+                    </a>
                     @endif
                 </div>
 
                 <div class="header-login-button sign-up">
-                    <a href="/main/profile" class="menu-hide"><p>Account</p></a>
+                    <a href="/main/profile" class="menu-hide">
+                        <p>Account</p>
+                    </a>
                 </div>
 
                 {{-- <div class="header-login-button"> --}}
-                    {{-- <a href="#" class="menu-hide"><p style="padding: 10px 10px 0px 10px; text-align: center; color:#fff; background-color: rgb(26, 26, 59); border-radius: 50%;">IP</p></a> --}}
-                {{-- </div> --}}
+                    {{-- <a href="#" class="menu-hide">
+                        <p
+                            style="padding: 10px 10px 0px 10px; text-align: center; color:#fff; background-color: rgb(26, 26, 59); border-radius: 50%;">
+                            IP</p>
+                    </a> --}}
+                    {{-- </div> --}}
                 @else
-                    {{-- Login Logout Button When Not Authenticated --}}
+                {{-- Login Logout Button When Not Authenticated --}}
                 <div class="header-login-button log-in">
                     <a href="{{ url('/login') }}">Log in</a>
                 </div>
@@ -187,7 +209,7 @@
                 <div class="header-login-button sign-up">
                     <a href="{{ url('/register') }}">Sign Up</a>
                 </div>
-                    {{-- Login Logout Button When Not Authenticated --}}
+                {{-- Login Logout Button When Not Authenticated --}}
                 @endif
 
 

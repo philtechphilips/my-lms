@@ -1,21 +1,21 @@
 @extends('main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Checkout
 @endsection
 
 @section('content')
 
 <section class="cart">
     <div class="shopping_cart_header">
-      <div class="shopping-cart-links">
-          <p style="padding-right: 5px; font-weight: 500 !important;">Home</p>
-          <i class="fa-solid fa-angle-right"></i>
-          <p style="padding-left: 5px; font-weight: 500 !important;">Checkout</p>
-      </div>
-      <h1>
-        Checkout Page
-      </h1>
+        <div class="shopping-cart-links">
+            <p style="padding-right: 5px; font-weight: 500 !important;">Home</p>
+            <i class="fa-solid fa-angle-right"></i>
+            <p style="padding-left: 5px; font-weight: 500 !important;">Checkout</p>
+        </div>
+        <h1>
+            Checkout Page
+        </h1>
     </div>
 
     <div class="checkout">
@@ -31,9 +31,10 @@
                                 <input type="checkbox" name="paystack" id="paystack" style="margin-right: 5px;">
                                 <p>Pay With Paystack</p>
                             </label>
-                            <img src="{{ asset('assets/images/paystack.png')}}"  width="100" height="20">
+                            <img src="{{ asset('assets/images/paystack.png')}}" width="100" height="20">
                         </div>
-                        <button type="submit" onclick="payWithPaystack(event)"><i class="fa-solid fa-cart-shopping"></i> Complete Purchase</button>
+                        <button type="submit" id="submit" onclick="payWithPaystack(event)"><i
+                                class="fa-solid fa-cart-shopping"></i> Complete Purchase</button>
                     </form>
                 </div>
             </div>
@@ -42,33 +43,34 @@
                 <hr style="opacity: .2">
 
                 @if($cart_count == 0)
-                    <div class="checkout-grid-right-flex">
-                        <div style="background-color: #8F0000; padding: 10px 0 10px 10px; color: #fff; width: 100%;">
-                            EMPTY CART!
-                        </div>
+                <div class="checkout-grid-right-flex">
+                    <div style="background-color: #8F0000; padding: 10px 0 10px 10px; color: #fff; width: 100%;">
+                        EMPTY CART!
                     </div>
+                </div>
                 @else
-                    @foreach ($cart as $cart)
-                        <div class="checkout-grid-right-flex">
-                        @foreach ($courses_image as $c_img)
-                            @if($cart->course_id === $c_img->course_id)
-                             <img src="{{ asset('course/'.$c_img->course_image)}}" width="100" height="70">
-                            @else
-                             {{-- <img src="#" alt="Course Image"> --}}
-                            @endif
-                         @endforeach
-                        <div class="checkout-grid-right-flex2" style="padding-left: 10px;">
-                            <h1 style="font-size: 20px;">{{$cart->course_title}}</h1>
-                            @foreach ($courses as $school)
-                                @if($school->id == $cart->course_id)
-                                    <p>{{$school->school}}</p>
-                                @endif
-                            @endforeach
-                            <p style="font-size: 18px; font-weight: 700; color: #860000;">  &#x20A6;{{number_format($cart->course_price, 0)}}</p>
-                        </div>
-                        </div>
-                    <hr style="opacity: .2; margin-bottom: 15px;">
+                @foreach ($cart as $cart)
+                <div class="checkout-grid-right-flex">
+                    @foreach ($courses_image as $c_img)
+                    @if($cart->course_id === $c_img->course_id)
+                    <img src="{{ asset('course/'.$c_img->course_image)}}" width="100" height="70">
+                    @else
+                    {{-- <img src="#" alt="Course Image"> --}}
+                    @endif
                     @endforeach
+                    <div class="checkout-grid-right-flex2" style="padding-left: 10px;">
+                        <h1 style="font-size: 20px;">{{$cart->course_title}}</h1>
+                        @foreach ($courses as $school)
+                        @if($school->id == $cart->course_id)
+                        <p>{{$school->school}}</p>
+                        @endif
+                        @endforeach
+                        <p style="font-size: 18px; font-weight: 700; color: #860000;">
+                            &#x20A6;{{number_format($cart->course_price, 0)}}</p>
+                    </div>
+                </div>
+                <hr style="opacity: .2; margin-bottom: 15px;">
+                @endforeach
                 @endif
 
 
@@ -118,5 +120,20 @@
         handler.openIframe();
         }
     }
+</script>
+
+
+<script>
+    $(document).ready(function () {
+    $('#submit').click(function (e) {
+    e.preventDefault();
+    if ($('#paystack').is(':checked')) {
+    toastr.warning('Validating Payment Please Wait!!!', 'Warning', {
+    closeButton: true,
+    progressBar: true,
+    timeOut: 100000
+    }); }
+    })
+    })
 </script>
 @endsection

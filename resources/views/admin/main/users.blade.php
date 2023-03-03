@@ -1,7 +1,7 @@
 @extends('admin.main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Administrator | Users
 @endsection
 
 
@@ -25,7 +25,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Mail</th>
+                                        {{-- <th>Mail</th> --}}
                                         {{-- <th>Send SMS</th> --}}
                                     </tr>
                                 </thead>
@@ -41,11 +41,11 @@
                                     <td>{{ $all_admin->name }}</td>
                                     <td>{{ $all_admin->email }}</td>
                                     <td>{{ $all_admin->phone }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <button class="btn btn-success btn-sm">
                                             Mail Now
                                         </button>
-                                    </td>
+                                    </td> --}}
                                     {{-- <td>
                                         <button class="btn btn-danger btn-sm">
                                             Message

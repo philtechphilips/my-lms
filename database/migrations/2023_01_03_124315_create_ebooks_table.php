@@ -28,6 +28,7 @@ class CreateEbooksTable extends Migration
             $table->string('ini_price');
             $table->string('image')->nullable();
             $table->string('file')->nullable();
+            $table->string('status')->define('unpublished');
             $table->timestamps();
         });
     }

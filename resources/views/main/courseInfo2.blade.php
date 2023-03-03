@@ -1,7 +1,7 @@
 @extends('main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Course Info
 @endsection
 
 @section('content')
@@ -110,7 +110,7 @@
     <div class="course_content_contents">
         <div class="course_content_what_you_learn">
             <div class="course_content_what_you_learn_body">
-                <h1>What you'll learn</h1>
+                <h2>What you'll learn</h2>
                 <div class="course_content_what_you_learn_body_grid">
                     @foreach ($what_you_learn as $what_you_learn)
                         <p><span><i class="fa-solid fa-check-double"></i></span>{{$what_you_learn}}</p>
@@ -121,7 +121,7 @@
 
         <div class="course_content_requirements">
             <div class="course_content_requirements">
-                <h1>Requirements</h1>
+                <h2>Requirements</h2>
                 <ul>
                     @foreach ($requirement as $requirement)
                     <li>
@@ -136,7 +136,7 @@
 
         <div class="course_content_requirements">
             <div class="course-info-right-demo-video">
-                <h1>Demo Video</h1>
+                <h2>Demo Video</h2>
                 {{-- <video src="" autoplay controls></video> --}}
                 @if($course->source == "mp4")
                 <video id="player" playsinline controls data-poster="{{asset('course/'.$course->image)}}">
@@ -163,57 +163,28 @@
         <div class="course_content_requirements">
             <div class="course_content_what_to_learn">
                 <div class="course_contents_hedline">
-                    <h1>Lessons in This Class</h1>
-                    <p>5 Lessons (5hrs)</p>
+                    <h2>Lessons in This Class</h2>
+                    <p>{{$lesson_count}} Lesson(s)</p>
                 </div>
+                @php
+                    $count = 1;
+                @endphp
+
+                @if($lesson_count > 0)
+                @foreach ($lesson as $lesson)
                 <div class="course_contents">
                     <div class="course_contents_body">
                         <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 17px; padding-top: 2px;"> 1. </p>
-                        <h4 style="font-size: 17px; font-weight: 600;">Introduction</h4>
+                        <p style="padding-right: 5px; font-size: 17px; padding-top: 2px;"> {{$count++}}. </p>
+                        <h4 style="font-size: 17px; font-weight: 600;">{{$lesson->name}}</h4>
                     </div>
-                    <p>1:44</p>
+                    <p>{{$lesson->duration}}</p>
                 </div>
+                @endforeach
+                @else
+                    <p style="color: #FF083A; font-size; 17px; font-weight: 600;">No Lessons Yet</p>
+                @endif
 
-
-                <div class="course_contents">
-                    <div class="course_contents_body">
-                        <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px;  font-size: 18px;"> 2. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Seven Steps To becoming a billionaire</h4>
-                    </div>
-                    <p>10:54</p>
-                </div>
-
-
-                <div class="course_contents">
-                    <div class="course_contents_body">
-                        <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 3. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Gods Wealth</h4>
-                    </div>
-                    <p>5:24</p>
-                </div>
-
-
-                <div class="course_contents">
-                    <div class="course_contents_body">
-                        <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 4. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Maintaining God's Wealth</h4>
-                    </div>
-                    <p>6:37</p>
-                </div>
-
-
-                <div class="course_contents">
-                    <div class="course_contents_body">
-                        <ion-icon name="lock-closed-outline" style="padding-right: 15px; font-size: 18px; padding-top: 3px;"></ion-icon>
-                        <p style="padding-right: 5px; font-size: 18px;"> 5. </p>
-                        <h4 style="font-size: 18px; font-weight: 600;">Financial Breakthrough</h4>
-                    </div>
-                    <p>1:44</p>
-                </div>
 
             </div>
             <p class="see_all">See All Lessons</p>
@@ -224,7 +195,7 @@
         <div class="course_content_requirements">
             <div class="course_content_requirements">
                 <div class="description_body">
-                    <h1>Description</h1>
+                    <h2>Description</h2>
                     <div style="text-align: left">
                         {!! htmlspecialchars_decode(nl2br($course->description)) !!}
                     </div>
@@ -236,7 +207,7 @@
 
         <div class="course_content_requirements">
             <div class="course_content_requirements">
-                <h1>Who this course is for:</h1>
+                <h2>Who this course is for:</h2>
                 <ul>
                     @foreach ($audience as $audience)
                     <li>
@@ -250,7 +221,7 @@
 
         <div class="course_content_requirements">
             <div class="course_content_requirements">
-                <h1>Instructor</h1>
+                <h2>Instructor</h2>
                 <div class="instructor">
                     <h3 style="color: rgb(255, 8, 58); text-decoration: underline;">{{$course->course->name}}</h3>
                 </div>
@@ -259,10 +230,8 @@
                         <img src="{{ asset('image/'.$course->course->passport) }}">
                     </div>
                     <div class="instruction_profile_body">
-                        <p><span><i class="fa-solid fa-star"></i></span> 4.4 Instructor Rating</p>
-                        <p><span><i class="fa-solid fa-award" style="padding-right: 5px;"></i></span> 74,429 Reviews</p>
-                        <p><span><i class="fa-solid fa-users"></i></span> 900,672 Students</p>
-                        <p><span><i class="fa-solid fa-circle-play"></i></span> 16 Courses</p>
+                        <p><span><i class="fa-solid fa-star"></i></span> {{$author_ebook}} E-Book(s)</p>
+                        <p><span><i class="fa-solid fa-circle-play"></i></span> {{$author_course}} Course(s)</p>
                     </div>
                 </div>
                 <div class="description_body">
@@ -329,7 +298,7 @@
 
         <div class="course_content_requirements">
             <div class="course_content_requirements">
-                <h1>More Courses by <span style="font-weight: 600; color:#FF083A;"><b>{{$course->course->name}}</b></span></h1>
+                <h2>More Courses by <span style="font-weight: 600; margin-bottom: 20px !important; color:#FF083A;"><b>{{$course->course->name}}</b></span></h2>
                 <div class="more-courses-grid">
 
                     @foreach ($more_course  as $more_course)
@@ -366,7 +335,7 @@
                 <h1 style="margin-bottom: 20px;">&#8358;{{number_format($course->real_price, 0)}}</h1>
                  @if(Auth::check())
                     @if($enrolled_course !='')
-                        <a href="javascript:void(0)" class="course_content_sticky_right_body_button">Lessons</a>
+                        <a href="/dashboard/my-courses" class="course_content_sticky_right_body_button">Take Course</a>
                         <div class="sticky_buttons" style="margin-top: 40px">
                             <a href="javascript:void(0)" class="course_content_sticky_right_body_button_two" onclick="togglePopup()">Review</a>
                         </div>
@@ -374,7 +343,7 @@
                     @else
                         <a href="javascript:void(0)" class="course_content_sticky_right_body_button" id="cart">Add to Cart</a>
                         <div class="sticky_buttons" style="margin-top: 40px">
-                        <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a>
+                        {{-- <a href="" class="course_content_sticky_right_body_button_two">Buy Course</a> --}}
                         </div>
                         <form>
                        @csrf

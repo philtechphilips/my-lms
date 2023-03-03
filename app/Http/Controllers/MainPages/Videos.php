@@ -4,6 +4,8 @@ namespace App\Http\Controllers\MainPages;
 
 use App\Http\Controllers\Admin\Quiz;
 use App\Http\Controllers\Controller;
+use App\Mail\BlogComment;
+use App\Models\Admin\Blogs;
 use App\Models\Admin\Courses;
 use App\Models\Admin\Lesson;
 use App\Models\Admin\Question;
@@ -14,8 +16,11 @@ use App\Models\Main\Bcomment;
 use App\Models\Main\Comment;
 use App\Models\Main\Complete;
 use App\Models\Main\Finish;
+use App\Models\Main\Fq;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class Videos extends Controller
 {
@@ -51,11 +56,14 @@ class Videos extends Controller
 
 
     $quiz = AdminQuiz::where('course_id', '=', $course_id)->first();
+
+    $fqs = Fq::where('course_id', '=', $course_id)->count();
+
     if($quiz != ''){
         $question = Question::where('course_id', '=', $course_id)->where('quiz_id', '=', $quiz->id)->first();
-        return view('studentLearning.videopage', compact('course', 'quiz', 'reply', 'question', 'all_lessons_count', 'finished_lessons_count', 'finished_lessons', 'topics', 'w_lesson', 'next', 'prev', 'next_count', 'prev_count', 'comment'));
+        return view('studentLearning.videopage', compact('course', 'quiz', 'fqs', 'reply', 'question', 'all_lessons_count', 'finished_lessons_count', 'finished_lessons', 'topics', 'w_lesson', 'next', 'prev', 'next_count', 'prev_count', 'comment'));
     }else{
-        return view('studentLearning.videopage', compact('course', 'quiz', 'reply', 'all_lessons_count', 'finished_lessons_count', 'finished_lessons', 'topics', 'w_lesson', 'next', 'prev', 'next_count', 'prev_count', 'comment'));
+        return view('studentLearning.videopage', compact('course', 'quiz', 'fqs', 'reply', 'all_lessons_count', 'finished_lessons_count', 'finished_lessons', 'topics', 'w_lesson', 'next', 'prev', 'next_count', 'prev_count', 'comment'));
     }
 
 
@@ -95,7 +103,20 @@ class Videos extends Controller
       $comment->user_id = Auth::user()->id;
       $comment->comment = $request->comment;
       $save = $comment->save();
+
+
+
       if($save){
+
+        $admin = User::where('user_type', '=', 'admin')->get();
+        $user = Auth::user();
+        $blog = Blogs::where('id', '=', $request->blog_id)->first();
+        $comment = $request->comment;
+
+        foreach($admin as $admin){
+            Mail::to($admin->email)->send(new BlogComment($user, $comment, $blog));
+        }
+
         return redirect()->back()->with('success','Comment Submitted Successfully!');
       }else{
         return redirect()->back()->with('error','Something Went Wrong!');

@@ -28,15 +28,15 @@
                 <div class="landingpage-courses-grid-body-contents-flex">
                     <div class="left">
                         <i class="ri-user-line"></i>
-                        <span>547</span>
+                        <span>{{$courses->cart->count()}}</span>
                     </div>
                     <div class="right">
-                        <i class="ri-star-fill"></i>
-                        <span>547</span>
+                        <i class="ri-question-answer-line"></i>
+                        <span>{{$courses->review->count()}}</span>
                     </div>
                 </div>
                 <div class="landingpage-courses-grid-body-contents-button">
-                    <a href="#">
+                    <a href="/main/course/{{Crypt::encrypt($courses->id)}}">
                         <i class="ri-shopping-cart-2-line" style="padding-right: 5px;"></i>
                         <span style="padding-right: 5px; font-family: Poppins !important">Buy</span>
                         <span style="padding-right: 5px; font-family: Poppins !important">&#8358; {{$courses->real_price}}</span>
@@ -75,14 +75,14 @@
             </a>
                 <p>A Course By: {{$m_c->course->name}}</p>
                 <div class="mobile-landingpage-courses-grid-body-contents-flex">
-                    <div class="left">
-                        <i class="ri-user-line"></i>
-                        <span>547</span>
-                    </div>
-                    <div class="right">
-                        <i class="ri-star-fill"></i>
-                        <span>547</span>
-                    </div>
+                        <div class="left">
+                            <i class="ri-user-line"></i>
+                            <span>{{$m_c->cart->count()}}</span>
+                        </div>
+                        <div class="right">
+                            <i class="ri-question-answer-line"></i>
+                            <span>{{$m_c->review->count()}}</span>
+                        </div>
                 </div>
                 <div>
                     <h2 style="font-family: poppins !imporatant;">&#8358;{{$m_c->real_price}}</h2>

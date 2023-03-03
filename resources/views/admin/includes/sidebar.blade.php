@@ -79,7 +79,7 @@
 						</ul>
                     </li>
 
-                    <li class="nav-label">Ebooks</li>
+                    <li class="nav-label">E-BOOKS</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="ri-video-line"></i>
 							<span class="nav-text">Manage Ebooks / Upload</span>
@@ -134,7 +134,7 @@
 							<span class="nav-text">Quiz Attempts</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="{{ url('/administrator/cart') }}">View Carts</a></li>
+							<li><a href="{{ url('/administrator/quiz-attempt') }}">View Quizzes</a></li>
 						</ul>
                     </li>
 
@@ -152,6 +152,19 @@
 						</ul>
 
                     </li>
+
+
+                    <li class="nav-label">COMMUNICATIONS</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="ri-user-line"></i>
+							<span class="nav-text">Send Mail</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="/administrator/send-mail">Send Mail</a></li>
+						</ul>
+
+                    </li>
+
 
                     <li class="nav-label">PROFILE</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

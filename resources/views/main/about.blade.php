@@ -1,5 +1,8 @@
 @extends('main.index')
 
+@section('title')
+{{getenv('APP_FULL_NAME')}} | About Us
+@endsection
 
 @section('content')
 

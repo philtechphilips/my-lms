@@ -287,7 +287,8 @@ outline: none;
 }
 
 .recent-articles-grid-body img{
-    width: 100%;
+    width: 270px;
+    height: 250px;
 }
 
 
@@ -382,12 +383,15 @@ outline: none;
 /* Footer Styles Starts Here*/
 .footer{
     background-color: rgb(26, 26, 59);
+    padding-bottom: 100px;
 }
 
 .home-page-footer-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1rem;
+    margin-bottom: 50px;
+    margin-top: 25px;
 }
 
 .home-page-footer-grid-body{
@@ -909,6 +913,11 @@ outline: none;
     .hero-grid-left p{
         color: #fff;
     }
+
+    /* .home-page-footer-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    } */
 }
 
 

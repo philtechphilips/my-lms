@@ -301,11 +301,11 @@ ul.social li{
     	<!-- BEGIN BODY -->
       <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
       	<tr>
-          <td valign="top" class="bg_white" style="padding: 1em 2.5em 0 2.5em;">
+          <td valign="top" class="bg_white" style="padding: 1em 2.5em 0 20px;">
           	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
           		<tr>
           			<td class="logo" style="text-align: left;">
-			            <h1><a href={{route('homePage')}}>Logo</a></h1>
+			            <h1 style="text-align: center;"><a href={{route('homePage')}}>Logo</a></h1>
 			          </td>
           		</tr>
           	</table>
@@ -318,7 +318,7 @@ ul.social li{
             		<td style="padding: 0 2.5em; text-align: left;">
             			<div class="text">
             				<h2>Payment Receipt</h2>
-                            <p style="font-weight: bold; color: #000;">Reference No: </p>
+                            <p style="font-weight: bold; color: #000;">Reference No: {{$payment_reference}}</p>
             			</div>
             		</td>
             	</tr>
@@ -327,21 +327,17 @@ ul.social li{
 	      </tr><!-- end tr -->
 	      <tr>
 	      	<table class="bg_white" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-	      		<tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-					    <th width="80%" style="text-align:left; padding: 0 2.5em; color: #000; padding-bottom: 20px">Course</th>
-					    <th width="20%" style="text-align:right; padding: 0 2.5em; color: #000; padding-bottom: 20px">Price</th>
+	      		<tr style="border-bottom: 1px solid rgba(0,0,0,.05); padding: 0 20px 0 20px;">
+					    <th width="100%" style="padding: 0 20px 0 20px; color: #000;">Course(s)</th>
 					  </tr>
                       @foreach ($cart as $cart)
                             <tr style="border-bottom: 1px solid rgba(0,0,0,.05);">
-                        <td valign="middle" width="80%" style="text-align:left; padding: 0 0 0 2.5em;">
+                        <td valign="middle" width="100%" style="text-align:left; padding: 0 20px 0 20px;">
                             <div class="product-entry">
                                 <div class="text">
                                     <h4>{{$cart->course_title}}</h4>
                                 </div>
                             </div>
-                        </td>
-                        <td valign="middle" width="20%" style="text-align:left; padding: 0 0em 0 2.5em;">
-                            <span class="price" style="color: #000; font-size: 16px;">&#8358;{{$cart->course_price}}</span>
                         </td>
                             </tr>
                       @endforeach
@@ -349,7 +345,7 @@ ul.social li{
 
 					  <tr>
 					  	<td valign="middle" style="text-align:left; padding: 1em 2.5em;">
-					  		<p><a href="#" class="btn btn-primary">Take Course</a></p>
+        		  		<p><a href="{{getenv('APP_URL')}}/dashboard/my-courses" class="btn btn-primary">Take Course</a></p>
 					  	</td>
 					  </tr>
 	      	</table>
@@ -361,7 +357,7 @@ ul.social li{
           <td class="bg_white" style="text-align: center;">
           	<p> &#169; @php
                 echo date('Y');
-            @endphp <a href="#" style="color: rgba(0,0,0,.8);">all right reserved</a></p>
+            @endphp <a href="{{getenv('APP_URL')}}/dashboard/my-courses" style="color: rgba(0,0,0,.8);">all right reserved</a></p>
           </td>
         </tr>
       </table>

@@ -2,6 +2,8 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Main\Cart;
+use App\Models\Main\Coursereview;
 use App\Models\Main\Online;
 use App\Models\Main\Video;
 use App\Models\User;
@@ -56,6 +58,13 @@ class Courses extends Model
         return $this->belongsTo(Video::class, 'id', 'course_id');
     }
 
+    public function cart(){
+        return $this->hasMany(Cart::class, 'course_id', 'id');
+    }
+
+    public function review(){
+        return $this->hasMany(Coursereview::class, 'course_id', 'id');
+    }
 
     // public function live()
     // {

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MainPages;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AdminFeedback;
+use App\Mail\Feedback as MailFeedback;
 use App\Models\Admin\Certificate;
 use App\Models\Admin\Ebook;
 use App\Models\Admin\Ebookfile;
@@ -17,13 +19,16 @@ use App\Models\Main\Feedback;
 use App\Models\Main\Fq;
 use App\Models\Main\Online;
 use App\Models\Main\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 
 class Dashboard extends Controller
 {
-    public function MyCourses(){
+    public function MyCourses()
+    {
 
         $mycourses = Cart::where('user_id', '=', Auth::user()->id)->where('status', '=', 'paid')->where('type', '=', 'course')->get();
         // dd($mycourses);
@@ -34,7 +39,8 @@ class Dashboard extends Controller
         return view('studentLearning.my-courses', compact('mycourses', 'course_count', 'lessons'));
     }
 
-    public function Ebooks(){
+    public function Ebooks()
+    {
 
         $ebooks = Cart::where('user_id', '=', Auth::user()->id)->where('type', '=', 'ebook')->where('status', '=', 'paid')->get();
         $ebooks_image = Ebookimage::all();
@@ -43,14 +49,16 @@ class Dashboard extends Controller
         return view('studentLearning.my-ebooks', compact('ebooks', 'ebooks_count', 'ebooks_image', 'ebooks_file'));
     }
 
-    public function Assessments(){
+    public function Assessments()
+    {
         $fq = Fq::where('user_id', '=', Auth::user()->id)->get();
         $fq_c = Fq::where('user_id', '=', Auth::user()->id)->count();
         $score = Answer::where('user_id', '=', Auth::user()->id)->get();
         return view('studentLearning.assessment', compact('fq', 'fq_c', 'score'));
     }
 
-    public function ReadEbook($id){
+    public function ReadEbook($id)
+    {
         $ebooks = Cart::where('user_id', '=', Auth::user()->id)->where('type', '=', 'ebook')->where('status', '=', 'paid')->where('id', '=', $id)->first();
         // $ebooks_file = Ebookfile::all();
         $ebooks_count = Cart::where('user_id', '=', Auth::user()->id)->where('type', '=', 'ebook')->where('status', '=', 'paid')->count();
@@ -58,57 +66,62 @@ class Dashboard extends Controller
     }
 
 
-    public function EbookDetails($id){
+    public function EbookDetails($id)
+    {
         $ebook = Ebook::where('id', '=', $id)->first();
         $cart = Cart::where('course_id', '=', $id)->where('user_id', '=', Auth::user()->id)->first();
         return view('studentLearning.ebook-details', compact('ebook', 'cart'));
     }
 
-    public function EbookReview(Request $request){
-         if($request->ebook == '' || $request->title == '' ||  $request->content == ''){
+    public function EbookReview(Request $request)
+    {
+        if ($request->ebook == '' || $request->title == '' ||  $request->content == '') {
             return "Empty Fields";
-         }else{
+        } else {
             $review = new Ebookreview();
             $review->title = $request->title;
             $review->content = $request->content;
             $review->ebook_id = $request->ebook;
             $review->user_id = Auth::user()->id;
             $save = $review->save();
-            if($save){
+            if ($save) {
                 return "Review Submitted Awaiting Approval!";
-            }else{
+            } else {
                 return "Something Went Wrong!";
             }
-         }
+        }
     }
 
 
-    public function CourseReview(Request $request){
-        if($request->course == '' || $request->title == '' ||  $request->content == ''){
-           return "Empty Fields";
-        }else{
-           $review = new Coursereview();
-           $review->title = $request->title;
-           $review->content = $request->content;
-           $review->course_id = $request->course;
-           $review->user_id = Auth::user()->id;
-           $save = $review->save();
-           if($save){
-               return "Review Submitted Awaiting Approval!";
-           }else{
-               return "Something Went Wrong!";
-           }
+    public function CourseReview(Request $request)
+    {
+        if ($request->course == '' || $request->title == '' ||  $request->content == '') {
+            return "Empty Fields";
+        } else {
+            $review = new Coursereview();
+            $review->title = $request->title;
+            $review->content = $request->content;
+            $review->course_id = $request->course;
+            $review->user_id = Auth::user()->id;
+            $save = $review->save();
+            if ($save) {
+                return "Review Submitted Awaiting Approval!";
+            } else {
+                return "Something Went Wrong!";
+            }
         }
-   }
+    }
 
-    public function Payments(){
+    public function Payments()
+    {
         $payments_count = Payment::where('user_id', '=', Auth::user()->id)->count();
         $payments = Payment::where('user_id', '=', Auth::user()->id)->get();
         return view('studentLearning.payments', compact('payments', 'payments_count'));
     }
 
 
-     public function QuizPage($course_id, $quiz_id, $quest_id){
+    public function QuizPage($course_id, $quiz_id, $quest_id)
+    {
 
         $question = Question::where('course_id', '=', Crypt::decrypt($course_id))->where('quiz_id', '=', Crypt::decrypt($quiz_id))->where('id', '=', Crypt::decrypt($quest_id))->first();
         $question_count = Question::where('course_id', '=', Crypt::decrypt($course_id))->where('quiz_id', '=', Crypt::decrypt($quiz_id))->count();
@@ -116,11 +129,18 @@ class Dashboard extends Controller
         $next = Question::where('course_id', '=', Crypt::decrypt($course_id))->where('id', '>', $question->id)->where('quiz_id', '=', Crypt::decrypt($quiz_id))->orderBy('id')->first();
 
         $answer_count = Answer::where('course_id', '=', Crypt::decrypt($course_id))->where('quiz_id', '=', Crypt::decrypt($quiz_id))->where('user_id', '=', Auth::user()->id)->count();
+
+        $fqs = Fq::where('course_id', '=', Crypt::decrypt($course_id))->count();
+        if($fqs > 0){
+            return back();
+        }
+
         return view('studentLearning.assessments', compact('question', 'question_count', 'next', 'answer_count'));
     }
 
 
-    public function AddQuiz(Request $request){
+    public function AddQuiz(Request $request)
+    {
         $answer = new Answer();
         $answer->user_id = Auth::user()->id;
         $answer->course_id = Crypt::decrypt($request->course_id);
@@ -128,36 +148,38 @@ class Dashboard extends Controller
         $answer->answer = $request->ans;
         $answer->quest_id = Crypt::decrypt($request->quest_id);
         $answer->correct_answer = $request->c_ans;
-        if($request->ans == $request->c_ans){
+        if ($request->ans == $request->c_ans) {
             $answer->point = 5;
-        }else{
+        } else {
             $answer->point = 0;
         }
         $save = $answer->save();
-        if($save){
+        if ($save) {
             return "Answer Submitted!";
-        }else{
+        } else {
             return "Error";
         }
     }
 
 
 
-    public function FinishQuiz(Request $request){
+    public function FinishQuiz(Request $request)
+    {
         $answer = new Fq();
         $answer->user_id = Auth::user()->id;
         $answer->course_id = Crypt::decrypt($request->course_id);
         $answer->quiz_id = Crypt::decrypt($request->quiz_id);
         $save = $answer->save();
-        if($save){
+        if ($save) {
             return "Quiz Submitted!";
-        }else{
+        } else {
             return "Error";
         }
     }
 
 
-    public function ViewScore($id){
+    public function ViewScore($id)
+    {
         $answers = Answer::where('quiz_id', '=', Crypt::decrypt($id))->where('user_id', '=', Auth::user()->id)->get();
         $score = Answer::where('quiz_id', '=', Crypt::decrypt($id))->where('user_id', '=', Auth::user()->id)->sum('point');
         $total_score = Question::where('quiz_id', '=', Crypt::decrypt($id))->sum('point');
@@ -167,36 +189,46 @@ class Dashboard extends Controller
 
     public function FeedBack(Request $request)
     {
-       return view('studentLearning.feedback');
+        return view('studentLearning.feedback');
     }
 
     public function FeedBackDB(Request $request)
     {
         $request->validate([
             'feedback' => 'required',
-          ]);
+        ]);
 
-          $feedback = new Feedback();
-          $feedback->user_id = Auth::user()->id;
-          $feedback->feedback = $request->feedback;
+        $feedback = new Feedback();
+        $feedback->user_id = Auth::user()->id;
+        $feedback->feedback = $request->feedback;
 
-          $save = $feedback->save();
+        $save = $feedback->save();
 
-          if($save){
-            return redirect()->back()->with('success','FeedBack Submitted!');
+        if ($save) {
+            $feedback = $request->feedback;
+            $user = Auth::user()->name;
+            Mail::to(Auth::user()->email)->send(new MailFeedback($feedback, $user));
+
+            $admin = User::where('user_type', '=', 'admin')->get();
+
+            foreach ($admin as $admin) {
+                Mail::to($admin->email)->send(new AdminFeedback($feedback, $user));
+            }
+            return redirect()->back()->with('success', 'FeedBack Submitted!');
         }
     }
 
 
-    public function LiveClass($id){
+    public function LiveClass($id)
+    {
         $live = Online::where('course_id', '=', Crypt::decrypt($id))->get();
         return view('studentLearning.live-class', compact('live'));
     }
 
 
-    public function Certificate(){
+    public function Certificate()
+    {
         $certificate = Certificate::where('user_id', '=', Auth::user()->id)->get();
         return view('studentLearning.certificate', compact('certificate'));
     }
-
 }

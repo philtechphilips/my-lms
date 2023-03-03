@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('styles/about-us.css')}}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/verify-page.css')}}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/404.css')}}>
+    <link rel="stylesheet" type="text/css" href={{ asset('styles/contact-page.css')}}>
     <link rel="stylesheet" type="text/css" href={{ asset('styles/Learning/video-page.css')}}>
     <link rel="stylesheet" href={{ asset('css/swiper.css')}} >
     <link rel="stylesheet" type="text/css" href={{ asset('styles/checkout.css') }}>
@@ -90,7 +91,7 @@
 
     {{-- Adding Jquery --}}
     <script  src={{ asset('scripts/jquery.js') }}></script>
-     {{-- Adding Jquery --}} 
+     {{-- Adding Jquery --}}
 
       {{-- Adding Main Navigation Script--}}
     <script src={{ asset('scripts/mainnavigation.js')}}></script>

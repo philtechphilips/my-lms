@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Question;
 use App\Models\Admin\Quiz as AdminQuiz;
+use App\Models\Main\Answer;
+use App\Models\Main\Fq;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
@@ -179,4 +182,22 @@ class Quiz extends Controller
         }
     }
 
+
+    public function QuizAttempt(){
+        $quizzes = AdminQuiz::all();
+        return view('admin.main.attempted-quiz', compact('quizzes'));
+    }
+
+
+    public function ViewQuizAttempt($id){
+        $fqs = Fq::where('quiz_id', '=', Crypt::decrypt($id))->get();
+        return view('admin.main.view-attempted-quiz', compact('fqs'));
+    }
+
+    public function ViewScore($id, $user_id){
+        $user = User::where('id', '=', Crypt::decrypt($user_id))->first();
+        $score = Answer::where('quiz_id', '=', Crypt::decrypt($id))->where('user_id', '=', Crypt::decrypt($user_id))->sum('point');
+        $total_score = Question::where('quiz_id', '=', Crypt::decrypt($id))->sum('point');
+        return view('admin.main.score', compact('score', 'total_score', 'user'));
+    }
 }

@@ -1,5 +1,8 @@
 @extends('studentLearning.index')
 
+@section('title')
+{{getenv('APP_FULL_NAME')}} | Administrator | Feedback
+@endsection
 
 @section('content')
     <div class="slug-container">

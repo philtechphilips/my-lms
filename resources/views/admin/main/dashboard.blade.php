@@ -1,7 +1,7 @@
 @extends('admin.main.index')
 
 @section('title')
-
+    {{getenv('APP_FULL_NAME')}} | Administrator Dashboard
 @endsection
 
 
@@ -77,7 +77,7 @@
         <div class="card card-coin">
             <div class="card-body text-center">
                 <img src="{{asset('image/icons8-invoice-60.png')}}" class="mb-2 dash-img">
-                <h2 class="text-black mb-2 font-w600">10</h2>
+                <h2 class="text-black mb-2 font-w600">{{$payment}}</h2>
                 <p class="mb-0 fs-14">
                     <span class="text-danger mr-1" style="font-weight: bold;">All</span>Payments
                 </p>
@@ -89,7 +89,7 @@
         <div class="card card-coin">
             <div class="card-body text-center">
                 <img src="{{asset('image/icons8-money-bag-100.png')}}" class="mb-2 dash-img">
-                <h2 class="text-black mb-2 font-w600">10</h2>
+                <h2 class="text-black mb-2 font-w600">&#8358;{{number_format($all_income/100)}}</h2>
                 <p class="mb-0 fs-14">
                     <span class="text-danger mr-1" style="font-weight: bold;">Total</span>Income
                 </p>
@@ -101,7 +101,7 @@
         <div class="card card-coin">
             <div class="card-body text-center">
                 <img src="{{asset('image/icons8-online-group-studying-100.png')}}" class="mb-2 dash-img">
-                <h2 class="text-black mb-2 font-w600">10</h2>
+                <h2 class="text-black mb-2 font-w600">{{$certificate}}</h2>
                 <p class="mb-0 fs-14">
                     <span class="text-danger mr-1" style="font-weight: bold;">Certified</span>Users
                 </p>

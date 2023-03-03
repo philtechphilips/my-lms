@@ -31,7 +31,7 @@ class HomeController extends Controller
         $cart_count = Cart::where('user_id', '=', Auth::user()->id)->count();
         $enrolled = Cart::where('status', '=', 'paid')->where('user_id', '=', Auth::user()->id)->where('type', '=', 'course')->count();
         $ebooks = Cart::where('status', '=', 'paid')->where('user_id', '=', Auth::user()->id)->where('type', '=', 'ebook')->count();
-
+ 
         return view('studentLearning.landing', compact('cart_count', 'enrolled', 'ebooks', 'users'));
     }
 }

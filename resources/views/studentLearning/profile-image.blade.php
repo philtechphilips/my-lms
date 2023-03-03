@@ -2,6 +2,9 @@
 
 @section('title')
 
+@section('title')
+{{getenv('APP_FULL_NAME')}} | Administrator | Profile Image
+@endsection
 
 @endsection
 

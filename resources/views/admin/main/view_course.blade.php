@@ -1,7 +1,7 @@
 @extends('admin.main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | Administrator | View Course
 @endsection
 
 
@@ -108,7 +108,7 @@
                         if($("#sid"+id).remove()){
                             swal({
                                 title: "Successful!",
-                                text: "School Deleted Sucessfully!!",
+                                text: "Course Deleted Sucessfully!!",
                                 icon: "success",
                                 buttons: true,
                                 dangerMode: false,
@@ -130,7 +130,7 @@
     function updateStatus(id){
      swal({
              title: "Are you sure?",
-             text: "You want to Publish Course?",
+             text: "You want to change course status?",
              icon: "warning",
              buttons: true,
              dangerMode: true,

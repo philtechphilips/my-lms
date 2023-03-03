@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Certificate as MailCertificate;
+use App\Mail\NewCourse;
 use App\Models\Admin\Certificate;
 use App\Models\Admin\CourseImage;
 use App\Models\Admin\Courses as AdminCourses;
@@ -21,6 +23,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class Courses extends Controller
@@ -125,6 +128,7 @@ class Courses extends Controller
             $courses->un_id = uniqid();
             $save = $courses->save();
             if ($save) {
+
                 return redirect()->back()->with('success', 'Course Created Successfully!');
                 // return 'Course Created Successfully!';
             } else {
@@ -660,6 +664,9 @@ class Courses extends Controller
                 $save = $certificate->save();
 
                 if ($save) {
+                    $user = User::where('id', '=', Crypt::decrypt($user_id))->first();
+                    $course = AdminCourses::where('id', '=', Crypt::decrypt($course_id))->first();
+                    Mail::to($user->email)->send(new MailCertificate($user, $course));
                     return response()->json(['success' => true, 'message' => 'Certificate uploaded successfully']);
                 } else {
                     return response()->json(['success' => false, 'message' => 'Certificate upload failed']);
@@ -691,6 +698,10 @@ class Courses extends Controller
             $save = $certificate->save();
 
             if ($save) {
+                $user = User::where('id', '=', Crypt::decrypt($user_id))->first();
+                $course = AdminCourses::where('id', '=', Crypt::decrypt($course_id))->first();
+                Mail::to($user->email)->send(new MailCertificate($user, $course));
+
                 return response()->json(['success' => true, 'message' => 'Certificate uploaded successfully']);
             } else {
                 return response()->json(['success' => false, 'message' => 'Certificate upload failed']);
@@ -774,6 +785,15 @@ class Courses extends Controller
             $course->status = "unpublished";
         } else {
             $course->status = "published";
+            $user = User::all();
+                $id = $course->id;
+                $title = $course->title;
+                $school = $course->school;
+                $description = $course->description;
+                $real_price = $course->real_price;
+                foreach($user as $user){
+                    Mail::to($user->email)->send(new NewCourse($title, $school, $user, $description, $real_price, $id));
+                }
         }
         $update = $course->update();
     }

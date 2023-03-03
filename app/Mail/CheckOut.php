@@ -12,16 +12,19 @@ class CheckOut extends Mailable
     use Queueable, SerializesModels;
 
     public $cart;
+    public $payment_reference;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($cart)
+    public function __construct($cart, $payment_reference)
     {
         $this->cart = $cart;
+        $this->payment_reference = $payment_reference;
     }
+
 
     /**
      * Build the message.

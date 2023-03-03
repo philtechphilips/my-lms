@@ -12,6 +12,6 @@ class Quiz extends Model
 
     //A Topic Belongs to a Course
     public function course(){
-        return $this->belongsTo(Courses::class);
+        return $this->belongsTo(Courses::class, 'course_id', 'id');
     }
 }

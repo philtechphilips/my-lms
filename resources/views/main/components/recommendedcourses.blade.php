@@ -6,7 +6,7 @@
             <div class="more-courses-grid-body">
 
                 <div class="more-courses-grid-body-image">
-                    <a href="/main/course/{{$courses->slug}}">
+                    <a href="/main/course/{{Crypt::encrypt($courses->id)}}">
                         <img src="{{ asset('course/'.$courses->image)}}" >
                         {{-- @foreach ($courses_image as $c_img)
                         @if($courses->id === $c_img->course_id)
@@ -18,7 +18,7 @@
                     </a>
                 </div>
                 <div class="more-courses-grid-body-contents">
-                <a href="/main/course/{{$courses->slug}}">
+                <a href="/main/course/{{Crypt::encrypt($courses->id)}}">
                     <h2>{{$courses->title}}</h2>
                 </a>
                     <p>A Course By: {{$courses->course->name}}</p>

@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>
+        {{getenv('APP_FULL_NAME')}} | Dashboard | Read E-Book
+    </title>
     <style>
         *{
             padding: 0;

@@ -1,7 +1,7 @@
 @extends('main.index')
 
 @section('title')
-
+{{getenv('APP_FULL_NAME')}} | School
 @endsection
 
 @section('content')
@@ -23,7 +23,7 @@
 
             @foreach ($schools as $schools)
             <div class="home-page-sections-cateories-grid-body">
-                <a href="/main/school-courses/{{$schools->id}}">
+                <a href="/main/school-courses/{{Crypt::encrypt($schools->id)}}">
                     <h3>{{$schools->name}}</h3>
                 </a>
             </div>

@@ -25,18 +25,18 @@
                 <div class="landingpage-courses-grid-body-contents-flex">
                     <div class="left">
                         <i class="ri-user-line"></i>
-                        <span>547</span>
+                        <span>{{$ebook->cart->count()}}</span>
                     </div>
                     <div class="right">
-                        <i class="ri-star-fill"></i>
-                        <span>547</span>
+                        <i class="ri-question-answer-line"></i>
+                        <span>{{$ebook->review->count()}}</span>
                     </div>
                 </div>
                 <div class="landingpage-courses-grid-body-contents-button">
-                    <a href="#">
+                    <a href="/main/ebook/{{Crypt::encrypt($ebook->id)}}">
                         <i class="ri-shopping-cart-2-line" style="padding-right: 5px;"></i>
                         <span style="padding-right: 5px; font-family: Poppins !important">Buy</span>
-                        <span style="padding-right: 5px; font-family: Poppins !important">&#8358; {{ number_format($ebook->real_price, 2)}}</span>
+                        <span style="padding-right: 5px; font-family: Poppins !important">&#8358; {{ number_format($ebook->real_price)}}</span>
                     </a>
                 </div>
             </div>
@@ -69,14 +69,14 @@
             </a>
                 <p>A Course By: {{$mobile_ebook->user->name}}</p>
                 <div class="mobile-landingpage-courses-grid-body-contents-flex">
-                    <div class="left">
-                        <i class="ri-user-line"></i>
-                        <span>547</span>
-                    </div>
-                    <div class="right">
-                        <i class="ri-star-fill"></i>
-                        <span>547</span>
-                    </div>
+                        <div class="left">
+                            <i class="ri-user-line"></i>
+                            <span>{{$mobile_ebook->cart->count()}}</span>
+                        </div>
+                        <div class="right">
+                            <i class="ri-question-answer-line"></i>
+                            <span>{{$mobile_ebook->review->count()}}</span>
+                        </div>
                 </div>
                 <div>
                     <h2 style="font-family: poppins !imporatant;">&#8358;{{number_format($mobile_ebook->real_price)}}</h2>

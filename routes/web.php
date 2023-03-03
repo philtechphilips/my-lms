@@ -26,7 +26,10 @@ Route::get('/main/courses', [App\Http\Controllers\MainPages\MainController::clas
 Route::get('/main/ebooks', [App\Http\Controllers\MainPages\MainController::class, 'Ebooks'])->name('allEbooks');
 Route::get('/main/about-us', [App\Http\Controllers\MainPages\MainController::class, 'about'])->name('about');
 Route::get('/main/blog', [App\Http\Controllers\MainPages\MainController::class, 'blogs'])->name('blog');
+Route::get('/main/contact-us', [App\Http\Controllers\MainPages\MainController::class, 'ContactUs'])->name('contact');
 Route::get('/main/read-blog-post/{slug}', [App\Http\Controllers\MainPages\MainController::class, 'blogSingle']);
+Route::post('/main/submit-contact-form', [App\Http\Controllers\MainPages\ContactForm::class, 'Contact']);
+Route::post('/main/search', [App\Http\Controllers\MainPages\ContactForm::class, 'Search']);
 // Main Routes
 
 
@@ -188,6 +191,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/administrator/see-ebook-details/{id}', [App\Http\Controllers\Admin\Ebook::class, 'ViewEbookDetails']);
     Route::get('/administrator/edit-ebook/{id}', [App\Http\Controllers\Admin\Ebook::class, 'EditEbook']);
     Route::put('/administrator/update-ebook/{id}', [App\Http\Controllers\Admin\Ebook::class, 'UpdateEbook']);
+    Route::put('/administrator/publish-ebook/{id}', [App\Http\Controllers\Admin\Ebook::class, 'PublishEbook']);
     // Route::get('/administrator/upload-ebook-image/{id}', [App\Http\Controllers\Admin\Ebook::class, 'ViewEbookUp']);
     // Route::post('/administrator/upload-ebook-image-db/{id}', [App\Http\Controllers\Admin\Ebook::class, 'UploadEbookImageDB']);
     // Route::get('/administrator/upload-ebook-file/{id}', [App\Http\Controllers\Admin\Ebook::class, 'EbookFile']);
@@ -237,7 +241,16 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::delete('/administrator/delete-Question/{id}', [App\Http\Controllers\Admin\Quiz::class, 'DeleteQuest']);
     Route::get('/administrator/edit-Question/{id}', [App\Http\Controllers\Admin\Quiz::class, 'EditQuestion']);
     Route::put('/administrator/edit-Question/{id}', [App\Http\Controllers\Admin\Quiz::class, 'EditQuest']);
+
+    Route::get('/administrator/quiz-attempt', [App\Http\Controllers\Admin\Quiz::class, 'QuizAttempt']);
+    Route::get('/administrator/view-attempted-quiz/{id}', [App\Http\Controllers\Admin\Quiz::class, 'ViewQuizAttempt']);
+    Route::get('/administrator/view-score/{id}/{user_id}', [App\Http\Controllers\Admin\Quiz::class, 'ViewScore']);
     // Quiz Routes
+
+
+    //Send Mail
+    Route::get('/administrator/send-mail', [App\Http\Controllers\Admin\AdminController::class, 'SendMail']);
+    Route::post('/administrator/send-mail', [App\Http\Controllers\Admin\AdminController::class, 'SendMailNW']);
 });
 
 
